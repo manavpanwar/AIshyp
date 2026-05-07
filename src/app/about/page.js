@@ -25,7 +25,7 @@ const team = [
   {
     key: "manav",
     name: "Manav Panwar",
-    role: "Vibe Coder & Server Mgmt",
+    role: "Full Stack Developer / DevOps Engineer",
     detail: "",
   },
   {

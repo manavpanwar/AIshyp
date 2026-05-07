@@ -321,7 +321,7 @@ export default function LandingPage() {
     {
       name: "Parag Aggarwal",
       role: "Full Stack Developer",
-      detail: "IIM Mumbai",
+      detail: "",
       initials: "PA",
       color: "from-blue-500 to-indigo-500",
     },
@@ -334,7 +334,7 @@ export default function LandingPage() {
     },
     {
       name: "Manav Panwar",
-      role: "Vibe Coder & Server Mgmt",
+      role: "Full Stack Developer / DevOps Engineer",
       detail: "",
       initials: "MnP",
       color: "from-purple-500 to-pink-500",
