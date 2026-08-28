@@ -1,7 +1,7 @@
 const { createServer } = require("http");
 const next = require("next");
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV === "development";
 const hostname = "0.0.0.0";
 const port = parseInt(process.env.PORT || "7878", 10);
 
@@ -27,6 +27,6 @@ app.prepare().then(() => {
     }
   }).listen(port, (err) => {
     if (err) throw err;
-    console.log(`> AIShyp Server ready on http://${hostname}:${port}`);
+    console.log(`> AIShyp (${dev ? "Development" : "Production"}) Server ready on http://${hostname}:${port}`);
   });
 });
