@@ -1,9 +1,9 @@
 import { buildPageMetadata } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Integrations - Shopify and Marketplace Shipping",
+  title: "14+ Courier Partner APIs & 1-Click Shopify Integration",
   description:
-    "Connect Shopify and other channels with AIShyp to automate order sync, shipping label creation, and real-time tracking updates.",
+    "Connect 14+ courier partner APIs (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, DP World) and 1-click Shopify storefront sync with automated AWB tracking pushback.",
   path: "/integration",
   images: ["/shopify.jpeg"],
 });

@@ -69,7 +69,7 @@ export default async function EncyclopediaTopicPage({ params }) {
   };
 
   return (
-    <main className="bg-white text-black pt-28 pb-16 px-6">
+    <main className="bg-transparent text-black pt-28 pb-16 px-6">
       <article className="max-w-4xl mx-auto">
         <script
           type="application/ld+json"

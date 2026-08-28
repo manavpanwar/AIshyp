@@ -1,12 +1,13 @@
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
 import { getAllBlogs } from "../../lib/blogs";
 import { buildPageMetadata } from "../../lib/seo";
+import BlogCardBanner from "../../components/blog/BlogCardBanner";
 
 export const metadata = buildPageMetadata({
-  title: "Logistics Blog - Franchise Shipping Insights",
+  title: "Logistics & Shipping Aggregator Insights | AIShyp Blog",
   description:
-    "Read AIShyp blog articles on franchise-driven shipping aggregator growth, RTO reduction, NDR automation, and ecommerce logistics best practices.",
+    "Actionable guides on e-commerce shipping automation, RTO reduction, WhatsApp NDR workflows, courier API integrations, and white-label aggregator SaaS.",
   path: "/blog",
   images: ["/partner.png"],
 });
@@ -23,80 +24,91 @@ export default function BlogPage() {
   const blogs = getAllBlogs();
 
   return (
-    <main className="bg-white text-black pt-28 pb-16 px-6">
-      <section className="max-w-6xl mx-auto">
-        <nav aria-label="Breadcrumb" className="text-sm text-black/50 mb-6">
+    <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 space-y-8">
+        
+        {/* Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="text-xs font-mono text-slate-400">
           <ol className="flex items-center gap-2">
             <li>
-              <Link href="/" className="hover:text-blue-900">
+              <Link href="/" className="hover:text-slate-900 transition-colors">
                 Home
               </Link>
             </li>
             <li>/</li>
-            <li className="text-blue-900 font-medium">Blog</li>
+            <li className="text-[#D8331F] font-bold">Blog</li>
           </ol>
         </nav>
 
-        <header className="mb-10">
-          <p className="text-[11px] font-bold tracking-[3px] uppercase text-blue-700">
-            AIShyp Blog
-          </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-950 mt-2">
-            Franchise-Driven Shipping Aggregator Insights
+        {/* Hero Header */}
+        <header className="space-y-3 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F] font-mono text-xs font-bold">
+            <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
+            <span>// Industry Insights & Playbooks</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            Logistics & Shipping <span className="text-[#D8331F]">Aggregator Insights</span>
           </h1>
-          <p className="text-black/70 max-w-3xl mt-4 leading-relaxed">
-            Actionable guides on shipping automation, NDR workflows, courier rate optimization,
-            and logistics growth for franchise partners.
+
+          <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+            Actionable technical and business playbooks on e-commerce shipping automation, RTO reduction, WhatsApp NDR workflows, courier rate optimization, and white-label aggregator SaaS.
           </p>
         </header>
 
-        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Blog Cards Grid */}
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           {blogs.map((blog) => (
             <article
               key={blog.slug}
-              className="rounded-2xl border border-blue-900/15 bg-white overflow-hidden hover:shadow-lg transition-shadow"
+              className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between group"
             >
-              <Link href={`/blog/${blog.slug}`} className="block">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={blog.featuredImage}
-                    alt={blog.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover"
-                  />
+              <div>
+                <Link href={`/blog/${blog.slug}`} className="block overflow-hidden">
+                  <BlogCardBanner slug={blog.slug} title={blog.title} className="h-48 sm:h-52" />
+                </Link>
+
+                <div className="p-6 space-y-3">
+                  <div className="flex items-center justify-between text-[11px] font-mono font-bold text-slate-400">
+                    <span>{formatDate(blog.publishedDate)}</span>
+                    <span className="text-[#D8331F]">{blog.readingTime}</span>
+                  </div>
+
+                  <h2 className="text-lg font-extrabold font-sans text-slate-950 leading-snug group-hover:text-[#D8331F] transition-colors">
+                    <Link href={`/blog/${blog.slug}`}>
+                      {blog.title}
+                    </Link>
+                  </h2>
+
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed line-clamp-3">
+                    {blog.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {blog.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </Link>
-              <div className="p-5">
-                <p className="text-xs text-black/50">
-                  {formatDate(blog.publishedDate)} · {blog.readingTime}
-                </p>
-                <h2 className="text-lg font-bold text-blue-950 mt-2 leading-snug">
-                  <Link href={`/blog/${blog.slug}`} className="hover:underline">
-                    {blog.title}
-                  </Link>
-                </h2>
-                <p className="text-sm text-black/70 mt-3 leading-relaxed">{blog.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {blog.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] px-2.5 py-1 rounded-full border border-blue-200 text-blue-900"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              </div>
+
+              <div className="p-6 pt-0 border-t border-slate-100 mt-4">
                 <Link
                   href={`/blog/${blog.slug}`}
-                  className="inline-block mt-4 text-sm font-semibold text-blue-900 hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-extrabold text-[#D8331F] hover:text-[#FF8A6E] transition-colors pt-3"
                 >
-                  Read article →
+                  Read full article →
                 </Link>
               </div>
             </article>
           ))}
         </section>
+
       </section>
     </main>
   );

@@ -1,14 +1,13 @@
 import { buildPageMetadata } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Pricing Plans - AIShyp Franchise Logistics",
+  title: "SaaS Pricing Plans | Starter ₹6,999, Growth ₹11,999 & Ultimate",
   description:
-    "Compare AIShyp pricing plans for starter, growth, and enterprise logistics franchises with transparent commercial terms.",
+    "Transparent white-label SaaS pricing for e-commerce brands and shipping aggregators. Starter ₹6,999/mo (500 orders), Growth ₹11,999/mo (2,000 orders), and Ultimate ₹19,999/mo (Unlimited orders). Keep 100% margin spread.",
   path: "/pricing",
-  images: ["/Ratesunlock.png"],
+  images: ["/aishiplogo.png"],
 });
 
 export default function PricingLayout({ children }) {
   return children;
 }
-//hello this is aiship

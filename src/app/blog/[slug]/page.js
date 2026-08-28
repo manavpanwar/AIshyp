@@ -1,8 +1,9 @@
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../../lib/blogs";
 import { SITE_URL, SITE_NAME } from "../../../lib/seo";
+import BlogCardBanner from "../../../components/blog/BlogCardBanner";
 
 function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString("en-IN", {
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }) {
 function renderContentBlock(block, index) {
   if (block.type === "heading") {
     return (
-      <h2 key={`heading-${index}`} className="text-2xl font-bold text-blue-950 mt-8 mb-3">
+      <h2 key={`heading-${index}`} className="text-xl sm:text-2xl font-extrabold font-sans text-slate-950 mt-8 mb-3 tracking-tight">
         {block.value}
       </h2>
     );
@@ -65,9 +66,14 @@ function renderContentBlock(block, index) {
 
   if (block.type === "list") {
     return (
-      <ul key={`list-${index}`} className="list-disc pl-6 space-y-2 text-black/85 leading-relaxed">
-        {block.items.map((item) => (
-          <li key={item}>{item}</li>
+      <ul key={`list-${index}`} className="space-y-2.5 my-4 text-slate-800 text-sm sm:text-base leading-relaxed font-medium">
+        {block.items.map((item, idx) => (
+          <li key={idx} className="flex items-start gap-2.5">
+            <span className="w-5 h-5 rounded-full bg-red-50 text-[#D8331F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-red-200">
+              ✓
+            </span>
+            <span>{item}</span>
+          </li>
         ))}
       </ul>
     );
@@ -75,9 +81,9 @@ function renderContentBlock(block, index) {
 
   if (block.link) {
     return (
-      <p key={`paragraph-link-${index}`} className="text-black/85 leading-relaxed mt-4">
+      <p key={`paragraph-link-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
         {block.value}
-        <Link href={block.link.href} className="text-blue-900 font-medium hover:underline">
+        <Link href={block.link.href} className="text-[#D8331F] font-bold hover:underline">
           {block.link.label}
         </Link>
         {block.trailing}
@@ -86,7 +92,7 @@ function renderContentBlock(block, index) {
   }
 
   return (
-    <p key={`paragraph-${index}`} className="text-black/85 leading-relaxed mt-4">
+    <p key={`paragraph-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
       {block.value}
     </p>
   );
@@ -122,103 +128,105 @@ export default async function BlogDetailPage({ params }) {
   };
 
   return (
-    <main className="bg-white text-black pt-28 pb-16 px-6">
-      <article className="max-w-4xl mx-auto">
+    <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+      <article className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 space-y-8">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
         />
 
-        <nav aria-label="Breadcrumb" className="text-sm text-black/50 mb-6">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" className="text-xs font-mono text-slate-400">
           <ol className="flex items-center gap-2 flex-wrap">
             <li>
-              <Link href="/" className="hover:text-blue-900">
+              <Link href="/" className="hover:text-slate-900 transition-colors">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/blog" className="hover:text-blue-900">
+              <Link href="/blog" className="hover:text-slate-900 transition-colors">
                 Blog
               </Link>
             </li>
             <li>/</li>
-            <li className="text-blue-900 font-medium">{blog.title}</li>
+            <li className="text-[#D8331F] font-bold truncate max-w-xs">{blog.title}</li>
           </ol>
         </nav>
 
-        <header>
-          <p className="text-xs text-black/50">
-            {formatDate(blog.publishedDate)} · {blog.readingTime} · By {blog.author}
-          </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-950 mt-3 leading-tight">
+        {/* Article Header */}
+        <header className="space-y-4">
+          <div className="flex items-center gap-3 font-mono text-xs font-bold text-slate-400">
+            <span className="px-3 py-1 rounded-full bg-red-50 text-[#D8331F] border border-red-200">
+              {blog.tags[0] || "Logistics"}
+            </span>
+            <span>{formatDate(blog.publishedDate)}</span>
+            <span>•</span>
+            <span>{blog.readingTime}</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
             {blog.title}
           </h1>
-          <p className="text-black/70 mt-4 text-lg leading-relaxed">{blog.description}</p>
+
+          <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed">
+            {blog.description}
+          </p>
         </header>
 
-        <div className="relative h-72 md:h-[430px] w-full rounded-2xl overflow-hidden border border-blue-900/15 mt-8">
-          <Image
-            src={blog.featuredImage}
-            alt={blog.title}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 896px"
-            className="object-cover"
-          />
+        {/* Vector Header Card */}
+        <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+          <BlogCardBanner slug={blog.slug} title={blog.title} className="h-64 sm:h-72" />
         </div>
 
-        <section className="mt-8 prose prose-lg max-w-none">
+        {/* Article Body Content */}
+        <section className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md">
           {blog.content.map((block, index) => renderContentBlock(block, index))}
         </section>
 
-        <section className="mt-10 p-5 rounded-2xl border border-blue-900/15 bg-blue-50/50">
-          <h2 className="text-xl font-bold text-blue-950">Continue exploring AIShyp</h2>
-          <div className="mt-3 flex flex-wrap gap-3">
-            <Link href="/features" className="text-sm font-semibold text-blue-900 hover:underline">
-              Explore Features
-            </Link>
-            <Link href="/pricing" className="text-sm font-semibold text-blue-900 hover:underline">
-              View Pricing
-            </Link>
-            <Link href="/contact" className="text-sm font-semibold text-blue-900 hover:underline">
-              Talk to Team
+        {/* Call to Action Box */}
+        <section className="bg-slate-950 text-white rounded-3xl p-8 border border-slate-800 shadow-xl text-center space-y-4">
+          <h2 className="text-2xl font-extrabold font-sans">Ready to Launch Your White-Label Shipping Portal?</h2>
+          <p className="text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-medium">
+            Deploy your custom domain shipping platform with 14+ pre-integrated courier APIs in 5 minutes.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              className="bg-[#D8331F] text-white rounded-full px-8 py-3.5 text-xs font-extrabold inline-block shadow-md hover:bg-[#FF8A6E] transition-colors"
+            >
+              Launch Your Platform →
             </Link>
           </div>
         </section>
 
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold text-blue-950 mb-5">Related Posts</h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            {relatedBlogs.map((related) => (
-              <article
-                key={related.slug}
-                className="rounded-2xl border border-blue-900/15 overflow-hidden"
-              >
-                <Link href={`/blog/${related.slug}`} className="block">
-                  <div className="relative h-40 w-full">
-                    <Image
-                      src={related.featuredImage}
-                      alt={related.title}
-                      fill
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
+        {/* Related Posts */}
+        {relatedBlogs.length > 0 && (
+          <section className="pt-8 space-y-4">
+            <h2 className="text-2xl font-extrabold font-sans text-slate-950">Related Articles</h2>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {relatedBlogs.map((related) => (
+                <article
+                  key={related.slug}
+                  className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-md hover:shadow-xl transition-all group"
+                >
+                  <Link href={`/blog/${related.slug}`} className="block">
+                    <BlogCardBanner slug={related.slug} title={related.title} className="h-40" />
+                  </Link>
+                  <div className="p-5 space-y-2">
+                    <h3 className="text-base font-extrabold font-sans text-slate-950 leading-snug group-hover:text-[#D8331F] transition-colors">
+                      <Link href={`/blog/${related.slug}`}>{related.title}</Link>
+                    </h3>
+                    <p className="text-xs text-slate-600 line-clamp-2 font-medium">
+                      {related.description}
+                    </p>
                   </div>
-                </Link>
-                <div className="p-4">
-                  <p className="text-xs text-black/50">{formatDate(related.publishedDate)}</p>
-                  <h3 className="text-lg font-bold text-blue-950 mt-2">
-                    <Link href={`/blog/${related.slug}`} className="hover:underline">
-                      {related.title}
-                    </Link>
-                  </h3>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
       </article>
     </main>
   );

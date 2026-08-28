@@ -3,11 +3,9 @@ import { useState } from "react"
 import { toast } from "react-hot-toast"
 import Image from "next/image"
 import Link from "next/link"
-import { SITE_THEME } from "../theme"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  const theme = SITE_THEME
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -48,48 +46,25 @@ export default function Footer() {
 
   const links = {
     Company: [
-      { label: "About Us", href: "/about" },
       { label: "Blog", href: "/blog" },
-      { label: "Our Team", href: "/about" },
       { label: "Careers", href: "/contact" },
-      { label: "Press & Media", href: "/contact" },
       { label: "Contact Us", href: "/contact" },
     ],
-    Services: [
-      { label: "Air Freight", href: "/features" },
-      { label: "Sea Freight", href: "/features" },
-      { label: "Road Transport", href: "/features" },
-      { label: "Warehousing", href: "/features" },
-      { label: "Express Delivery", href: "/features" },
+    "SaaS Platform": [
+      { label: "White-Label Setup", href: "/features" },
+      { label: "Franchise OS", href: "/features" },
+      { label: "Courier APIs", href: "/features" },
+      { label: "Merchant Portal", href: "/features" },
     ],
     Support: [
-      { label: "Track Shipment", href: "/features" },
-      { label: "Get a Quote", href: "/contact" },
+      { label: "SaaS Pricing", href: "/pricing" },
+      { label: "Book Demo", href: "/contact" },
       { label: "FAQs", href: "/pricing" },
-      { label: "Help Center", href: "/contact" },
       { label: "Terms & Policy", href: "/contact" },
     ],
   }
 
   const socials = [
-    {
-      label: "Facebook",
-      href: "https://aishyp.com",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-      ),
-    },
-    {
-      label: "Twitter",
-      href: "https://aishyp.com",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-        </svg>
-      ),
-    },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/mohitpanwar2111/",
@@ -100,46 +75,22 @@ export default function Footer() {
         </svg>
       ),
     },
-    {
-      label: "Instagram",
-      href: "https://aishyp.com",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="#0a0e1a" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#0a0e1a" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      ),
-    },
   ]
 
   const stats = [
-    { num: "50K+", label: "Daily Deliveries" },
-    { num: "500+", label: "Cities Covered" },
-    { num: "99.2%", label: "On-Time Rate" },
-    { num: "18+", label: "Years Experience" },
+    { num: "100%", label: "White-Label SaaS" },
+    { num: "14+", label: "Courier APIs" },
+    { num: "0%", label: "Commission Split" },
   ]
 
   return (
-    <footer className="relative overflow-hidden border-t border-blue-200/70 bg-[#eaf3ff] text-black">
-      {/* backdrop glows */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-blue-400/20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-80 rounded-full bg-sky-300/25 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-56 w-80 rounded-full bg-sky-300/25 blur-3xl" />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-45"
-        style={{
-          backgroundImage:
-              "linear-gradient(rgba(37,99,235,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.1) 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
-        }}
-      />
-      <div className="relative">
+    <footer className="relative overflow-hidden border-t border-slate-200 bg-slate-50 text-slate-700 font-sans">
+      <div className="relative z-10">
         {/* ── NEWSLETTER ── */}
-        <div className="border-b border-blue-200/70">
+        <div className="border-b border-slate-200">
           <div className="max-w-6xl mx-auto px-6 py-12 text-center">
-            <p className="text-2xl md:text-3xl font-bold tracking-tight">Stay updated with AIShyp</p>
-            <p className="text-black/55 text-sm mt-2">Get delivery tips, offers & logistics news.</p>
+            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Stay updated with AIShyp SaaS</p>
+            <p className="text-slate-600 text-sm mt-2">Get franchise software updates, feature releases & SaaS news.</p>
             <form onSubmit={handleSubscribe} className="mt-6 w-full">
               <div className="flex items-center justify-center gap-2 w-full">
                 <input
@@ -147,13 +98,12 @@ export default function Footer() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="Enter your email"
-                  className="w-full max-w-sm px-4 py-2.5 rounded-full bg-white border border-blue-200 text-sm text-black placeholder-black/40 outline-none focus:border-blue-400 transition-colors duration-200"
+                  className="w-full max-w-sm px-4 py-2.5 rounded-full bg-white border border-slate-300 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-[#D8331F] transition-colors duration-200"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2.5 rounded-full text-sm font-semibold text-white flex-shrink-0 transition-all duration-200 hover:opacity-90 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                  style={{ background: theme.colors.accentGradient }}
+                  className="bg-[#D8331F] hover:bg-[#FF8A6E] text-white px-6 py-2.5 rounded-full text-sm font-semibold flex-shrink-0 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Subscribing..." : "Subscribe"}
                 </button>
@@ -163,134 +113,97 @@ export default function Footer() {
         </div>
 
         {/* ── STATS BAR ── */}
-        <div className="border-b border-blue-200/60">
-          <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-3xl font-bold text-blue-950 tracking-wide">{s.num}</p>
-              <p className="text-xs text-black/50 tracking-widest uppercase mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── MAIN FOOTER ── */}
-      <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-
-        {/* Brand col */}
-        <div className="lg:col-span-2 flex flex-col gap-5">
-
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 w-fit">
-            <div
-              className="relative w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden bg-white"
-            >
-              <Image
-                src="/aishiplogo.png"
-                alt="AIShip logo"
-                fill
-                className="object-contain p-1"
-              />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-[22px] tracking-widest uppercase text-black">
-                AI<span className="text-blue-950">Shyp</span>
-              </span>
-             
-            </div>
-          </Link>
-
-          <p className="text-sm text-black/70 leading-relaxed max-w-xs">
-            Pan-India freight solutions with real-time tracking, guaranteed delivery windows,
-            and a trusted network spanning 500+ cities since 2005.
-          </p>
-
-          {/* Contact info */}
-          <div className="flex flex-col gap-3">
-            {[
-              {
-                icon: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
-                text: "+91 7045814007",
-              },
-              {
-                icon: <><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" /></>,
-                text: "mohit@vizlabs.in",
-              },
-              {
-                icon: <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />,
-                text: "Gurgaon, sector-4",
-              },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 text-sm text-black/65">
-                <span className="text-blue-900 flex-shrink-0">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">{item.icon}</svg>
-                </span>
-                {item.text}
+        <div className="border-b border-slate-200 bg-white">
+          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-3xl font-extrabold text-[#D8331F] font-mono tracking-wide">{s.num}</p>
+                <p className="text-xs text-slate-500 font-mono tracking-widest uppercase mt-1">{s.label}</p>
               </div>
             ))}
           </div>
-
-          {/* Socials */}
-          <div className="flex items-center gap-2 mt-1">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                className="w-9 h-9 rounded-full flex items-center justify-center text-black/70 border border-blue-200 transition-all duration-200 hover:text-blue-950 hover:border-blue-300 hover:bg-blue-100"
-              >
-                {s.icon}
-              </a>
-            ))}
-          </div>
         </div>
 
-        {/* Link columns */}
-        {Object.entries(links).map(([title, items]) => (
-          <div key={title} className="flex flex-col gap-4">
-            <h4 className="text-[11px] font-semibold tracking-[3px] uppercase text-blue-950">
-              {title}
-            </h4>
-            <ul className="flex flex-col gap-2.5">
-              {items.map((item) => (
-                <li key={typeof item === "string" ? item : item.label}>
-                  <a
-                    href={typeof item === "string" ? "#" : item.href}
-                    className="text-sm text-black/70 hover:text-black transition-colors duration-200 hover:translate-x-1 inline-flex items-center gap-1.5 group"
-                  >
-                    <span className="w-0 group-hover:w-2 h-px bg-blue-400 transition-all duration-200 rounded-full" />
-                    {typeof item === "string" ? item : item.label}
-                  </a>
-                </li>
+        {/* ── MAIN FOOTER ── */}
+        <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Brand col */}
+          <div className="lg:col-span-2 flex flex-col gap-5">
+            <Link href="/" className="flex items-center gap-3 w-fit">
+              <div className="relative h-10 w-52 flex items-center justify-start overflow-hidden flex-shrink-0">
+                <Image
+                  src="/AIship1.png"
+                  alt="AIShip logo"
+                  fill
+                  sizes="208px"
+                  className="object-contain object-left scale-125 origin-left"
+                />
+              </div>
+            </Link>
+
+            <p className="text-sm text-slate-600 leading-relaxed max-w-xs">
+              White-label logistics software platform empowering shipping businesses, franchise owners & aggregators with custom domain setup, direct courier API integrations, and 100% margin control.
+            </p>
+
+            {/* Socials */}
+            <div className="flex items-center gap-2 mt-1">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-slate-600 border border-slate-300 bg-white transition-all duration-200 hover:text-[#D8331F] hover:border-[#D8331F]"
+                >
+                  {s.icon}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
-        ))}
-      </div>
 
-      {/* ── BOTTOM BAR ── */}
-      <div className="border-t border-blue-200/60">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-black/45 tracking-wide">
-            © {currentYear} AIShyp Logistics Network. All rights reserved.
-          </p>
-          <div className="flex items-center gap-5">
-            {[
-              { label: "Privacy Policy", href: "/contact" },
-              { label: "Terms of Use", href: "/contact" },
-              { label: "Cookie Policy", href: "/contact" },
-            ].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-xs text-black/45 hover:text-blue-800 transition-colors duration-200"
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* Link columns */}
+          {Object.entries(links).map(([title, items]) => (
+            <div key={title} className="flex flex-col gap-4">
+              <h4 className="text-[11px] font-bold font-mono tracking-[3px] uppercase text-[#D8331F]">
+                {title}
+              </h4>
+              <ul className="flex flex-col gap-2.5">
+                {items.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-slate-600 hover:text-slate-900 transition-colors duration-200 inline-flex items-center gap-1.5 group"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* ── BOTTOM BAR ── */}
+        <div className="border-t border-slate-200 bg-white">
+          <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-slate-500 font-mono tracking-wide">
+              © {currentYear} AIShyp Logistics SaaS. All rights reserved.
+            </p>
+            <div className="flex items-center gap-5">
+              {[
+                { label: "Privacy Policy", href: "/contact" },
+                { label: "Terms of Use", href: "/contact" },
+                { label: "Cookie Policy", href: "/contact" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-xs text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </footer>
   )

@@ -15,7 +15,7 @@ export default function EncyclopediaPage() {
   const topics = getAllEncyclopediaTopics();
 
   return (
-    <main className="bg-[#eef6ff] text-black pt-28 pb-16 px-6">
+    <main className="bg-transparent text-black pt-28 pb-16 px-6">
       <section className="max-w-6xl mx-auto">
         <nav aria-label="Breadcrumb" className="text-sm text-black/50 mb-5">
           <ol className="flex items-center gap-2">

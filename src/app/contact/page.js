@@ -1,85 +1,70 @@
-"use client"
-import { useState } from "react"
-import { toast } from "react-hot-toast"
-const infoCards = [
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
+
+const INFO_CARDS = [
   {
-    label: "Phone",
+    label: "DIRECT PHONE",
     value: "+91 7045814007",
     href: "tel:+917045814007",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
-      </svg>
-    ),
+    subtext: "Call Support • Mon-Sat",
+    icon: "📞",
+    accentBg: "bg-red-50 text-[#D8331F] border-red-200",
   },
   {
-    label: "Email",
+    label: "PRIORITY EMAIL",
     value: "mohit@vizlabs.in",
     href: "mailto:mohit@vizlabs.in",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-        <polyline points="22,6 12,13 2,6" />
-      </svg>
-    ),
+    subtext: "< 2 Hour Response",
+    icon: "✉️",
+    accentBg: "bg-blue-50 text-blue-700 border-blue-200",
   },
   {
-    label: "Location",
-    value: "Gurgaon,India",
+    label: "HQ LOCATION",
+    value: "Gurgaon, NCR, India",
     href: null,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
+    subtext: "Main Tech Hub",
+    icon: "📍",
+    accentBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
   },
   {
-    label: "Hours",
-    value: "Mon–Sat, 9:30–19:00",
+    label: "SUPPORT HOURS",
+    value: "Mon–Sat, 9:30 AM – 7:00 PM IST",
     href: null,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
+    subtext: "Dedicated Onboarding",
+    icon: "⏰",
+    accentBg: "bg-amber-50 text-amber-800 border-amber-200",
   },
-]
+];
 
-const whyReasons = [
-  "Logistics portal onboarding and full implementation support",
-  "Shipment workflow planning tailored to your business model",
-  "Live tracking and operations guidance for customer success",
-  "Tailored solutions for growing delivery requirements",
-  "Dedicated account manager for enterprise clients",
-]
+const ONBOARDING_STEPS = [
+  {
+    step: "1",
+    title: "Request Assessment",
+    desc: "Our platform engineering team reviews your shipping volume and target territory.",
+  },
+  {
+    step: "2",
+    title: "1-on-1 Demo & Commercials",
+    desc: "We walk you through our white-label portal, courier rate engine, and margin controls.",
+  },
+  {
+    step: "3",
+    title: "Domain & API Setup",
+    desc: "Map your custom domain (ship.yourbrand.com) and plug direct courier API keys.",
+  },
+  {
+    step: "4",
+    title: "Live Go-Live & Support",
+    desc: "Onboard your merchants and scale recurring revenue with dedicated tech support.",
+  },
+];
 
-const steps = [
-  {
-    num: "1",
-    title: "Team reviews your request",
-    desc: "We assess your logistics and portal requirements in detail.",
-  },
-  {
-    num: "2",
-    title: "Consultation call scheduled",
-    desc: "A quick call to understand your goals and priorities.",
-  },
-  {
-    num: "3",
-    title: "Custom onboarding plan",
-    desc: "You receive a tailored implementation roadmap.",
-  },
-  {
-    num: "4",
-    title: "Dedicated launch support",
-    desc: "Our team stays with you through setup and go-live.",
-  },
-]
-
-const inputClass =
-  "w-full border border-black/12 rounded-xl px-4 py-3 text-sm text-black placeholder-black/30 outline-none focus:border-[#ffa200]/70 focus:ring-2 focus:ring-[#ffa200]/10 transition-all duration-200"
+const INPUT_CLASS =
+  "w-full bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3.5 text-sm text-slate-950 placeholder-slate-400 outline-none focus:bg-white focus:border-[#D8331F] focus:ring-2 focus:ring-[#D8331F]/10 transition-all font-medium";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -90,21 +75,18 @@ export default function ContactPage() {
     subject: "",
     shipmentVolume: "",
     message: "",
-  })
-  const [submitState, setSubmitState] = useState({
-    loading: false,
-    error: "",
-    success: "",
-  })
+  });
 
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    setSubmitState({ loading: true, error: "", success: "" })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
     try {
       const payload = {
@@ -113,28 +95,22 @@ export default function ContactPage() {
         phone: formData.phone,
         company: formData.company,
         subject: formData.subject,
-        message: `${formData.message}\n\nDaily Shipment Volume: ${formData.shipmentVolume || "Not provided"
-          }`,
-      }
+        message: `${formData.message}\n\nDaily Shipment Volume: ${formData.shipmentVolume || "Not provided"}`,
+      };
 
       const response = await fetch("/api/contactus", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-      })
+      });
 
-      const result = await response.json()
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result?.error || "Failed to submit enquiry")
+        throw new Error(result?.error || "Failed to submit enquiry");
       }
 
-      toast.success("Enquiry submitted successfully. We will contact you soon.")
-      setSubmitState({
-        loading: false,
-        error: "",
-        success: "",
-      })
+      toast.success("Enquiry submitted successfully! Our team will contact you within 2 hours.");
       setFormData({
         name: "",
         email: "",
@@ -143,234 +119,323 @@ export default function ContactPage() {
         subject: "",
         shipmentVolume: "",
         message: "",
-      })
-    } catch (error) {
-      toast.error(error?.message || "Something went wrong. Please try again.")
-      setSubmitState({
-        loading: false,
-        error: "",
-        success: "",
-      })
+      });
+    } catch (err) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
   return (
-    <main className="relative min-h-screen bg-[#eef6ff] text-black pt-28 pb-16 px-6 overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px)",
-          backgroundSize: "60px 60px",
-          maskImage:
-            "radial-gradient(ellipse at 50% 35%, black 22%, transparent 78%)",
-        }}
-      />
+    <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+      
+      {/* ── 1. CLEAN APPLE-STYLE HERO SECTION ── */}
+      <section className="max-w-4xl mx-auto px-6 text-center space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F] font-mono text-xs font-bold"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
+          <span>// Direct Onboarding & Engineering Support</span>
+        </motion.div>
 
-      {/* ── Hero ── */}
-      <section className="max-w-5xl mx-auto mb-10 animate-fade-up relative">
-        <div className="pointer-events-none absolute -top-14 -right-16 w-72 h-72 rounded-full bg-[radial-gradient(circle,rgba(255,162,0,0.07)_0%,transparent_70%)]" />
-        <span className="inline-block bg-[rgba(255,162,0,0.15)] text-blue-950 text-[11px] font-semibold tracking-[3px] uppercase px-3 py-1 rounded-full border border-[rgba(255,162,0,0.3)]">
-          Contact Aishyp
-        </span>
-        <h1 className="mt-3 text-3xl md:text-5xl font-medium leading-tight">
-          Connect with the{" "}
-          <span className="text-blue-950 [text-shadow:0_0_20px_rgba(255,162,0,0.25)]">
-            AIShyp
-          </span>{" "}
-          team.
-        </h1>
-        <p className="mt-5 text-black max-w-2xl leading-relaxed">
-          Whether you're looking to launch a logistics portal, scale your
-          shipping operations, or need enterprise support — our team is ready
-          to build the right solution with you.
-        </p>
-        <div className="mt-4 flex flex-wrap gap-4">
-          <div className="flex items-center gap-2 text-sm text-black/45">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Support team online
-          </div>
-          <div className="flex items-center gap-2 text-sm text-black/45">
-            <span className="w-2 h-2 rounded-full bg-[#ffa200]" />
-            Avg. response: under 2 hours
-          </div>
-          <div className="flex items-center gap-2 text-sm text-black/45">
-            <span className="w-2 h-2 rounded-full bg-white/30" />
-            Mon–Sat, 9:30 AM – 7:00 PM IST
-          </div>
-        </div>
+        <motion.h1
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight"
+        >
+          Talk to our platform <br className="hidden sm:inline" />
+          <span className="text-[#D8331F]">logistics specialists.</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-slate-600 text-sm sm:text-base font-medium max-w-xl mx-auto leading-relaxed"
+        >
+          Whether you want to launch a white-label shipping aggregator portal, connect 14+ direct courier APIs, or request an enterprise SLA — our engineering squad is ready.
+        </motion.p>
       </section>
 
-      {/* ── Info Cards ── */}
-      <section className="max-w-5xl mx-auto mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {infoCards.map((card, i) => (
-          <div
-            key={card.label}
-            className="flex items-center gap-3 rounded-2xl border border-[rgba(255,162,0,0.18)]  px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,162,0,0.4)]"
-            style={{ animationDelay: `${i * 0.1}s` }}
-          >
-            <div className="w-10 h-10 rounded-xl bg-[rgba(255,162,0,0.12)] border border-[rgba(255,162,0,0.2)] flex items-center justify-center shrink-0">
-              {card.icon}
-            </div>
-            <div>
-              <div className="text-[10px] uppercase tracking-[1.5px] text-black mb-0.5">
-                {card.label}
+      {/* ── 2. INFO CARDS GRID ── */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {INFO_CARDS.map((card) => (
+            <motion.div
+              key={card.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-white rounded-3xl p-5 border border-slate-200/90 shadow-md hover:shadow-lg transition-all flex items-center gap-4 group"
+            >
+              <div
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xl shrink-0 border ${card.accentBg}`}
+              >
+                {card.icon}
               </div>
-              {card.href ? (
-                <a
-                  href={card.href}
-                  className="text-sm font-medium text-black no-underline hover:text-blue-950 transition-colors"
-                >
-                  {card.value}
-                </a>
-              ) : (
-                <span className="text-sm font-medium">{card.value}</span>
-              )}
-            </div>
-          </div>
-        ))}
+              <div className="min-w-0">
+                <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+                  {card.label}
+                </p>
+                {card.href ? (
+                  <a
+                    href={card.href}
+                    className="text-sm font-extrabold font-sans text-slate-950 hover:text-[#D8331F] transition-colors truncate block"
+                  >
+                    {card.value}
+                  </a>
+                ) : (
+                  <p className="text-sm font-extrabold font-sans text-slate-950 truncate">
+                    {card.value}
+                  </p>
+                )}
+                <p className="text-[11px] font-medium text-slate-500 mt-0.5">
+                  {card.subtext}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
-      {/* ── Main Grid: Form + Sidebar ── */}
-      <section className="max-w-5xl mx-auto grid lg:grid-cols-5 gap-6">
-
-        {/* Contact Form */}
-        <div className="lg:col-span-3 rounded-2xl border border-[rgba(255,162,0,0.18)]  p-6 md:p-8">
-          <h2 className="text-2xl font-medium text-blue-950 mb-1">
-            Send us a message
-          </h2>
-          <p className="text-sm text-black/50 mb-6 leading-relaxed">
-            Fill in your details and our team will reach out within 2 hours.
-          </p>
-
-          <form className="grid md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
+      {/* ── 3. MAIN FORM & SIDEBAR GRID ── */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Contact Form Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl space-y-6"
+          >
             <div>
-              <label className="text-[13px] text-black/65 block mb-2">Full Name</label>
-              <input className={inputClass} type="text" name="name" placeholder="Rahul Sharma" value={formData.name} onChange={handleChange} />
-            </div>
-            <div>
-              <label className="text-[13px] text-black block mb-2">Work Email</label>
-              <input className={inputClass} type="email" name="email" placeholder="shyp@company.com" value={formData.email} onChange={handleChange} />
-            </div>
-            <div>
-              <label className="text-[13px] text-black block mb-2">Phone Number</label>
-              <input className={inputClass} type="tel" name="phone" placeholder="+91 98765 43210" value={formData.phone} onChange={handleChange} />
-            </div>
-            <div>
-              <label className="text-[13px] text-black/65 block mb-2">Company Name</label>
-              <input className={inputClass} type="text" name="company" placeholder="Your Company Pvt. Ltd." value={formData.company} onChange={handleChange} />
-            </div>
-            <div>
-              <label className="text-[13px] text-black/65 block mb-2">Subject</label>
-              <select className={inputClass + " appearance-none cursor-pointer"} name="subject" value={formData.subject} onChange={handleChange}>
-                <option value="">Select enquiry subject</option>
-                <option value="E-commerce / D2C Brand">E-commerce / D2C Brand</option>
-                <option value="3PL / Logistics Provider">3PL / Logistics Provider</option>
-                <option value="Enterprise / Corporate">Enterprise / Corporate</option>
-                <option value="Startup / SME">Startup / SME</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-[13px] text-black/65 block mb-2">Daily Shipment Volume</label>
-              <select className={inputClass + " appearance-none cursor-pointer"} name="shipmentVolume" value={formData.shipmentVolume} onChange={handleChange}>
-                <option value="">Select volume range</option>
-                <option value="Under 100 shipments/day">Under 100 shipments/day</option>
-                <option value="100-500 shipments/day">100-500 shipments/day</option>
-                <option value="500-2000 shipments/day">500-2000 shipments/day</option>
-                <option value="2000+ shipments/day">2000+ shipments/day</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <label className="text-[13px] text-black/65 block mb-2">Requirement Details</label>
-              <textarea
-                name="message"
-                className={inputClass + " resize-none leading-relaxed"}
-                rows={4}
-                placeholder="Describe your logistics needs, current challenges, or portal requirements..."
-                value={formData.message}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="md:col-span-2 flex items-center gap-4 flex-wrap">
-              <button
-                type="submit"
-                disabled={submitState.loading}
-                className="bg-blue-900 text-white font-semibold px-7 py-3 rounded-xl text-sm hover:bg-blue-600 active:scale-95 transition-all duration-200"
-              >
-                {submitState.loading ? "Submitting..." : "Submit Enquiry →"}
-              </button>
-              <span className="text-xs text-black/35">
-                We'll respond within 2 business hours
+              <span className="text-[11px] font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200/80 rounded-full">
+                // Direct Inquiry Form
               </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-sans text-slate-950 tracking-tight mt-2">
+                Send Us a Message
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
+                Fill in your details and our team will get back to you within 2 business hours.
+              </p>
             </div>
-          </form>
-        </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-2 flex flex-col gap-5">
-
-          {/* Why Aishyp */}
-          <div className="rounded-2xl border border-[rgba(255,162,0,0.18)] ">
-            <h2 className="text-lg font-medium text-blue-950 mb-4">
-              Why contact Aishyp?
-            </h2>
-            <ul className="space-y-3">
-              {whyReasons.map((reason) => (
-                <li
-                  key={reason}
-                  className="flex items-start gap-3 pb-3 border-b border-black/7 last:border-0 last:pb-0"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ffa200] mt-2 shrink-0" />
-                  <p className="text-sm text-black/62 leading-relaxed">{reason}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* What Happens Next */}
-          <div className="rounded-2xl border border-[rgba(255,162,0,0.18)] ] p-6">
-            <h2 className="text-lg font-medium text-blue-950 mb-5">
-              What happens next?
-            </h2>
-            <div className="relative flex flex-col gap-4">
-              <div className="absolute left-[15px] top-8 bottom-8 w-px bg-[rgba(255,162,0,0.2)]" />
-              {steps.map((step) => (
-                <div key={step.num} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[rgba(255,162,0,0.15)] border border-[rgba(255,162,0,0.35)] flex items-center justify-center text-[13px] font-medium text-blue-950 shrink-0">
-                    {step.num}
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium mb-0.5">{step.title}</div>
-                    <div className="text-xs text-black/45 leading-relaxed">{step.desc}</div>
-                  </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Rahul Sharma"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={INPUT_CLASS}
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Work Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="rahul@company.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={INPUT_CLASS}
+                  />
+                </div>
+              </div>
 
-          {/* Urgent CTA */}
-          <div className="rounded-2xl border border-[rgba(255,162,0,0.35)]  p-5">
-            <p className="text-sm text-black/85 leading-relaxed">
-              For urgent assistance, call{" "}
-              <a
-                href="tel:+917045814007"
-                className="text-blue-950 font-semibold hover:underline"
-              >
-                +91 7045814007
-              </a>{" "}
-              or email{" "}
-              <a
-                href="mailto:mohit@vizlabs.in"
-                className="text-blue-950 font-semibold hover:underline"
-              >
-                mohit@vizlabs.in
-              </a>
-            </p>
-          </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="+91 98765 43210"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={INPUT_CLASS}
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Your Company Pvt. Ltd."
+                    value={formData.company}
+                    onChange={handleChange}
+                    className={INPUT_CLASS}
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Enquiry Subject
+                  </label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className={`${INPUT_CLASS} cursor-pointer`}
+                  >
+                    <option value="">Select subject</option>
+                    <option value="Launch White-Label Portal">Launch White-Label Aggregator Portal</option>
+                    <option value="Shopify Shipping Integration">Shopify Shipping Integration</option>
+                    <option value="Courier Direct APIs">14+ Courier Direct APIs</option>
+                    <option value="Enterprise SLA & Volume Rates">Enterprise SLA & Volume Rates</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                    Daily Shipment Volume
+                  </label>
+                  <select
+                    name="shipmentVolume"
+                    value={formData.shipmentVolume}
+                    onChange={handleChange}
+                    className={`${INPUT_CLASS} cursor-pointer`}
+                  >
+                    <option value="">Select volume range</option>
+                    <option value="Under 100 shipments/day">Under 100 shipments/day</option>
+                    <option value="100 - 500 shipments/day">100 - 500 shipments/day</option>
+                    <option value="500 - 2,000 shipments/day">500 - 2,000 shipments/day</option>
+                    <option value="2,000+ shipments/day">2,000+ shipments/day (Unlimited)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold font-sans text-slate-800 block mb-1.5">
+                  Requirement Details
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Tell us about your target shipping region, current courier partners, or custom platform needs..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`${INPUT_CLASS} resize-none leading-relaxed`}
+                />
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-[#D8331F] text-white rounded-full px-8 py-4 text-xs font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all disabled:opacity-50 cursor-pointer"
+                >
+                  {loading ? "Submitting Request..." : "Submit Inquiry →"}
+                </button>
+                <span className="text-xs font-mono font-bold text-slate-400">
+                  ⚡ Avg Response: &lt; 2 Hours
+                </span>
+              </div>
+            </form>
+          </motion.div>
+
+          {/* Sidebar Cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-5 space-y-6"
+          >
+            {/* Why Partner Card */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-4">
+              <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest px-2.5 py-0.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                Why AIShyp OS
+              </span>
+              <h3 className="text-xl font-extrabold font-sans text-white tracking-tight">
+                Why Launch With AIShyp?
+              </h3>
+              <ul className="space-y-3 text-xs text-slate-300 font-medium">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">✓</span>
+                  <span><strong>100% White-Label SaaS:</strong> Deploy on your custom domain (ship.yourbrand.com) with your brand colors.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">✓</span>
+                  <span><strong>100% Gross Margin Retention:</strong> Configure custom buy/sell rate slabs and keep 100% of profit markups.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">✓</span>
+                  <span><strong>14+ Courier Direct APIs:</strong> Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax & DP World pre-integrated.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">✓</span>
+                  <span><strong>Automated WhatsApp NDR:</strong> Recover up to 35% of failed deliveries automatically.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* What Happens Next Steps */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-4">
+              <h3 className="text-lg font-extrabold font-sans text-slate-950 tracking-tight">
+                What Happens Next?
+              </h3>
+              <div className="space-y-3 font-sans">
+                {ONBOARDING_STEPS.map((st) => (
+                  <div key={st.step} className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-xl bg-red-50 text-[#D8331F] border border-red-200 flex items-center justify-center font-mono font-extrabold text-xs shrink-0 mt-0.5">
+                      {st.step}
+                    </span>
+                    <div>
+                      <p className="text-xs font-extrabold text-slate-950">{st.title}</p>
+                      <p className="text-[11.5px] text-slate-600 font-medium leading-relaxed mt-0.5">
+                        {st.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Direct Phone / Email Fast Contact Card */}
+            <div className="bg-red-50/60 rounded-3xl p-5 border border-red-200/80 text-xs font-sans text-slate-800 space-y-1">
+              <p className="font-extrabold text-slate-950">Need Immediate Assistance?</p>
+              <p className="text-slate-600 font-medium">
+                Call us directly at{" "}
+                <a href="tel:+917045814007" className="text-[#D8331F] font-extrabold hover:underline">
+                  +91 7045814007
+                </a>{" "}
+                or email{" "}
+                <a href="mailto:mohit@vizlabs.in" className="text-[#D8331F] font-extrabold hover:underline">
+                  mohit@vizlabs.in
+                </a>
+              </p>
+            </div>
+
+          </motion.div>
 
         </div>
       </section>
+
     </main>
-  )
+  );
 }

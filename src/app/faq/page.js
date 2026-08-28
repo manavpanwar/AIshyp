@@ -14,15 +14,18 @@ export default function FAQPage() {
   const faqSchema = buildFaqSchema(faqItems);
 
   return (
-    <main className="bg-[#eef6ff] text-black pt-28 pb-16">
+    <main className="bg-[#F4F6F9] text-slate-900 pt-32 pb-24 px-6 sm:px-12 lg:px-20 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <FAQ
         items={faqItems}
-        title="AIShyp Logistics FAQ"
-        subtitle="Everything about shipping aggregator operations, courier franchise growth, NDR workflows, API integration, and delivery optimization."
+        subtitle="Search and explore full answers on shipping aggregator software, courier franchise operations, NDR automation, API integration, and delivery optimization."
+        showSearch={true}
+        showCategoryFilter={true}
+        showCta={true}
+        showExploreMore={false}
       />
     </main>
   );

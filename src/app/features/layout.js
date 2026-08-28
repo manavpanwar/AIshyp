@@ -1,11 +1,11 @@
 import { buildPageMetadata } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "AIShyp Features - Shipping Automation Platform",
+  title: "Platform Features & Architecture | White-Label Shipping OS",
   description:
-    "Explore AIShyp features including branded tracking, courier comparison, dashboard analytics, remittance workflows, and NDR automation.",
+    "Explore 10 core logistics modules: 100% white-label custom domain portal, real-time analytics, 14+ courier API allocation, Shopify 2-way sync, automated WhatsApp NDR, T+1 COD remittance, and docket weight auditing.",
   path: "/features",
-  images: ["/aydash.png"],
+  images: ["/aishiplogo.png"],
 });
 
 export default function FeaturesLayout({ children }) {

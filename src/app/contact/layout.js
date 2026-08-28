@@ -1,11 +1,11 @@
 import { buildPageMetadata } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Contact AIShyp - Logistics Consultation and Support",
+  title: "Contact AIShyp Platform Engineering & Onboarding Squad",
   description:
-    "Contact AIShyp for shipping platform onboarding, enterprise logistics support, and franchise growth consultation.",
+    "Talk to platform logistics specialists to deploy your custom domain white-label shipping aggregator portal in under 24 hours. Direct phone +91 7045814007 or email mohit@vizlabs.in.",
   path: "/contact",
-  images: ["/partner.png"],
+  images: ["/aishiplogo.png"],
 });
 
 export default function ContactLayout({ children }) {

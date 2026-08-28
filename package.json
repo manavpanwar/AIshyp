@@ -3,23 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 7878",
+    "dev": "NODE_OPTIONS='--max-old-space-size=1536' next dev --webpack -p 7878",
+    "dev:turbo": "NODE_OPTIONS='--max-old-space-size=1536' next dev -p 7878",
     "build": "next build",
     "start": "next start -p 7878"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4",
     "framer-motion": "^12.38.0",
-    "lucide-react": "^1.8.0",
+    "gsap": "^3.15.0",
     "mongoose": "^9.4.1",
     "next": "16.2.2",
     "nodemailer": "^8.0.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-hot-toast": "^2.6.0"
+    "react-hot-toast": "^2.6.0",
+    "tailwindcss": "^4"
+  },
+  "optionalDependencies": {
+    "@next/swc-darwin-x64": "^16.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "next-sitemap": "^4.2.3",
-    "tailwindcss": "^4"
+    "typescript": "7.0.2"
   }
 }

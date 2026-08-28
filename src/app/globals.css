@@ -1,203 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --surface: #ffffff;
-  --surface-soft: #f8fafc;
-  --border: rgba(17, 24, 39, 0.14);
+@theme {
+  --color-navy: #101B3D;
+  --color-navy-2: #16225A;
+  --color-red: #D8331F;
+  --color-glow: #FF8A6E;
+  --color-ink: #10152B;
+  --color-mute: #6A7086;
+
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes shiny-text {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-html.dark {
-  --background: #0b1220;
-  --foreground: #e5e7eb;
-  --surface: #111827;
-  --surface-soft: #0f172a;
-  --border: rgba(148, 163, 184, 0.32);
-}
-
-html.light {
-  --background: #ffffff;
-  --foreground: #111827;
-  --surface: #ffffff;
-  --surface-soft: #f8fafc;
-  --border: rgba(17, 24, 39, 0.14);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-shiny-text {
+  animation: shiny-text 4s linear infinite;
 }
 
 html,
 body,
-* {
-  transition:
-    background-color 220ms ease,
-    border-color 220ms ease,
-    color 220ms ease,
-    fill 220ms ease,
-    stroke 220ms ease;
+#root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-sans);
 }
 
-html.dark .bg-white {
-  background-color: var(--surface) !important;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-html.dark .bg-white\/80,
-html.dark .bg-white\/85,
-html.dark .bg-white\/90,
-html.dark .bg-white\/95,
-html.dark .bg-white\/98 {
-  background-color: rgba(17, 24, 39, 0.88) !important;
+::-webkit-scrollbar-track {
+  background: #f8fafc;
 }
-
-html.dark [class*="text-black"] {
-  color: #e5e7eb !important;
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
-
-html.dark [class*="border-black"] {
-  border-color: var(--border) !important;
+::-webkit-scrollbar-thumb:hover {
+  background: #d8331f;
 }
-
-html.dark [class*="bg-[#eef6ff]"],
-html.dark [class*="bg-[#eaf3ff]"] {
-  background-color: #0b1220 !important;
-}
-
-html.dark [class*="bg-blue-50"],
-html.dark [class*="bg-blue-100"] {
-  background-color: #1e293b !important;
-}
-
-html.dark [class*="bg-blue-900"],
-html.dark [class*="bg-blue-950"] {
-  background-color: #0f172a !important;
-}
-
-html.dark [class*="text-blue-950"],
-html.dark [class*="text-blue-900"] {
-  color: #bfdbfe !important;
-}
-
-html.dark [class*="text-blue-700"],
-html.dark [class*="text-blue-600"] {
-  color: #93c5fd !important;
-}
-
-html.dark [class*="text-black/"],
-html.dark [class*="text-black"] {
-  color: #e2e8f0 !important;
-}
-
-html.dark [class*="text-gray-"],
-html.dark [class*="text-zinc-"],
-html.dark [class*="text-neutral-"],
-html.dark [class*="text-stone-"],
-html.dark [class*="text-slate-"] {
-  color: #e2e8f0 !important;
-}
-
-html.dark [class*="text-white/"] {
-  color: rgba(226, 232, 240, 0.92) !important;
-}
-
-html.dark main,
-html.dark section,
-html.dark article,
-html.dark aside,
-html.dark p,
-html.dark li,
-html.dark label,
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6 {
-  color: inherit;
-}
-
-html.dark [class*="border-blue-"] {
-  border-color: rgba(148, 163, 184, 0.35) !important;
-}
-
-html.dark [style*="color: #111827"],
-html.dark [style*="color:#111827"],
-html.dark [style*="color: rgb(17, 24, 39)"] {
-  color: #e2e8f0 !important;
-}
-
-html.dark [class*="from-white"],
-html.dark [class*="via-blue-50"],
-html.dark [class*="to-blue-100"] {
-  --tw-gradient-from: #0f172a var(--tw-gradient-from-position) !important;
-  --tw-gradient-via: #111827 var(--tw-gradient-via-position) !important;
-  --tw-gradient-to: #1e293b var(--tw-gradient-to-position) !important;
-}
-
-/* Force orange/yellow themed UI tokens to white + blue palette */
-[class*="text-[#ffa200]"],
-[class*="text-[#ff7a00]"],
-[class*="text-orange-"],
-[class*="text-amber-"],
-[class*="text-yellow-"] {
-  color: #172554 !important;
-}
-
-[class*="bg-[#ffa200]"],
-[class*="bg-[#ff7a00]"],
-[class*="bg-[rgba(255,162,0"],
-[class*="bg-[rgba(255,107,0"],
-[class*="bg-orange-"],
-[class*="bg-amber-"],
-[class*="bg-yellow-"] {
-  background: #eff6ff !important;
-}
-
-[class*="from-[#ffa200]"],
-[class*="from-[#ff7a00]"],
-[class*="from-[rgba(255,162,0"],
-[class*="from-[rgba(255,107,0"],
-[class*="from-orange-"],
-[class*="from-amber-"],
-[class*="from-yellow-"],
-[class*="via-[#ffa200]"],
-[class*="via-[#ff7a00]"],
-[class*="via-[rgba(255,162,0"],
-[class*="via-[rgba(255,107,0"],
-[class*="via-orange-"],
-[class*="via-amber-"],
-[class*="via-yellow-"],
-[class*="to-[#ffa200]"],
-[class*="to-[#ff7a00]"],
-[class*="to-[rgba(255,162,0"],
-[class*="to-[rgba(255,107,0"],
-[class*="to-orange-"],
-[class*="to-amber-"],
-[class*="to-yellow-"] {
-  --tw-gradient-from: #dbeafe var(--tw-gradient-from-position) !important;
-  --tw-gradient-via: #bfdbfe var(--tw-gradient-via-position) !important;
-  --tw-gradient-to: #93c5fd var(--tw-gradient-to-position) !important;
-}
-
-[class*="border-[#ffa200]"],
-[class*="border-[#ff7a00]"],
-[class*="border-[rgba(255,162,0"],
-[class*="border-[rgba(255,107,0"],
-[class*="border-orange-"],
-[class*="border-amber-"],
-[class*="border-yellow-"] {
-  border-color: rgba(23, 37, 84, 0.25) !important;
-}
-
-
-
