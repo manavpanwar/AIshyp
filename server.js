@@ -1,5 +1,4 @@
 const { createServer } = require("http");
-const { parse } = require("url");
 const next = require("next");
 
 const dev = process.env.NODE_ENV !== "production";
@@ -12,8 +11,15 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   createServer(async (req, res) => {
     try {
-      const parsedUrl = parse(req.url, true);
-      await handle(req, res, parsedUrl);
+      const parsedUrl = new URL(req.url, `http://${req.headers.host || "localhost:7878"}`);
+      const query = {};
+      parsedUrl.searchParams.forEach((val, key) => {
+        query[key] = val;
+      });
+      await handle(req, res, {
+        pathname: parsedUrl.pathname,
+        query,
+      });
     } catch (err) {
       console.error("Error occurred handling request:", err);
       res.statusCode = 500;
