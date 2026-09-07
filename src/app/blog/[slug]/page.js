@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../../lib/blogs";
-import { SITE_URL, SITE_NAME } from "../../../lib/seo";
+import { SITE_URL, SITE_NAME, getBreadcrumbSchema } from "../../../lib/seo";
 import BlogCardBanner from "../../../components/blog/BlogCardBanner";
 
 function formatDate(dateString) {
@@ -126,6 +126,10 @@ export default async function BlogDetailPage({ params }) {
       },
     },
   };
+  const blogBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "Blog", item: "/blog" },
+    { name: blog.title, item: `/blog/${blog.slug}` },
+  ]);
 
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
@@ -133,6 +137,10 @@ export default async function BlogDetailPage({ params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogBreadcrumbSchema) }}
         />
 
         {/* Breadcrumb Navigation */}
@@ -172,6 +180,16 @@ export default async function BlogDetailPage({ params }) {
           <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed">
             {blog.description}
           </p>
+
+          {/* Key Takeaways Box for Answer Engine Extraction */}
+          <div className="p-5 rounded-2xl bg-red-50/60 border border-red-200/80 text-slate-900 space-y-1.5 shadow-sm">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#D8331F]">
+              ⚡ Key Takeaways &amp; Executive Summary
+            </span>
+            <p className="text-sm font-semibold text-slate-800 leading-relaxed">
+              {blog.description}
+            </p>
+          </div>
         </header>
 
         {/* Vector Header Card */}

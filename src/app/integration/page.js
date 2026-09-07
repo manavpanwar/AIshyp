@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { getCarrierIntegrationsSchema, getBreadcrumbSchema } from "../../lib/seo";
 
 const INTEGRATION_CATEGORIES = [
   { id: "all", label: "All Integrations (14+)" },
@@ -170,8 +171,29 @@ export default function IntegrationPage() {
     activeCategory === "all" ? true : item.category === activeCategory
   );
 
+  const integrationCarrierSchema = getCarrierIntegrationsSchema();
+  const integrationBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "14+ Integrations", item: "/integration" },
+  ]);
+
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(integrationCarrierSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(integrationBreadcrumbSchema) }}
+      />
+
+      {/* Semantic AI Summary for Answer Engine Extraction */}
+      <div className="sr-only" itemScope itemType="https://schema.org/ItemList">
+        <span itemProp="name">AIShyp Carrier Partner APIs &amp; Storefront Integrations</span>
+        <span itemProp="description">
+          AIShyp comes pre-integrated with 14+ direct carrier APIs and storefront channels: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart Logistics, Trackon, Ecom Express, DP World B2B Freight, FedEx, Amazon Shipping, 1-click Shopify app integration, and WooCommerce.
+        </span>
+      </div>
       
       {/* ── 1. PROMINENT SHOPIFY LOGO HERO HIGHLIGHT SECTION ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">

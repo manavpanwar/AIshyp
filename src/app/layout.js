@@ -13,6 +13,9 @@ import {
   getOrganizationSchema,
   getWebSiteSchema,
   getSiteNavigationSchema,
+  getSoftwareApplicationSchema,
+  getLogisticsServiceSchema,
+  getSpeakableSchema,
 } from "../lib/seo";
 
 const manrope = Manrope({
@@ -95,6 +98,21 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getSiteNavigationSchema()) }}
+        />
+        {/* SoftwareApplication Structured Data for AEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getSoftwareApplicationSchema()) }}
+        />
+        {/* Logistics & Shipping Service Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getLogisticsServiceSchema()) }}
+        />
+        {/* Speakable Structured Data for GEO & Voice Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getSpeakableSchema()) }}
         />
 
         <AppToaster />

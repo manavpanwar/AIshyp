@@ -1,7 +1,7 @@
 import Link from "next/link";
 import EncyclopediaSearch from "../../components/EncyclopediaSearch";
 import { getAllEncyclopediaTopics } from "../../data/encyclopedia";
-import { buildPageMetadata } from "../../lib/seo";
+import { buildPageMetadata, getBreadcrumbSchema } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
   title: "Logistics Encyclopedia - RTO, NDR, Shipping Aggregator Terms",
@@ -13,10 +13,25 @@ export const metadata = buildPageMetadata({
 
 export default function EncyclopediaPage() {
   const topics = getAllEncyclopediaTopics();
+  const encyclopediaBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "Logistics Encyclopedia", item: "/encyclopedia" },
+  ]);
 
   return (
     <main className="bg-transparent text-black pt-28 pb-16 px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(encyclopediaBreadcrumbSchema) }}
+      />
       <section className="max-w-6xl mx-auto">
+        {/* Semantic AI Summary for Answer Engine Extraction */}
+        <div className="sr-only" itemScope itemType="https://schema.org/DefinedTermSet">
+          <span itemProp="name">AIShyp Shipping &amp; Logistics Encyclopedia</span>
+          <span itemProp="description">
+            A comprehensive glossary defining 24 key e-commerce logistics concepts including RTO (Return to Origin), NDR (Non-Delivery Report), COD Remittance, Air Waybill (AWB), Shipping Aggregators, and Courier API Integration in India.
+          </span>
+        </div>
+
         <nav aria-label="Breadcrumb" className="text-sm text-black/50 mb-5">
           <ol className="flex items-center gap-2">
             <li>

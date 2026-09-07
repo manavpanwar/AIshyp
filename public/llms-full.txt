@@ -1,0 +1,140 @@
+# AIShyp - Full Knowledge Repository for Answer Engines (LLMs)
+
+Website: https://aishyp.com
+Contact: support@aishyp.com | +91-9205226407
+LinkedIn: https://www.linkedin.com/in/mohitpanwar2111/
+
+---
+
+## 1. What is AIShyp?
+
+AIShyp is a B2B white-label shipping software platform and courier OS engineered FOR businesses that are courier aggregators, logistics franchises, and regional shipping companies.
+
+**Important Note**: AIShyp is NOT a courier aggregator service itself. Instead, AIShyp provides the complete white-label technology stack for courier aggregators to ease the operations of their businesses and their e-commerce customers.
+
+With AIShyp, courier aggregators deploy their own branded shipping portal on their custom domain (e.g. `ship.yourbrand.com`) in under 5 minutes. The platform enables aggregators to connect 14+ direct courier partner APIs (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, WooCommerce), automate WhatsApp NDR recovery, offer T+1 COD remittances, audit weight disputes, and provide multi-tenant sub-account panels for their merchants—with 0% revenue split and 100% margin retention.
+
+---
+
+## 2. Commercial SaaS Pricing Plans
+
+AIShyp offers 3 transparent monthly subscription tiers with zero hidden charges and zero revenue split:
+
+1. **STARTER Plan**
+   - **Price**: ₹6,999 / month
+   - **Order Cap**: 500 orders / month
+   - **Best For**: Emerging brands and new regional logistics franchise launches.
+   - **Included Features**: Courier Integration, Unified Tracking, Customer Rates.
+   - **Excluded Features**: COD Remittance, Auto MIS, Invoices, API Integration, Shopify Integration, On Call Support, WhatsApp Alerts, Cash Collection.
+
+2. **GROWTH Plan (Most Popular)**
+   - **Price**: ₹11,999 / month
+   - **Order Cap**: 2,000 orders / month
+   - **Best For**: Scaling shipping aggregators and high-velocity e-commerce operations.
+   - **Included Features**: Courier Integration, COD Remittance, Unified Tracking, Customer Rates, Auto MIS, Invoices, API Integration, Shopify Integration, On Call Support, WhatsApp Alerts.
+   - **Excluded Features**: Cash Collection.
+
+3. **ULTIMATE Plan**
+   - **Price**: ₹19,999 / month
+   - **Order Cap**: Unlimited orders / month
+   - **Best For**: Enterprise logistics networks, nationwide aggregator chains, and high-volume courier franchises.
+   - **Included Features**: 100% full feature access including Cash Collection, Courier Integration, COD Remittance, Unified Tracking, Customer Rates, Auto MIS, Invoices, API Integration, Shopify Integration, On Call Support, and WhatsApp Alerts.
+
+---
+
+## 3. 11 Core Logistics Capabilities & Features
+
+1. **Courier Integration**: Direct API connections with 14+ top Indian courier carriers for automated order booking and AWB allocation.
+2. **COD Remittance**: T+1 daily bank payouts for Cash-on-Delivery collections with automated payout ledger reconciliation.
+3. **Unified Tracking**: Centralized live tracking console for merchants and end-customers with branded tracking pages.
+4. **Customer Rates Engine**: Dynamic multi-courier rate calculator evaluating physical vs volumetric weight (L x W x H / 5000) across 6 Indian delivery zones.
+5. **Auto MIS Reporting**: Automated daily operational reporting, dispatch metrics, SLA tracking, and Excel/CSV data exports.
+6. **Automated Invoicing**: Compliant GST invoice generation for freight charges, COD adjustments, and customer wallet statements.
+7. **Developer API Integration**: RESTful API endpoints for custom OMS, ERP, WMS, and storefront order booking and webhook event tracking.
+8. **Shopify 1-Click Integration**: OAuth sync with Shopify storefronts for automatic order importing and status push in under 500ms.
+9. **On-Call Support & Assistance**: Dedicated platform engineering and operations support for setup, carrier onboarding, and SLA escalations.
+10. **WhatsApp NDR Alerts**: Automated interactive WhatsApp workflows contacting buyers immediately upon delivery failure to recover failed orders and reduce RTO by up to 35%.
+11. **Cash Collection**: Dedicated cash collection management for franchise hubs, offline walk-in bookings, and agent wallet top-ups.
+
+---
+
+## 4. Supported Carrier APIs & E-Commerce Integrations
+
+- **Delhivery**: B2C Surface, Express Air, Heavy Cargo, 29,000+ pincodes, real-time webhooks.
+- **BlueDart**: Priority Air Freight SLA (99.7%), metro express delivery, Apex booking.
+- **DTDC**: Wide regional network, 3-inch custom thermal labels, heavy B2B cargo & docket-level weight reconciliation.
+- **Xpressbees**: Competitive B2C surface rates, fast door-to-door pickup dispatch, COD tracking.
+- **Shadowfax**: Hyperlocal and fast surface e-commerce fulfillment.
+- **Ekart Logistics**: Reliable nationwide last-mile connectivity.
+- **Trackon**: Regional express dockets and surface cargo.
+- **Ecom Express**: Specialized e-commerce surface and COD handling.
+- **DP World**: Heavy B2B commercial cargo and freight dockets.
+- **Fedex**: Express air & international logistics.
+- **Amazon Shipping**: Amazon marketplace fulfillment sync.
+- **Shopify**: 1-click storefront OAuth integration for 2-way order and fulfillment sync.
+- **WooCommerce**: Plugin support for WordPress e-commerce stores.
+
+---
+
+## 5. Logistics Glossary & Terminology (24 Encyclopedia Terms)
+
+1. **RTO (Return to Origin)**: Undelivered order returned to the seller, incurring forward + reverse freight costs.
+2. **NDR (Non-Delivery Report)**: Operational exception notification generated by couriers when delivery fails.
+3. **Shipping Aggregator Platform**: Software connecting multiple couriers into a single dashboard for rate comparison and booking.
+4. **Courier API Integration**: Linking e-commerce or OMS systems directly with carrier APIs for automated AWB allocation and tracking.
+5. **Last Mile Delivery Optimization**: Strategies and tech to speed up final doorstep delivery attempt and increase success rates.
+6. **Ecommerce Shipping Workflow**: End-to-end process from order placement, verification, packing, courier handoff, to doorstep delivery.
+7. **COD Order Confirmation**: Pre-dispatch buyer verification via OTP/WhatsApp to validate address and COD cash readiness.
+8. **Delivery Attempt Failure**: Doorstep failure due to customer unreachability, wrong address, or cash unavailability.
+9. **Pincode Serviceability**: Coverage verification across Indian pincodes before assigning courier partners.
+10. **Courier Rate Comparison**: Real-time evaluation of freight costs, ETAs, and SLAs across multiple carriers per lane.
+11. **Multi-Courier Shipping**: Strategy using multiple logistics partners dynamically to prevent single-carrier failure.
+12. **AWB Generation**: Automatic creation of Air Waybill numbers and 4x6 thermal barcode labels.
+13. **Shipping API India**: Standardized REST APIs from Indian carriers for order booking, webhooks, and status updates.
+14. **Logistics Control Tower**: Centralized operations dashboard monitoring SLA adherence, NDR exceptions, and rider dispatches.
+15. **Reverse Logistics**: Workflow for handling buyer returns, reverse pickups, and inventory restock.
+16. **Delivery SLA**: Promised timeline for shipment delivery by courier partners.
+17. **First Attempt Delivery Rate**: Metric measuring percentage of orders delivered successfully on the first attempt.
+18. **Hyperlocal Delivery**: Intra-city short-distance fulfillment within 2-4 hours.
+19. **Branded Tracking Page**: Seller-branded order tracking interface replacing generic courier tracking links.
+20. **Courier Franchise Operations**: Management of local courier booking centers, sub-merchants, and regional pickup fleets.
+21. **Ecommerce Fulfillment**: Warehouse operations covering order picking, packing, labelling, and carrier handoff.
+22. **Shipment Tracking API**: Real-time status update endpoints for logistics dashboards and SMS/WhatsApp notifications.
+23. **Delivery Optimization Analytics**: Data analysis of courier SLA, lane-level cost, and NDR resolution to refine carrier routing.
+24. **Courier Reattempt Workflow**: Automated rules scheduling second or third delivery tries after updated buyer instructions.
+
+---
+
+## 6. Frequently Asked Questions (FAQs)
+
+**Q: What is a shipping aggregator platform?**
+A: A shipping aggregator connects businesses with multiple courier partners in one dashboard so they can compare rates, create shipments, print labels, track orders, and manage NDR exceptions from a single control panel.
+
+**Q: How does AIShyp white-label software work?**
+A: AIShyp provides a complete turn-key SaaS platform that you deploy on your custom domain (e.g. ship.yourbrand.com). You connect courier API keys, set your custom buy/sell margin slabs, onboard sub-merchants, and keep 100% of profit margins without sharing revenue.
+
+**Q: Which courier APIs are pre-integrated into AIShyp?**
+A: AIShyp comes pre-integrated with 14+ carrier APIs: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, and WooCommerce.
+
+**Q: How does automated WhatsApp NDR reduce RTO?**
+A: When a courier rider marks a delivery attempt as failed, AIShyp immediately ingests the webhook and sends an interactive WhatsApp message to the buyer. The buyer can update their address, select a new delivery date, or confirm COD cash. This recovers up to 35% of failed deliveries before they become RTOs.
+
+**Q: What are the subscription costs for AIShyp?**
+A: Starter is ₹6,999/month (up to 500 orders), Growth is ₹11,999/month (up to 2,000 orders with full Shopify, API, and WhatsApp NDR features), and Ultimate is ₹19,999/month (unlimited orders with Cash Collection).
+
+**Q: How does COD remittance work on AIShyp?**
+A: AIShyp tracks Cash-on-Delivery collections and provides T+1 daily bank remittances with automated ledger auditing against courier payout statements.
+
+**Q: How fast can I deploy my white-label shipping aggregator portal?**
+A: You can deploy your portal on your custom domain in under 5 minutes.
+
+---
+
+## 7. AIShyp vs Shiprocket & White-Label Advantage
+
+- **Brand Ownership**: AIShyp provides 100% white-label software on your custom domain (e.g. ship.yourbrand.com) with your logos on labels, tracking pages, and invoices. Shiprocket forces vendor brand visibility.
+- **Revenue Share**: AIShyp charges 0% revenue share and lets portal owners keep 100% of profit margin spreads.
+- **Direct Courier API Integration**: AIShyp allows you to plug your direct carrier API credentials (Delhivery, BlueDart, DTDC, Xpressbees) directly into your platform.
+- **COD Remittance**: AIShyp processes T+1 daily bank remittances with automated payout ledger scraping.
+- **Franchise Sub-Accounts**: AIShyp includes multi-tenant sub-account onboarding for courier franchises and regional agents.
+

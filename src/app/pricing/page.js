@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import FAQ from "../../components/FAQ";
 import { buildFaqSchema, faqItems } from "../../data/faq";
+import { getPricingOfferCatalogSchema, getBreadcrumbSchema } from "../../lib/seo";
 
 // ── EXACT PRICING PLANS DATA FROM FLYER ──
 const PRICING_PLANS = [
@@ -113,6 +114,10 @@ export default function PricingPage() {
     )
     .slice(0, 8);
   const pricingFaqSchema = buildFaqSchema(pricingFaqItems);
+  const pricingProductSchema = getPricingOfferCatalogSchema();
+  const pricingBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "SaaS Pricing", item: "/pricing" },
+  ]);
 
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
@@ -120,9 +125,24 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingProductSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingBreadcrumbSchema) }}
+      />
 
       {/* ── 1. CLEAN APPLE-STYLE HERO SECTION ── */}
       <section className="max-w-4xl mx-auto px-6 text-center space-y-4">
+        {/* Semantic AI Summary for Answer Engine Extraction */}
+        <div className="sr-only" itemScope itemType="https://schema.org/Product">
+          <span itemProp="name">AIShyp White-Label Shipping Portal</span>
+          <span itemProp="description">
+            AIShyp SaaS pricing offers three transparent plans: Starter at ₹6,999/month (500 orders), Growth at ₹11,999/month (2,000 orders with Shopify, WhatsApp &amp; API integration), and Ultimate at ₹19,999/month (unlimited orders with Cash Collection). Portal owners keep 100% of their gross profit margin spread with zero revenue share.
+          </span>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}

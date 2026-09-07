@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
+import { getContactPageSchema, getBreadcrumbSchema } from "../../lib/seo";
 
 const INFO_CARDS = [
   {
     label: "DIRECT PHONE",
-    value: "+91 7045814007",
-    href: "tel:+917045814007",
+    value: "+91 9205226407",
+    href: "tel:+919205226407",
     subtext: "Call Support • Mon-Sat",
     icon: "📞",
     accentBg: "bg-red-50 text-[#D8331F] border-red-200",
@@ -79,6 +80,11 @@ export default function ContactPage() {
 
   const [loading, setLoading] = useState(false);
 
+  const contactSchema = getContactPageSchema();
+  const contactBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "Contact & Onboarding", item: "/contact" },
+  ]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -129,7 +135,15 @@ export default function ContactPage() {
 
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactBreadcrumbSchema) }}
+      />
+
       {/* ── 1. CLEAN APPLE-STYLE HERO SECTION ── */}
       <section className="max-w-4xl mx-auto px-6 text-center space-y-4">
         <motion.div
@@ -207,7 +221,7 @@ export default function ContactPage() {
       {/* ── 3. MAIN FORM & SIDEBAR GRID ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Contact Form Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -421,8 +435,8 @@ export default function ContactPage() {
               <p className="font-extrabold text-slate-950">Need Immediate Assistance?</p>
               <p className="text-slate-600 font-medium">
                 Call us directly at{" "}
-                <a href="tel:+917045814007" className="text-[#D8331F] font-extrabold hover:underline">
-                  +91 7045814007
+                <a href="tel:+919205226407" className="text-[#D8331F] font-extrabold hover:underline">
+                  +91 9205226407
                 </a>{" "}
                 or email{" "}
                 <a href="mailto:mohit@vizlabs.in" className="text-[#D8331F] font-extrabold hover:underline">

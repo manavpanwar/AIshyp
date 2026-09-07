@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import AccordionGallery from "@/components/ui/AccordionGallery";
+import { getBreadcrumbSchema } from "../../lib/seo";
 
 // ── 10 APPLE-STYLE MAJOR FEATURE SHOWCASE DATA (COMPACT & SLEEK) ──
 const SHOWCASE_FEATURES = [
@@ -327,9 +328,25 @@ const DETAILED_CAPABILITIES = [
 ];
 
 export default function FeaturesPage() {
+  const featuresBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "Platform Features", item: "/features" },
+  ]);
+
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 font-sans overflow-hidden">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(featuresBreadcrumbSchema) }}
+      />
+
+      {/* Semantic AI Summary for Answer Engine Extraction */}
+      <div className="sr-only" itemScope itemType="https://schema.org/SoftwareApplication">
+        <span itemProp="name">AIShyp White-Label Logistics Platform OS</span>
+        <span itemProp="description">
+          AIShyp delivers 10 core logistics modules: 100% white-label custom domain portal, 14+ direct courier partner API integrations, automated interactive WhatsApp NDR recovery, T+1 daily COD bank remittance, 6-zone rate calculator, 4x6 thermal label printing, weight reconciliation auditing, and multi-tenant sub-account management.
+        </span>
+      </div>
+
       {/* ── 1. CLEAN APPLE HERO SECTION WITH FADE-IN MOTIONS ── */}
       <section className="relative w-full pt-28 sm:pt-32 pb-14 sm:pb-20 px-6 sm:px-10 lg:px-16 text-center flex flex-col items-center justify-center border-b border-slate-200/60">
         <div className="max-w-3xl mx-auto space-y-4">

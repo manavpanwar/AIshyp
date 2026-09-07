@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getAllBlogs } from "../../lib/blogs";
-import { buildPageMetadata } from "../../lib/seo";
+import { buildPageMetadata, getBreadcrumbSchema } from "../../lib/seo";
 import BlogCardBanner from "../../components/blog/BlogCardBanner";
 
 export const metadata = buildPageMetadata({
@@ -22,11 +22,25 @@ function formatDate(dateString) {
 
 export default function BlogPage() {
   const blogs = getAllBlogs();
+  const blogBreadcrumbSchema = getBreadcrumbSchema([
+    { name: "Logistics Blog", item: "/blog" },
+  ]);
 
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogBreadcrumbSchema) }}
+      />
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 space-y-8">
-        
+        {/* Semantic AI Summary for Answer Engine Extraction */}
+        <div className="sr-only" itemScope itemType="https://schema.org/Blog">
+          <span itemProp="name">AIShyp Logistics &amp; Shipping Aggregator Blog</span>
+          <span itemProp="description">
+            Actionable technical playbooks and operational guides covering RTO reduction, delivery failure causes in India, courier API comparisons (Delhivery vs BlueDart vs DTDC vs Xpressbees), 1-click Shopify fulfillment automation, and white-label courier franchise business models.
+          </span>
+        </div>
+
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="text-xs font-mono text-slate-400">
           <ol className="flex items-center gap-2">
