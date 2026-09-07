@@ -34,12 +34,12 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: DEFAULT_TITLE,
-    template: "%s | AIShyp",
+    template: "%s | AI Shyp",
   },
   description: DEFAULT_DESCRIPTION,
   applicationName: SITE_NAME,
   keywords: [
-    "AIShyp",
+    "AI Shyp",
     "shipping aggregator platform",
     "white label shipping portal",
     "Delhivery API integration",

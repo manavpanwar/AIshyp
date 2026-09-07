@@ -10,7 +10,7 @@ const PILLARS = [
     badge: "100% White-Label",
     badgeColor: "bg-red-50 text-[#D8331F] border-red-200",
     title: "Your Logo. Your Domain. Your Colors.",
-    tagline: "Customers see your brand on every screen, invoice, and label — never AIShyp.",
+    tagline: "Customers see your brand on every screen, invoice, and label — never AI Shyp.",
     highlights: [
       {
         title: "Custom Domain & Branding",
@@ -18,7 +18,7 @@ const PILLARS = [
       },
       {
         title: "Instant AWB & Multi-Carrier Labels",
-        desc: "Generate carrier labels with your brand and 0% AIShyp watermark.",
+        desc: "Generate carrier labels with your brand and 0% AI Shyp watermark.",
       },
       {
         title: "Branded Tracking Pages",

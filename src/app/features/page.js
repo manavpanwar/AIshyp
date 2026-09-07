@@ -13,7 +13,7 @@ const SHOWCASE_FEATURES = [
     num: "01",
     tag: "WHITE-LABEL BRANDING & MULTI-TENANCY",
     title: "Your Logo. Your Domain.",
-    subtitle: "Zero AIShyp watermarks. Ever.",
+    subtitle: "Zero AI Shyp watermarks. Ever.",
     desc: "Host on your custom domain (e.g. ship.yourbrand.com). Dedicated tenant portals with custom logos, favicons, corporate color themes, and multi-tenant sub-account onboarding.",
     stats: [
       { label: "Setup Time", val: "< 5 Mins" },

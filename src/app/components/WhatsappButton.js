@@ -2,7 +2,7 @@
 
 export default function WhatsappButton() {
   const whatsappMessage = encodeURIComponent(
-    "Hi AIShyp Team, I am a new customer and want to get started. Please share details.",
+    "Hi AI Shyp Team, I am a new customer and want to get started. Please share details.",
   );
 
   return (

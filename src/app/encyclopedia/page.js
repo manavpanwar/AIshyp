@@ -6,7 +6,7 @@ import { buildPageMetadata, getBreadcrumbSchema } from "../../lib/seo";
 export const metadata = buildPageMetadata({
   title: "Logistics Encyclopedia - RTO, NDR, Shipping Aggregator Terms",
   description:
-    "Explore AIShyp encyclopedia topics on RTO, NDR, shipping aggregators, courier APIs, last-mile delivery, and ecommerce logistics.",
+    "Explore AI Shyp encyclopedia topics on RTO, NDR, shipping aggregators, courier APIs, last-mile delivery, and ecommerce logistics.",
   path: "/encyclopedia",
   images: ["/image.png"],
 });

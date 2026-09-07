@@ -20,28 +20,28 @@ const SOLUTION_FAQS = [
     category: "White-Label Software",
     question: "How much profit can I earn with a white-label shipping aggregator portal?",
     answer:
-      "You retain 100% of the margin spread between your buy rates (negotiated with couriers like Delhivery or BlueDart) and your sell rates (charged to merchants). AIShyp takes 0% revenue split.",
+      "You retain 100% of the margin spread between your buy rates (negotiated with couriers like Delhivery or BlueDart) and your sell rates (charged to merchants). AI Shyp takes 0% revenue split.",
   },
   {
     id: "wl-3",
     category: "White-Label Software",
-    question: "How long does it take to deploy AIShyp white-label shipping software?",
+    question: "How long does it take to deploy AI Shyp white-label shipping software?",
     answer:
       "Deployment takes less than 5 minutes. You map your custom domain, upload your corporate logo, connect courier API credentials, and start onboarding sub-merchants immediately.",
   },
   {
     id: "wl-4",
     category: "White-Label Software",
-    question: "Which courier partner APIs are pre-integrated into AIShyp?",
+    question: "Which courier partner APIs are pre-integrated into AI Shyp?",
     answer:
-      "AIShyp comes pre-integrated with 14+ direct carrier APIs including Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, and WooCommerce.",
+      "AI Shyp comes pre-integrated with 14+ direct carrier APIs including Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, and WooCommerce.",
   },
   {
     id: "wl-5",
     category: "White-Label Software",
-    question: "Does AIShyp support automated WhatsApp NDR and RTO reduction?",
+    question: "Does AI Shyp support automated WhatsApp NDR and RTO reduction?",
     answer:
-      "Yes. AIShyp includes an automated WhatsApp NDR engine that contacts buyers immediately upon delivery attempt failure, allowing them to update addresses or confirm COD cash to recover up to 35% of failed orders.",
+      "Yes. AI Shyp includes an automated WhatsApp NDR engine that contacts buyers immediately upon delivery attempt failure, allowing them to update addresses or confirm COD cash to recover up to 35% of failed orders.",
   },
 ];
 

@@ -92,7 +92,7 @@ export async function POST(req) {
     // ✅ SEND EMAIL TO ADMIN
     try {
       const info = await transporter.sendMail({
-        from: `"AIShyp Contact Form" <${emailUser}>`,
+        from: `"AI Shyp Contact Form" <${emailUser}>`,
         to: receiverEmail,
         replyTo: email,
         subject: `New Contact: ${subject}`,
@@ -121,12 +121,12 @@ ${message}
 
       // ✅ AUTO-REPLY TO USER (form email)
       const autoReplyInfo = await transporter.sendMail({
-        from: `"AIShyp Team" <${emailUser}>`,
+        from: `"AI Shyp Team" <${emailUser}>`,
         to: email,
-        subject: "We received your enquiry - AIShyp",
+        subject: "We received your enquiry - AI Shyp",
         text: `Hi ${name},
 
-Thanks for contacting AIShyp.
+Thanks for contacting AI Shyp.
 We have received your enquiry and our team will connect with you shortly.
 
 Your submitted details:
@@ -134,17 +134,17 @@ Your submitted details:
 - Phone: ${phone}
 
 Best regards,
-AIShyp Team`,
+AI Shyp Team`,
         html: `
           <p>Hi ${name},</p>
-          <p>Thanks for contacting <b>AIShyp</b>.</p>
+          <p>Thanks for contacting <b>AI Shyp</b>.</p>
           <p>We have received your enquiry and our team will connect with you shortly.</p>
           <p><b>Your submitted details:</b></p>
           <ul>
             <li><b>Subject:</b> ${subject}</li>
             <li><b>Phone:</b> ${phone}</li>
           </ul>
-          <p>Best regards,<br/>AIShyp Team</p>
+          <p>Best regards,<br/>AI Shyp Team</p>
         `,
       });
 

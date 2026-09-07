@@ -383,10 +383,10 @@ export default function ContactPage() {
             {/* Why Partner Card */}
             <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-4">
               <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest px-2.5 py-0.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                Why AIShyp OS
+                Why AI Shyp OS
               </span>
               <h3 className="text-xl font-extrabold font-sans text-white tracking-tight">
-                Why Launch With AIShyp?
+                Why Launch With AI Shyp?
               </h3>
               <ul className="space-y-3 text-xs text-slate-300 font-medium">
                 <li className="flex items-start gap-2.5">

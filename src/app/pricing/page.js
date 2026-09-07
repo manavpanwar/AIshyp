@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import FAQ from "../../components/FAQ";
 import { buildFaqSchema, faqItems } from "../../data/faq";
-import { getPricingOfferCatalogSchema, getBreadcrumbSchema } from "../../lib/seo";
+import { getPricingOfferCatalogSchema, getSoftwareApplicationSchema, getBreadcrumbSchema } from "../../lib/seo";
 
 // ── EXACT PRICING PLANS DATA FROM FLYER ──
 const PRICING_PLANS = [
@@ -115,6 +115,7 @@ export default function PricingPage() {
     .slice(0, 8);
   const pricingFaqSchema = buildFaqSchema(pricingFaqItems);
   const pricingProductSchema = getPricingOfferCatalogSchema();
+  const pricingSoftwareSchema = getSoftwareApplicationSchema();
   const pricingBreadcrumbSchema = getBreadcrumbSchema([
     { name: "SaaS Pricing", item: "/pricing" },
   ]);
@@ -131,16 +132,20 @@ export default function PricingPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSoftwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingBreadcrumbSchema) }}
       />
 
       {/* ── 1. CLEAN APPLE-STYLE HERO SECTION ── */}
       <section className="max-w-4xl mx-auto px-6 text-center space-y-4">
         {/* Semantic AI Summary for Answer Engine Extraction */}
-        <div className="sr-only" itemScope itemType="https://schema.org/Product">
-          <span itemProp="name">AIShyp White-Label Shipping Portal</span>
+        <div className="sr-only" itemScope itemType="https://schema.org/SoftwareApplication">
+          <span itemProp="name">AI Shyp Multi-Tenant White-Label Logistics SaaS</span>
           <span itemProp="description">
-            AIShyp SaaS pricing offers three transparent plans: Starter at ₹6,999/month (500 orders), Growth at ₹11,999/month (2,000 orders with Shopify, WhatsApp &amp; API integration), and Ultimate at ₹19,999/month (unlimited orders with Cash Collection). Portal owners keep 100% of their gross profit margin spread with zero revenue share.
+            AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. Pricing offers three transparent plans: Starter at ₹6,999/month (500 orders), Growth at ₹11,999/month (2,000 orders), and Ultimate at ₹19,999/month (unlimited orders).
           </span>
         </div>
         <motion.div

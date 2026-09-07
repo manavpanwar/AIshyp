@@ -11,30 +11,30 @@ const COMPARISON_FAQS = [
   {
     id: "vs-1",
     category: "Platform Comparison",
-    question: "Why choose AIShyp over Shiprocket for white-label shipping?",
+    question: "Why choose AI Shyp over Shiprocket for white-label shipping?",
     answer:
-      "Shiprocket is a closed third-party aggregator that retains all brand visibility and merchant control. AIShyp is a 100% white-label shipping aggregator OS hosted on your custom domain (ship.yourbrand.com), allowing you to build your own logistics enterprise and keep 100% of profit margins.",
+      "Shiprocket is a closed third-party aggregator that retains all brand visibility and merchant control. AI Shyp is a 100% white-label shipping aggregator OS hosted on your custom domain (ship.yourbrand.com), allowing you to build your own logistics enterprise and keep 100% of profit margins.",
   },
   {
     id: "vs-2",
     category: "Platform Comparison",
-    question: "Can I connect my own courier API contracts (Delhivery, BlueDart, DTDC) on AIShyp?",
+    question: "Can I connect my own courier API contracts (Delhivery, BlueDart, DTDC) on AI Shyp?",
     answer:
-      "Yes. AIShyp lets you plug your direct courier API credentials directly into your portal, configure custom buy/sell margin slabs, and retain full control over courier SLA routing.",
+      "Yes. AI Shyp lets you plug your direct courier API credentials directly into your portal, configure custom buy/sell margin slabs, and retain full control over courier SLA routing.",
   },
   {
     id: "vs-3",
     category: "Platform Comparison",
-    question: "Does AIShyp charge a percentage fee on shipping transactions?",
+    question: "Does AI Shyp charge a percentage fee on shipping transactions?",
     answer:
-      "No. AIShyp operates on transparent flat monthly SaaS subscriptions (Starter ₹6,999, Growth ₹11,999, Ultimate ₹19,999) with 0% revenue share and zero per-order commission cuts.",
+      "No. AI Shyp operates on transparent flat monthly SaaS subscriptions (Starter ₹6,999, Growth ₹11,999, Ultimate ₹19,999) with 0% revenue share and zero per-order commission cuts.",
   },
   {
     id: "vs-4",
     category: "Platform Comparison",
-    question: "How does COD remittance on AIShyp compare to Shiprocket?",
+    question: "How does COD remittance on AI Shyp compare to Shiprocket?",
     answer:
-      "AIShyp processes T+1 daily bank remittances with automated payout ledger scraping, compared to standard delayed weekly remittance cycles.",
+      "AI Shyp processes T+1 daily bank remittances with automated payout ledger scraping, compared to standard delayed weekly remittance cycles.",
   },
 ];
 
@@ -81,7 +81,7 @@ export default function ShiprocketComparisonPage() {
   const softwareSchema = getSoftwareApplicationSchema();
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Comparisons", item: "/vs/shiprocket" },
-    { name: "AIShyp vs Shiprocket", item: "/vs/shiprocket" },
+    { name: "AI Shyp vs Shiprocket", item: "/vs/shiprocket" },
   ]);
 
   return (
@@ -117,7 +117,7 @@ export default function ShiprocketComparisonPage() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight"
         >
-          AIShyp vs Shiprocket: <span className="text-[#D8331F]">White-Label Software Comparison</span>
+          AI Shyp vs Shiprocket: <span className="text-[#D8331F]">White-Label Software Comparison</span>
         </motion.h1>
 
         <motion.p
@@ -126,7 +126,7 @@ export default function ShiprocketComparisonPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed"
         >
-          Why leading shipping aggregators, courier franchises, and e-commerce brands choose AIShyp over Shiprocket to build their own independent logistics enterprise.
+          Why leading shipping aggregators, courier franchises, and e-commerce brands choose AI Shyp over Shiprocket to build their own independent logistics enterprise.
         </motion.p>
       </section>
 
@@ -137,7 +137,7 @@ export default function ShiprocketComparisonPage() {
             <thead className="bg-slate-950 text-white font-sans">
               <tr>
                 <th className="py-4 px-6 font-extrabold">FEATURE</th>
-                <th className="py-4 px-6 font-extrabold bg-[#D8331F] text-white">AIShyp White-Label</th>
+                <th className="py-4 px-6 font-extrabold bg-[#D8331F] text-white">AI Shyp White-Label</th>
                 <th className="py-4 px-6 font-extrabold text-slate-300">Shiprocket</th>
               </tr>
             </thead>
@@ -158,7 +158,7 @@ export default function ShiprocketComparisonPage() {
       <section className="mt-16">
         <FAQ
           items={COMPARISON_FAQS}
-          title="AIShyp vs Shiprocket FAQs"
+          title="AI Shyp vs Shiprocket FAQs"
           subtitle="Key differences between a white-label logistics OS and a standard courier aggregator."
           showSearch={false}
           showCategoryFilter={false}
@@ -178,7 +178,7 @@ export default function ShiprocketComparisonPage() {
               href="/contact"
               className="bg-[#D8331F] text-white rounded-full px-8 py-3.5 text-xs font-extrabold inline-block shadow-md hover:bg-[#FF8A6E] transition-colors"
             >
-              Get Started with AIShyp →
+              Get Started with AI Shyp →
             </Link>
           </div>
         </div>

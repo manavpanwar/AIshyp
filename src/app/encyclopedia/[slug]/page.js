@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
 
   if (!topic) {
     return {
-      title: "Topic Not Found | AIShyp Encyclopedia",
+      title: "Topic Not Found | AI Shyp Encyclopedia",
       description: "This encyclopedia topic does not exist.",
     };
   }

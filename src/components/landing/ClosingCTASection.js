@@ -56,7 +56,7 @@ export default function ClosingCTASection() {
         >
           <span className="text-2xl sm:text-3xl font-extrabold text-white">📦</span>
           <span className="text-[9px] font-mono font-bold text-white/90 uppercase tracking-widest mt-1">
-            AIShyp 3D
+            AI Shyp 3D
           </span>
         </div>
       </div>

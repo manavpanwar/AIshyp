@@ -1,13 +1,13 @@
 export const SITE_URL = "https://aishyp.com";
 
-export const SITE_NAME = "AIShyp";
+export const SITE_NAME = "AI Shyp";
 
 export const DEFAULT_OG_IMAGE = "/aishiplogo.png";
 
-export const DEFAULT_TITLE = "AIShyp | White-Label Shipping Aggregator & Courier OS";
+export const DEFAULT_TITLE = "AI Shyp | White-Label Shipping Aggregator & Courier OS";
 
 export const DEFAULT_DESCRIPTION =
-  "AIShyp powers shipping aggregators, logistics franchises, and e-commerce brands with a white-label shipping portal, 14+ direct courier APIs (Delhivery, BlueDart, DTDC), automated WhatsApp NDR, and T+1 COD remittance.";
+  "AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. Powers shipping aggregators, logistics franchises, and e-commerce brands with 14+ direct courier APIs, automated WhatsApp NDR, and T+1 COD remittance.";
 
 export function buildPageMetadata({
   title,
@@ -144,7 +144,7 @@ export function getLogisticsServiceSchema() {
       name: "India",
     },
     description:
-      "AIShyp provides white-label shipping software and courier OS platforms for courier aggregators, logistics franchises, and shipping businesses. The software powers both B2C retail e-commerce parcel shipping and B2B heavy cargo freight operations across 29,000+ Indian pincodes with 14+ courier APIs (Delhivery, BlueDart, DTDC), automated WhatsApp NDR, and custom domain multi-tenancy.",
+      "AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. The software powers both B2C retail e-commerce parcel shipping and B2B heavy cargo freight operations across 29,000+ Indian pincodes with 14+ courier APIs (Delhivery, BlueDart, DTDC), automated WhatsApp NDR, and custom domain multi-tenancy.",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Courier Aggregator Software Catalog",
@@ -191,10 +191,10 @@ export function getSoftwareApplicationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "AIShyp",
-    operatingSystem: "Web",
-    applicationCategory: "LogisticsApplication",
-    description: DEFAULT_DESCRIPTION,
+    name: "AI Shyp",
+    operatingSystem: "Cloud-Based SaaS",
+    applicationCategory: "BusinessApplication / Logistics Software",
+    description: "White-label courier aggregation and multi-tenant logistics software for shipping businesses in India.",
     url: SITE_URL,
     publisher: {
       "@type": "Organization",
@@ -202,47 +202,54 @@ export function getSoftwareApplicationSchema() {
       url: SITE_URL,
       logo: `${SITE_URL}/aishiplogo.png`,
     },
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Starter Plan",
-        price: "6999",
-        priceCurrency: "INR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "INR",
+      lowPrice: "6999",
+      highPrice: "19999",
+      priceCount: "3",
+      offers: [
+        {
+          "@type": "Offer",
+          name: "Starter Plan",
           price: "6999",
           priceCurrency: "INR",
-          unitText: "MONTH",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "6999",
+            priceCurrency: "INR",
+            unitText: "MONTH",
+          },
+          description: "Essential shipping features for emerging brands and new regional logistics partners.",
         },
-        description: "Essential shipping features for emerging brands and new regional logistics partners.",
-      },
-      {
-        "@type": "Offer",
-        name: "Growth Plan",
-        price: "11999",
-        priceCurrency: "INR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
+        {
+          "@type": "Offer",
+          name: "Growth Plan",
           price: "11999",
           priceCurrency: "INR",
-          unitText: "MONTH",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "11999",
+            priceCurrency: "INR",
+            unitText: "MONTH",
+          },
+          description: "Complete automation stack with Shopify, WhatsApp, and API integrations for scaling aggregators.",
         },
-        description: "Complete automation stack with Shopify, WhatsApp, and API integrations for scaling aggregators.",
-      },
-      {
-        "@type": "Offer",
-        name: "Ultimate Plan",
-        price: "19999",
-        priceCurrency: "INR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
+        {
+          "@type": "Offer",
+          name: "Ultimate Plan",
           price: "19999",
           priceCurrency: "INR",
-          unitText: "MONTH",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "19999",
+            priceCurrency: "INR",
+            unitText: "MONTH",
+          },
+          description: "Enterprise operations with Cash Collection, unlimited order cap, and 100% full feature access.",
         },
-        description: "Enterprise operations with Cash Collection, unlimited order cap, and 100% full feature access.",
-      },
-    ],
+      ],
+    },
   };
 }
 
@@ -287,7 +294,7 @@ export function getPricingOfferCatalogSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "AIShyp White-Label Shipping Portal",
+    name: "AI Shyp White-Label Shipping Portal",
     description: "Deploy your white-label shipping aggregator portal on your custom domain in 5 minutes with 14+ courier APIs.",
     brand: {
       "@type": "Brand",
@@ -338,7 +345,7 @@ export function getDefinedTermSchema(topic) {
     description: topic.shortDefinition,
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
-      name: "AIShyp Logistics & E-Commerce Shipping Encyclopedia",
+      name: "AI Shyp Logistics & E-Commerce Shipping Encyclopedia",
       url: `${SITE_URL}/encyclopedia`,
     },
     url: `${SITE_URL}/encyclopedia/${topic.slug}`,
@@ -350,8 +357,8 @@ export function getCarrierIntegrationsSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "AIShyp Pre-Integrated Courier Carriers & E-Commerce APIs",
-    description: "14+ direct carrier APIs and storefront connectors built into the AIShyp platform.",
+    name: "AI Shyp Pre-Integrated Courier Carriers & E-Commerce APIs",
+    description: "14+ direct carrier APIs and storefront connectors built into the AI Shyp platform.",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Delhivery Courier API" },
       { "@type": "ListItem", position: 2, name: "BlueDart Express API" },
@@ -375,9 +382,9 @@ export function getAboutPageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About AIShyp",
+    name: "About AI Shyp",
     url: `${SITE_URL}/about`,
-    description: "Learn about AIShyp, the white-label courier OS and shipping aggregator platform powering logistics franchises and e-commerce brands in India.",
+    description: "Learn about AI Shyp, the white-label courier OS and shipping aggregator platform powering logistics franchises and e-commerce brands in India.",
     mainEntity: getOrganizationSchema(),
   };
 }
@@ -387,9 +394,9 @@ export function getContactPageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact AIShyp Platform Engineering",
+    name: "Contact AI Shyp Platform Engineering",
     url: `${SITE_URL}/contact`,
-    description: "Get in touch with AIShyp logistics specialists for platform onboarding, custom courier API setup, and enterprise SLA inquiries.",
+    description: "Get in touch with AI Shyp logistics specialists for platform onboarding, custom courier API setup, and enterprise SLA inquiries.",
     mainEntity: {
       "@type": "Organization",
       name: SITE_NAME,

@@ -127,40 +127,36 @@ const INTEGRATIONS_LIST = [
 
   // WMS & Open APIs
   {
-    name: "AIShyp Open REST API",
+    name: "AI Shyp Open REST API",
     category: "wms",
-    type: "Developer REST API & Webhooks",
-    logo: "/aishiplogo.png",
-    status: "Developer Ready",
-    desc: "Comprehensive REST endpoints for order creation, pincode serviceability, rate comparison, and real-time event webhooks.",
-    badgeColor: "bg-[#D8331F]/10 text-[#D8331F] border-red-200",
+    type: "REST API & Webhooks",
+    logo: "/apiicon.png",
+    status: "Production API Ready",
+    desc: "Full developer API endpoint documentation for custom ERPs, Magento, Custom Node/Python back-ends, and WMS software.",
+    badgeColor: "bg-slate-100 text-slate-800 border-slate-300",
   },
 ];
 
 const SHOPIFY_STEPS = [
   {
-    step: "01",
-    icon: "🔑",
-    title: "1-Click OAuth Connect",
-    desc: "Enter your store URL (yourstore.myshopify.com) in your AIShyp portal and authorize instant 2-way sync.",
+    step: "1",
+    title: "1-Click Connect",
+    desc: "Enter your store URL (yourstore.myshopify.com) in your AI Shyp portal and authorize instant 2-way sync.",
   },
   {
-    step: "02",
-    icon: "📦",
-    title: "Automated Order Ingestion",
-    desc: "New customer orders on your Shopify store instantly flow into your shipping dashboard within 500ms.",
+    step: "2",
+    title: "Auto Order Ingestion",
+    desc: "Unfulfilled orders appear in your portal automatically with SKU weights and buyer details.",
   },
   {
-    step: "03",
-    icon: "🏷️",
-    title: "Bulk Dispatch & Labeling",
-    desc: "Select orders, compare courier rates side-by-side, generate thermal 4x6 labels, and schedule pickups.",
+    step: "3",
+    title: "Rate Comparison & Label Gen",
+    desc: "Compare Delhivery, BlueDart, DTDC rates side-by-side and generate shipping labels instantly.",
   },
   {
-    step: "04",
-    icon: "🔄",
-    title: "Live Tracking Pushback",
-    desc: "AIShyp automatically updates order fulfillment status on Shopify and emails branded tracking links to buyers.",
+    step: "4",
+    title: "Auto Fulfillment & Tracking Push",
+    desc: "AI Shyp automatically updates order fulfillment status on Shopify and emails branded tracking links to buyers.",
   },
 ];
 
@@ -189,9 +185,9 @@ export default function IntegrationPage() {
 
       {/* Semantic AI Summary for Answer Engine Extraction */}
       <div className="sr-only" itemScope itemType="https://schema.org/ItemList">
-        <span itemProp="name">AIShyp Carrier Partner APIs &amp; Storefront Integrations</span>
+        <span itemProp="name">AI Shyp Carrier Partner APIs &amp; Storefront Integrations</span>
         <span itemProp="description">
-          AIShyp comes pre-integrated with 14+ direct carrier APIs and storefront channels: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart Logistics, Trackon, Ecom Express, DP World B2B Freight, FedEx, Amazon Shipping, 1-click Shopify app integration, and WooCommerce.
+          AI Shyp comes pre-integrated with 14+ direct carrier APIs and storefront channels: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart Logistics, Trackon, Ecom Express, DP World B2B Freight, FedEx, Amazon Shipping, 1-click Shopify app integration, and WooCommerce.
         </span>
       </div>
       
@@ -336,7 +332,7 @@ export default function IntegrationPage() {
               // Guided Integration Setup
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-sans tracking-tight">
-              How AIShyp + Shopify Integration Works
+              How AI Shyp + Shopify Integration Works
             </h2>
             <p className="text-slate-400 text-xs sm:text-sm font-medium">
               Zero code required. Follow these 4 simple steps to automate your shipping workflow.

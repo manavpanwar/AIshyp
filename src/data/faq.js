@@ -216,6 +216,27 @@ export const faqItems = [
     answer:
       "Integrations reduce manual entry, accelerate dispatch, improve tracking accuracy, and create better visibility across operations and customer support teams.",
   },
+  {
+    id: "social-script-1",
+    category: "Delivery Optimization",
+    question: "How does AI Shyp handle weight discrepancy disputes with courier partners?",
+    answer:
+      "AI Shyp provides automated docket-based weight audit logs that cross-verify physical parcel dimensions against carrier billings. Master admins and merchants can audit weight discrepancies directly in the console and dispute excess charges before wallet settlement.",
+  },
+  {
+    id: "social-script-2",
+    category: "RTO & NDR",
+    question: "How does automated WhatsApp NDR recovery increase delivery success rates?",
+    answer:
+      "When a courier marks a delivery attempt as failed (e.g., customer unavailable or address incomplete), AI Shyp's automated WhatsApp NDR engine immediately sends an interactive message to the buyer. The buyer can update delivery instructions, share GPS location, or confirm COD cash readiness, recovering up to 35% of failed orders.",
+  },
+  {
+    id: "social-script-3",
+    category: "Shipping Aggregator",
+    question: "What is AI Shyp's white-label logistics SaaS model?",
+    answer:
+      "AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain.",
+  },
 ];
 
 export const faqCategories = [

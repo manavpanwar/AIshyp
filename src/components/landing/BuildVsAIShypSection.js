@@ -69,7 +69,7 @@ export default function BuildVsAIShypSection() {
             Why Build From Scratch When You Can <span className="text-[#D8331F]">Launch Today?</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium">
-            Building custom aggregator software takes months and millions in engineering costs. AIShyp gives you an enterprise platform instantly.
+            Building custom aggregator software takes months and millions in engineering costs. AI Shyp gives you an enterprise platform instantly.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function BuildVsAIShypSection() {
           <div className="grid grid-cols-12 bg-slate-900 text-white p-3.5 text-xs font-mono font-bold uppercase tracking-wider">
             <div className="col-span-4 sm:col-span-3">Feature / Capability</div>
             <div className="col-span-4 sm:col-span-4 text-slate-400">Custom Engineering</div>
-            <div className="col-span-4 sm:col-span-5 text-emerald-400">AIShyp White-Label SaaS</div>
+            <div className="col-span-4 sm:col-span-5 text-emerald-400">AI Shyp White-Label SaaS</div>
           </div>
 
           <div className="divide-y divide-slate-200/80">

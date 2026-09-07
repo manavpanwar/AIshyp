@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   const blog = getBlogBySlug(slug);
   if (!blog) {
     return {
-      title: "Blog Not Found | AIShyp",
+      title: "Blog Not Found | AI Shyp",
       description: "The requested blog post could not be found.",
     };
   }

@@ -443,11 +443,175 @@ const blogTopics = [
       },
     ],
   },
+  {
+    title: "How to Start a Courier Aggregator Business in India using White-Label SaaS",
+    slug: "how-to-start-courier-aggregator-business-india",
+    keyword: "start courier aggregator business India white label SaaS",
+    intent: "guide",
+    description: "Complete 2026 blueprint for launching your branded courier aggregator platform in India on a custom domain with 14+ courier APIs, zero coding, and 100% margin retention.",
+    readingTime: "10 min read",
+    content: [
+      {
+        type: "paragraph",
+        value: "The Indian e-commerce logistics market is expanding rapidly, driving explosive demand for shipping aggregation platforms. E-commerce sellers, D2C brands, and retail merchants are continuously seeking reliable shipping aggregators that offer competitive rates across multiple courier carriers like Delhivery, BlueDart, DTDC, and Xpressbees.",
+      },
+      {
+        type: "heading",
+        value: "Why Launch a White-Label Courier Aggregator?",
+      },
+      {
+        type: "paragraph",
+        value: "Traditionally, building a multi-carrier shipping platform required millions of rupees in software engineering, months of custom API integration, and ongoing maintenance of server infrastructure. With multi-tenant white-label shipping SaaS platforms like AI Shyp, entrepreneurs can launch their own fully branded courier aggregator portal in less than 5 minutes.",
+      },
+      {
+        type: "heading",
+        value: "Step 1: Domain Mapping & Custom Branding",
+      },
+      {
+        type: "paragraph",
+        value: "The first step is pointing your custom domain (e.g. ship.yourbrand.com) to your white-label SaaS instance. Upload your logo, brand favicon, corporate color palette, and configure custom transactional email notifications so that your merchants see 100% of your brand identity.",
+      },
+      {
+        type: "heading",
+        value: "Step 2: Connecting Carrier APIs & Master Contracts",
+      },
+      {
+        type: "paragraph",
+        value: "Plug in your direct API credentials for leading Indian logistics providers: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, and DP World. The white-label OS normalizes carrier responses into a single standard REST API schema for waybills, shipping labels, pick-up scheduling, and live webhooks.",
+      },
+      {
+        type: "heading",
+        value: "Step 3: Setting Up Rate Slab Markups & Gross Margins",
+      },
+      {
+        type: "paragraph",
+        value: "Negotiate volume-discounted buy rates directly with couriers. In your white-label admin console, configure tiered sell rate cards for your sub-merchants across Intracity, Within State, Metro-to-Metro, and Rest of India (ROI) zones. You retain 100% of the profit margin spread with zero revenue share.",
+      },
+      {
+        type: "heading",
+        value: "Step 4: Automated Prepaid Wallets & COD Payouts",
+      },
+      {
+        type: "paragraph",
+        value: "Enable automated wallet recharges via UPI and payment gateways. For Cash-on-Delivery (COD) orders, automated T+1 remittance ledgers track carrier disbursements and credit merchant balances seamlessly.",
+      },
+      {
+        type: "heading",
+        value: "Step 5: Automated WhatsApp NDR Recovery",
+      },
+      {
+        type: "paragraph",
+        value: "Incorporate automated WhatsApp NDR workflows that trigger instant buyer messages upon delivery failure, allowing end-customers to update shipping addresses or confirm cash availability to recover up to 35% of failed deliveries.",
+      },
+      {
+        type: "paragraph",
+        value: "To learn how AI Shyp powers white-label logistics portals across India, explore our ",
+        link: { label: "White Label Portal Solutions", href: "/solutions/white-label-logistics-portal-india" },
+        trailing: " or contact our platform engineering team.",
+      },
+    ],
+  },
+  {
+    title: "Building vs. Buying Shipping Software: A Guide for Logistics Operators",
+    slug: "building-vs-buying-shipping-software-guide",
+    keyword: "building vs buying shipping software",
+    intent: "comparison",
+    description: "An in-depth cost, SLA, and time-to-market analysis comparing custom in-house logistics software development vs deploying a multi-tenant white-label shipping SaaS platform.",
+    readingTime: "9 min read",
+    content: [
+      {
+        type: "paragraph",
+        value: "Logistics aggregators and regional courier operators face a critical architectural decision when scaling: Should you build custom shipping software from scratch or buy a turnkey multi-tenant white-label SaaS platform?",
+      },
+      {
+        type: "heading",
+        value: "The Hidden Costs of Custom In-House Development",
+      },
+      {
+        type: "paragraph",
+        value: "Building custom shipping software requires full-stack engineers, DevOps infrastructure, security auditing, and continuous maintenance of carrier API updates. Carrier APIs (such as Delhivery, BlueDart, or DTDC) update specs frequently, requiring dedicated engineering bandwidth to maintain uptime.",
+      },
+      {
+        type: "heading",
+        value: "Key Comparison Metrics",
+      },
+      {
+        type: "list",
+        items: [
+          "Time to Market: Custom Dev takes 6 to 12 months; White-Label SaaS deploys in 5 minutes.",
+          "Upfront Capital Cost: Custom Dev requires ₹15L - ₹40L; White-Label SaaS starts at flat monthly SaaS pricing.",
+          "Carrier Integrations: Custom Dev requires individual API builds; White-Label SaaS comes pre-integrated with 14+ carrier APIs.",
+          "Maintenance & SLA: White-Label SaaS handles server scaling, database backups, and API patch updates automatically.",
+        ],
+      },
+      {
+        type: "heading",
+        value: "The Advantage of Multi-Tenant SaaS Architecture",
+      },
+      {
+        type: "paragraph",
+        value: "With AI Shyp, logistics operators get the best of both worlds: zero engineering headache with 100% brand ownership. You operate on your custom domain with your custom rates while relying on an enterprise-grade cloud back-end.",
+      },
+      {
+        type: "paragraph",
+        value: "Read more about our multi-tenant SaaS capabilities on our ",
+        link: { label: "Multi-Tenant Shipping SaaS page", href: "/solutions/multi-tenant-shipping-saas" },
+        trailing: ".",
+      },
+    ],
+  },
+  {
+    title: "How Multi-Tenant Logistics Software Manages Sub-Vendor Wallets and Rates",
+    slug: "multi-tenant-logistics-software-sub-vendor-wallets-rates",
+    keyword: "multi tenant logistics software sub vendor wallets rates",
+    intent: "technical",
+    description: "Technical deep-dive into database tenancy, sub-vendor wallet ledgers, automated COD remittance, and dynamic rate markup engines in modern logistics SaaS.",
+    readingTime: "8 min read",
+    content: [
+      {
+        type: "paragraph",
+        value: "Managing financial ledgers and dynamic courier rate cards across hundreds of sub-merchants and regional franchise outlets requires a robust multi-tenant software architecture.",
+      },
+      {
+        type: "heading",
+        value: "Database Tenancy & Data Isolation",
+      },
+      {
+        type: "paragraph",
+        value: "In a multi-tenant logistics engine like AI Shyp, each tenant's wallet balance, shipping ledger, and order history are isolated at the database query level. This ensures strict data privacy across sub-vendors and franchise accounts.",
+      },
+      {
+        type: "heading",
+        value: "Dynamic Rate Markup & Margin Calculations",
+      },
+      {
+        type: "paragraph",
+        value: "Master admins define zone-based rate matrices for Intracity, Within State, Metro-to-Metro, and Rest of India. When a merchant requests rate options, the engine calculates the carrier base cost, applies the configured tenant markup tier, and displays the final price seamlessly.",
+      },
+      {
+        type: "heading",
+        value: "Automated Wallet Deduction & COD Reconciliation",
+      },
+      {
+        type: "paragraph",
+        value: "For prepaid shipping, the wallet balance is debited immediately upon manifest creation. For Cash-on-Delivery (COD) shipments, automated remittance ledgers track carrier cash recovery and process T+1 merchant payouts.",
+      },
+      {
+        type: "paragraph",
+        value: "Explore our courier aggregation software features on our ",
+        link: { label: "Courier Aggregation Software India page", href: "/solutions/courier-aggregation-software-india" },
+        trailing: ".",
+      },
+    ],
+  },
 ];
 
 const FALLBACK_BLOG_IMAGE = "/aishiplogo.png";
 
 const TOPIC_IMAGE_MAP = {
+  "how-to-start-courier-aggregator-business-india": "/bestshipping.png",
+  "building-vs-buying-shipping-software-guide": "/aggreshipping.png",
+  "multi-tenant-logistics-software-sub-vendor-wallets-rates": "/Ratesunlock.png",
   "reduce-rto-ecommerce-india": "/reduceRto.png",
   "delivery-failure-reasons-india": "/failurereason.png",
   "best-shipping-aggregator-india": "/bestshipping.png",
@@ -469,7 +633,7 @@ export function getAllBlogs() {
       const day = String(28 - (idx % 20)).padStart(2, "0");
       return {
         ...blog,
-        author: "AIShyp Logistics Squad",
+        author: "AI Shyp Logistics Squad",
         publishedDate: `2026-${month}-${day}`,
         featuredImage: TOPIC_IMAGE_MAP[blog.slug] || FALLBACK_BLOG_IMAGE,
         tags: [

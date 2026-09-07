@@ -118,7 +118,7 @@ export default function BlogCardBanner({ slug, title, className = "h-48 sm:h-52"
           {theme.badge}
         </span>
         <span className="text-xs font-mono font-bold text-slate-400">
-          AIShyp OS
+          AI Shyp OS
         </span>
       </div>
 
@@ -142,7 +142,7 @@ export default function BlogCardBanner({ slug, title, className = "h-48 sm:h-52"
           VERIFIED GUIDE
         </span>
         <span style={{ color: theme.accentColor }} className="font-extrabold">
-          AIShyp Insights →
+          AI Shyp Insights →
         </span>
       </div>
     </div>

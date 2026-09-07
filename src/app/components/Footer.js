@@ -50,11 +50,11 @@ export default function Footer() {
       { label: "Careers", href: "/contact" },
       { label: "Contact Us", href: "/contact" },
     ],
-    "SaaS Platform": [
-      { label: "White-Label Setup", href: "/features" },
-      { label: "Franchise OS", href: "/features" },
-      { label: "Courier APIs", href: "/features" },
-      { label: "Merchant Portal", href: "/features" },
+    Solutions: [
+      { label: "White Label Portal India", href: "/solutions/white-label-logistics-portal-india" },
+      { label: "Courier Aggregation Software", href: "/solutions/courier-aggregation-software-india" },
+      { label: "Multi-Tenant Shipping SaaS", href: "/solutions/multi-tenant-shipping-saas" },
+      { label: "RTO & NDR Automation", href: "/solutions/rto-ndr-automation" },
     ],
     Support: [
       { label: "SaaS Pricing", href: "/pricing" },
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* ── NEWSLETTER ── */}
         <div className="border-b border-slate-200">
           <div className="max-w-6xl mx-auto px-6 py-12 text-center">
-            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Stay updated with AIShyp SaaS</p>
+            <p className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Stay updated with AI Shyp SaaS</p>
             <p className="text-slate-600 text-sm mt-2">Get franchise software updates, feature releases & SaaS news.</p>
             <form onSubmit={handleSubscribe} className="mt-6 w-full">
               <div className="flex items-center justify-center gap-2 w-full">
@@ -141,7 +141,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-slate-600 leading-relaxed max-w-xs">
-              White-label logistics software platform empowering shipping businesses, franchise owners & aggregators with custom domain setup, direct courier API integrations, and 100% margin control.
+              AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain.
             </p>
 
             {/* Socials */}
@@ -185,7 +185,7 @@ export default function Footer() {
         <div className="border-t border-slate-200 bg-white">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-slate-500 font-mono tracking-wide">
-              © {currentYear} AIShyp Logistics SaaS. All rights reserved.
+              © {currentYear} AI Shyp Logistics SaaS. All rights reserved.
             </p>
             <div className="flex items-center gap-5">
               {[

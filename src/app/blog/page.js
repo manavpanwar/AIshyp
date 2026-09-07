@@ -5,7 +5,7 @@ import { buildPageMetadata, getBreadcrumbSchema } from "../../lib/seo";
 import BlogCardBanner from "../../components/blog/BlogCardBanner";
 
 export const metadata = buildPageMetadata({
-  title: "Logistics & Shipping Aggregator Insights | AIShyp Blog",
+  title: "Logistics & Shipping Aggregator Insights | AI Shyp Blog",
   description:
     "Actionable guides on e-commerce shipping automation, RTO reduction, WhatsApp NDR workflows, courier API integrations, and white-label aggregator SaaS.",
   path: "/blog",

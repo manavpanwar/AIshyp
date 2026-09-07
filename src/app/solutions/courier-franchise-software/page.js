@@ -11,23 +11,23 @@ const FRANCHISE_FAQS = [
   {
     id: "cf-1",
     category: "Courier Franchise",
-    question: "How does AIShyp help me start a tech-enabled courier franchise in India?",
+    question: "How does AI Shyp help me start a tech-enabled courier franchise in India?",
     answer:
-      "AIShyp provides a turn-key digital shipping portal on your custom domain. You can onboard local sellers, connect direct courier APIs (Delhivery, BlueDart, DTDC, Xpressbees), set custom buy/sell margin slabs, and manage cash collection and bookings from a single panel.",
+      "AI Shyp provides a turn-key digital shipping portal on your custom domain. You can onboard local sellers, connect direct courier APIs (Delhivery, BlueDart, DTDC, Xpressbees), set custom buy/sell margin slabs, and manage cash collection and bookings from a single panel.",
   },
   {
     id: "cf-2",
     category: "Courier Franchise",
-    question: "Can I onboard sub-agents and regional franchise branches on AIShyp?",
+    question: "Can I onboard sub-agents and regional franchise branches on AI Shyp?",
     answer:
-      "Yes. AIShyp includes multi-tenant sub-account onboarding with role-based permissions, allowing you to set up sub-agents, regional branches, and counter staff with customized rate cards and wallet limits.",
+      "Yes. AI Shyp includes multi-tenant sub-account onboarding with role-based permissions, allowing you to set up sub-agents, regional branches, and counter staff with customized rate cards and wallet limits.",
   },
   {
     id: "cf-3",
     category: "Courier Franchise",
     question: "How does cash collection work for walk-in courier booking hubs?",
     answer:
-      "AIShyp features a dedicated Cash Collection module that logs cash received at booking counters, credits merchant wallets, and reconciles cash balances against daily courier dispatch manifests.",
+      "AI Shyp features a dedicated Cash Collection module that logs cash received at booking counters, credits merchant wallets, and reconciles cash balances against daily courier dispatch manifests.",
   },
   {
     id: "cf-4",

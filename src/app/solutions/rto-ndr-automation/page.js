@@ -13,14 +13,14 @@ const NDR_FAQS = [
     category: "NDR & RTO",
     question: "How does automated WhatsApp NDR reduce RTO by up to 35%?",
     answer:
-      "When a courier logs a delivery attempt failure (e.g. buyer unavailable or wrong address), AIShyp instantly sends an interactive WhatsApp message to the buyer. The buyer can update their address, select a new delivery date, or confirm COD cash. Instructions are pushed directly to courier rider devices within seconds.",
+      "When a courier logs a delivery attempt failure (e.g. buyer unavailable or wrong address), AI Shyp instantly sends an interactive WhatsApp message to the buyer. The buyer can update their address, select a new delivery date, or confirm COD cash. Instructions are pushed directly to courier rider devices within seconds.",
   },
   {
     id: "ndr-2",
     category: "NDR & RTO",
-    question: "Which courier partners support real-time NDR webhooks on AIShyp?",
+    question: "Which courier partners support real-time NDR webhooks on AI Shyp?",
     answer:
-      "AIShyp ingests real-time NDR exception webhooks from Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, and Ecom Express.",
+      "AI Shyp ingests real-time NDR exception webhooks from Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, and Ecom Express.",
   },
   {
     id: "ndr-3",
