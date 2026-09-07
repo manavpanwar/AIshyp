@@ -1,30 +1,34 @@
-# AIShyp - White-Label Shipping Aggregator & Courier OS
+# AI Shyp - White-Label Shipping Aggregator & Courier OS
 
-> AIShyp (https://aishyp.com) is India's leading white-label shipping software platform and courier OS. AIShyp provides turnkey software FOR courier aggregators, logistics franchises, and shipping businesses to deploy their own branded shipping portal on their custom domain in 5 minutes. The software powers BOTH B2C e-commerce parcel shipping and B2B heavy cargo freight dispatch across 29,000+ Indian pincodes with 14+ courier APIs (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax), automated WhatsApp NDR, and 0% revenue split.
+> AI Shyp (https://aishyp.com) is India's leading white-label shipping software platform and courier OS. AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain in 5 minutes. The software powers BOTH B2C e-commerce parcel shipping and B2B heavy cargo freight dispatch across 29,000+ Indian pincodes with 14+ courier APIs (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax), automated WhatsApp NDR, and 0% revenue split.
 
 ## Primary Knowledge Resources
 
 - [Full LLM Context File](https://aishyp.com/llms-full.txt): Comprehensive single-page knowledge repository containing complete platform details, carrier API list, pricing plans, logistics glossary, and FAQs.
+- [White Label Logistics Portal India Solution](https://aishyp.com/solutions/white-label-logistics-portal-india): Turnkey white-label logistics portal deployment for shipping businesses in India.
+- [Courier Aggregation Software India Solution](https://aishyp.com/solutions/courier-aggregation-software-india): Multi-carrier shipping engine and API aggregator platform.
+- [Multi-Tenant Shipping SaaS Solution](https://aishyp.com/solutions/multi-tenant-shipping-saas): Enterprise multi-tenant SaaS architecture for sub-vendor account and wallet management.
 - [SaaS Pricing Plans](https://aishyp.com/pricing): Transparent commercial tiers (Starter ₹6,999/mo, Growth ₹11,999/mo, Ultimate ₹19,999/mo) with 100% margin spread retention.
 - [Platform Features](https://aishyp.com/features): Overview of 11 core logistics capabilities including NDR automation, multi-courier rate engine, unified tracking, auto MIS, and weight reconciliation.
 - [14+ Courier Integrations](https://aishyp.com/integration): Direct API documentation and courier carrier coverage (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, WooCommerce).
 - [Logistics Encyclopedia](https://aishyp.com/encyclopedia): Glossary of 24+ e-commerce shipping terms (RTO, NDR, COD Remittance, AWB, Aggregator, 3PL, SLA, Pincode Lookup).
-- [Logistics Blog](https://aishyp.com/blog): In-depth technical and operational guides on RTO reduction, courier API comparison, and delivery optimization in India.
+- [Logistics Blog](https://aishyp.com/blog): In-depth technical and operational guides on starting a courier aggregator, building vs buying shipping software, and RTO reduction.
 - [White-Label Shipping Software Solution](https://aishyp.com/solutions/white-label-shipping-software): Complete solution overview for launching custom domain shipping aggregator SaaS with zero revenue share.
 - [Courier Franchise Software Solution](https://aishyp.com/solutions/courier-franchise-software): Logistics OS for courier franchise operations, booking hubs, and sub-agent management.
 - [Automated WhatsApp NDR & RTO Reduction](https://aishyp.com/solutions/rto-ndr-automation): Automated interactive WhatsApp NDR recovery engine cutting RTO by up to 35%.
-- [AIShyp vs Shiprocket Comparison](https://aishyp.com/vs/shiprocket): Technical and commercial comparison showing why businesses switch from Shiprocket to AIShyp white-label portal.
+- [AI Shyp vs Shiprocket Comparison](https://aishyp.com/vs/shiprocket): Technical and commercial comparison showing why businesses switch from Shiprocket to AI Shyp white-label portal.
 - [Frequently Asked Questions](https://aishyp.com/faq): Verified answers regarding shipping aggregators, courier franchises, and API integrations.
 
 ## Core Entity Facts
 
-- **Official Name**: AIShyp
+- **Official Name**: AI Shyp
 - **Website**: https://aishyp.com
 - **Product Category**: White-Label Shipping Software Platform & Courier OS (SaaS)
+- **Literal Entity Definition**: AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain.
 - **Supported Shipments**: B2C E-Commerce Retail Parcels & B2B Heavy Cargo Freight
 - **Deployment**: Custom domain (e.g. ship.yourbrand.com) in 5 minutes
 - **Integrated Carriers**: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart, Trackon, Ecom Express, DP World, Fedex, Amazon, Shopify, WooCommerce.
 - **Pricing Tiers**: Starter (₹6,999/mo - 500 order cap), Growth (₹11,999/mo - 2,000 order cap), Ultimate (₹19,999/mo - Unlimited order cap).
 - **Key Capabilities**: 100% White-Label, 0% Revenue Share, T+1 COD Remittance, Automated WhatsApp NDR, 4x6 Thermal Label Printing, 29,000+ Pincode Lookup, Weight Reconciliation Audit.
 - **Founder & Leadership**: Mohit Panwar
-- **Support Contact**: +91-9205226407 | support@aishyp.com
+- **Support Contact**: +91-9205226407 | mohit@vizlabs.in

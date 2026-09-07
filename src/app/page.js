@@ -3,9 +3,9 @@ import { buildPageMetadata } from "../lib/seo";
 import { buildFaqSchema, faqItems } from "../data/faq";
 
 export const metadata = buildPageMetadata({
-  title: "AI Shyp | White-Label Shipping Aggregator & Courier OS",
+  title: "White Label Logistics Portal India | 0% Commission SaaS [Deploy in 5 Mins]",
   description:
-    "Deploy your white-label shipping aggregator software on your custom domain in 5 minutes. Connect 14+ direct courier APIs (Delhivery, BlueDart, DTDC), automated WhatsApp NDR, and T+1 COD remittance.",
+    "Launch your branded shipping aggregator software on your custom domain in 5 minutes. Connect 14+ direct courier APIs (Delhivery, BlueDart, DTDC), automated WhatsApp NDR, 0% margin split, and T+1 COD remittance.",
   path: "/",
   images: ["/aishiplogo.png"],
 });

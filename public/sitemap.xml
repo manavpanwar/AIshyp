@@ -3,153 +3,193 @@
   <!-- Core Landing & Primary Pages -->
   <url>
     <loc>https://aishyp.com/</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aishyp.com/features</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/pricing</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/integration</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aishyp.com/faq</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aishyp.com/about</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aishyp.com/contact</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Dedicated Search-Intent Solution Landing Pages -->
+  <url>
+    <loc>https://aishyp.com/solutions/white-label-logistics-portal-india</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://aishyp.com/solutions/courier-aggregation-software-india</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://aishyp.com/solutions/multi-tenant-shipping-saas</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <url>
     <loc>https://aishyp.com/solutions/white-label-shipping-software</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/vs/shiprocket</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/solutions/courier-franchise-software</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aishyp.com/solutions/rto-ndr-automation</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Deep Logistics Blog Articles -->
   <url>
+    <loc>https://aishyp.com/blog/how-to-start-courier-aggregator-business-india</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aishyp.com/blog/building-vs-buying-shipping-software-guide</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aishyp.com/blog/multi-tenant-logistics-software-sub-vendor-wallets-rates</loc>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://aishyp.com/blog/reduce-rto-ecommerce-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/delivery-failure-reasons-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/best-shipping-aggregator-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/how-shipping-aggregators-work</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/courier-franchise-business-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/ndr-in-courier-explained</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/courier-api-integration-guide</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/best-shipping-api-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/shopify-courier-shipping-automation-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/reduce-logistics-cost-franchise-model</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/ecommerce-shipping-problems-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aishyp.com/blog/build-logistics-network-franchise</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -157,145 +197,145 @@
   <!-- Logistics Encyclopedia Defined Terms -->
   <url>
     <loc>https://aishyp.com/encyclopedia/rto-in-ecommerce-shipping</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/ndr-in-logistics</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/shipping-aggregator-platform-meaning</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/courier-api-integration</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/last-mile-delivery-optimization</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/ecommerce-shipping-workflow</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/cod-order-confirmation</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/delivery-attempt-failure</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/pincode-serviceability</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/courier-rate-comparison</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/multi-courier-shipping</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/awb-generation</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/shipping-api-india</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/logistics-control-tower</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/reverse-logistics</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/delivery-sla</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/first-attempt-delivery-rate</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/hyperlocal-delivery</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/branded-tracking-page</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/courier-franchise-operations</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/ecommerce-fulfillment</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/shipment-tracking-api</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/delivery-optimization-analytics</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aishyp.com/encyclopedia/courier-reattempt-workflow</loc>
-    <lastmod>2026-09-03T00:00:00+05:30</lastmod>
+    <lastmod>2026-09-07T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

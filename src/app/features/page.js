@@ -697,6 +697,33 @@ export default function FeaturesPage() {
         </motion.div>
       </section>
 
+      {/* ── INTERNAL SOLUTIONS CROSS-LINKING MATRIX ── */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 pb-12">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-4">
+          <h3 className="text-sm font-mono font-bold text-[#D8331F] uppercase tracking-wider">// Dedicated Solution Portals</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/solutions/white-label-logistics-portal-india"
+              className="px-4 py-2.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 hover:border-[#D8331F] hover:text-[#D8331F] transition-all"
+            >
+              White Label Logistics Portal India →
+            </Link>
+            <Link
+              href="/solutions/courier-aggregation-software-india"
+              className="px-4 py-2.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 hover:border-[#D8331F] hover:text-[#D8331F] transition-all"
+            >
+              Courier Aggregation Software India →
+            </Link>
+            <Link
+              href="/solutions/multi-tenant-shipping-saas"
+              className="px-4 py-2.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 hover:border-[#D8331F] hover:text-[#D8331F] transition-all"
+            >
+              Multi-Tenant Shipping SaaS →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── 5. CLOSING CTA BANNER ── */}
       <section className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 pb-20 text-center">
         <motion.div

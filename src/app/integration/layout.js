@@ -1,7 +1,7 @@
 import { buildPageMetadata } from "../../lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "14+ Courier Partner APIs & 1-Click Shopify Integration",
+  title: "14+ Courier Partner APIs & Shopify Integration [Delhivery, BlueDart, DTDC]",
   description:
     "Connect 14+ courier partner APIs (Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, DP World) and 1-click Shopify storefront sync with automated AWB tracking pushback.",
   path: "/integration",

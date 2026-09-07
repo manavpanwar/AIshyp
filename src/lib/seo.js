@@ -4,10 +4,10 @@ export const SITE_NAME = "AI Shyp";
 
 export const DEFAULT_OG_IMAGE = "/aishiplogo.png";
 
-export const DEFAULT_TITLE = "AI Shyp | White-Label Shipping Aggregator & Courier OS";
+export const DEFAULT_TITLE = "AI Shyp | White-Label Logistics Portal & Courier OS [0% Commission]";
 
 export const DEFAULT_DESCRIPTION =
-  "AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. Powers shipping aggregators, logistics franchises, and e-commerce brands with 14+ direct courier APIs, automated WhatsApp NDR, and T+1 COD remittance.";
+  "AI Shyp is India's leading multi-tenant white-label logistics SaaS platform. Launch your branded shipping aggregator portal on a custom domain in 5 minutes with 14+ courier APIs, 0% margin split, T+1 COD remittance, and automated WhatsApp NDR.";
 
 export function buildPageMetadata({
   title,
