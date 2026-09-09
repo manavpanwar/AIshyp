@@ -25,6 +25,10 @@
   animation: shiny-text 4s linear infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #root {

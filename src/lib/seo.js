@@ -49,6 +49,11 @@ export function getOrganizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/aishiplogo.png`,
     description: DEFAULT_DESCRIPTION,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "VizLabs",
+      url: "https://vizlabs.in",
+    },
     founder: {
       "@type": "Person",
       name: "Mohit Panwar",
@@ -62,7 +67,7 @@ export function getOrganizationSchema() {
         contactType: "customer service",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi"],
-        email: "support@aishyp.com",
+        email: "mohit@vizlabs.in",
       },
     ],
   };
@@ -198,8 +203,8 @@ export function getSoftwareApplicationSchema() {
     url: SITE_URL,
     publisher: {
       "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
+      name: "VizLabs",
+      url: "https://vizlabs.in",
       logo: `${SITE_URL}/aishiplogo.png`,
     },
     offers: {

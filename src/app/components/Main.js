@@ -66,97 +66,28 @@ export default function Main() {
           <CleanHeroSection />
 
           {/* Section 2: Detailed Platform Overview & Live Dashboard Console */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <HeroSection />
-          </motion.div>
+          <HeroSection />
 
-          {/* Below-the-fold sections with smooth entrance scroll animation */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <GameChangersSection />
-          </motion.div>
+          {/* Below-the-fold sections */}
+          <GameChangersSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <BuildVsAIShypSection />
-          </motion.div>
+          <BuildVsAIShypSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <BusinessAdvantageSection />
-          </motion.div>
+          <BusinessAdvantageSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <RevenueCalculatorSection />
-          </motion.div>
+          <RevenueCalculatorSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <LaunchStepsSection />
-          </motion.div>
+          <LaunchStepsSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <LogisticsNetworkSection />
-          </motion.div>
+          <LogisticsNetworkSection />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <RateStripSection />
-          </motion.div>
+          <RateStripSection />
 
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-            className="relative py-10 sm:py-12 md:py-14 px-4 sm:px-8 lg:px-12 border-t border-slate-200 bg-[#F4F6F9]"
-          >
+          <section className="relative py-10 sm:py-12 md:py-14 px-4 sm:px-8 lg:px-12 border-t border-slate-200 bg-[#F4F6F9]">
             <FAQ items={faqItems} maxItems={4} showExploreMore={true} showCta={false} />
-          </motion.section>
+          </section>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={sectionRevealVariant}
-          >
-            <ClosingCTASection />
-          </motion.div>
+          <ClosingCTASection />
         </>
       )}
     </main>
