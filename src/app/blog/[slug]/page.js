@@ -9,6 +9,7 @@ import {
 } from "../../../lib/blogs";
 import { SITE_URL, SITE_NAME, getBreadcrumbSchema } from "../../../lib/seo";
 import BlogCardBanner from "../../../components/blog/BlogCardBanner";
+import RichBlogContent from "../../../components/blog/RichBlogContent";
 
 export const dynamicParams = true;
 
@@ -61,60 +62,6 @@ export async function generateMetadata({ params }) {
       images: [blog.featuredImage],
     },
   };
-}
-
-function renderContentBlock(block, index) {
-  if (!block) return null;
-
-  if (typeof block === "string") {
-    return (
-      <p key={`p-str-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
-        {block}
-      </p>
-    );
-  }
-
-  if (block.type === "heading") {
-    return (
-      <h2 key={`heading-${index}`} className="text-xl sm:text-2xl font-extrabold font-sans text-slate-950 mt-8 mb-3 tracking-tight">
-        {block.value}
-      </h2>
-    );
-  }
-
-  if (block.type === "list") {
-    return (
-      <ul key={`list-${index}`} className="space-y-2.5 my-4 text-slate-800 text-sm sm:text-base leading-relaxed font-medium">
-        {block.items &&
-          block.items.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-2.5">
-              <span className="w-5 h-5 rounded-full bg-red-50 text-[#D8331F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-red-200">
-                ✓
-              </span>
-              <span>{item}</span>
-            </li>
-          ))}
-      </ul>
-    );
-  }
-
-  if (block.link) {
-    return (
-      <p key={`paragraph-link-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
-        {block.value}
-        <Link href={block.link.href} className="text-[#D8331F] font-bold hover:underline">
-          {block.link.label}
-        </Link>
-        {block.trailing}
-      </p>
-    );
-  }
-
-  return (
-    <p key={`paragraph-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
-      {block.value}
-    </p>
-  );
 }
 
 export default async function BlogDetailPage({ params }) {
@@ -241,15 +188,7 @@ export default async function BlogDetailPage({ params }) {
 
         {/* Article Body Content */}
         <section className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md">
-          {Array.isArray(blog.content) ? (
-            blog.content.map((block, index) => renderContentBlock(block, index))
-          ) : typeof blog.content === "string" ? (
-            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed whitespace-pre-line font-medium">
-              {blog.content}
-            </div>
-          ) : (
-            <p className="text-slate-500">No content available.</p>
-          )}
+          <RichBlogContent content={blog.content} />
 
           {/* Tags Footer */}
           {Array.isArray(blog.tags) && blog.tags.length > 0 && (

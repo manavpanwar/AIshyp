@@ -612,21 +612,21 @@ const blogTopics = [
 const FALLBACK_BLOG_IMAGE = "/aishiplogo.png";
 
 const TOPIC_IMAGE_MAP = {
-  "how-to-start-courier-aggregator-business-india": "/bestshipping.png",
-  "building-vs-buying-shipping-software-guide": "/aggreshipping.png",
-  "multi-tenant-logistics-software-sub-vendor-wallets-rates": "/Ratesunlock.png",
-  "reduce-rto-ecommerce-india": "/reduceRto.png",
-  "delivery-failure-reasons-india": "/failurereason.png",
-  "best-shipping-aggregator-india": "/bestshipping.png",
-  "how-shipping-aggregators-work": "/aggreshipping.png",
-  "courier-franchise-business-india": "/Franchise.png",
-  "ndr-in-courier-explained": "/ndrcourier.png",
-  "courier-api-integration-guide": "/shopify.jpeg",
-  "best-shipping-api-india": "/analyticss.png",
-  "shopify-courier-shipping-automation-india": "/shopify.jpeg",
-  "reduce-logistics-cost-franchise-model": "/cod.png",
-  "ecommerce-shipping-problems-india": "/Ratesunlock.png",
-  "build-logistics-network-franchise": "/aggreshipping.png",
+  "how-to-start-courier-aggregator-business-india": "",
+  "building-vs-buying-shipping-software-guide": "",
+  "multi-tenant-logistics-software-sub-vendor-wallets-rates": "",
+  "reduce-rto-ecommerce-india": "",
+  "delivery-failure-reasons-india": "",
+  "best-shipping-aggregator-india": "",
+  "how-shipping-aggregators-work": "",
+  "courier-franchise-business-india": "/",
+  "ndr-in-courier-explained": "",
+  "courier-api-integration-guide": "",
+  "best-shipping-api-india": "",
+  "shopify-courier-shipping-automation-india": "",
+  "reduce-logistics-cost-franchise-model": "",
+  "ecommerce-shipping-problems-india": "",
+  "build-logistics-network-franchise": "",
 };
 
 export function getAllBlogs() {

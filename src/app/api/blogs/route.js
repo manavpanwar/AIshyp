@@ -12,9 +12,16 @@ function calculateReadingTime(content) {
     text = content
       .map((block) => {
         if (typeof block === "string") return block;
-        if (block?.value) return block.value;
-        if (block?.items && Array.isArray(block.items)) return block.items.join(" ");
-        return "";
+        const parts = [];
+        if (block?.value) parts.push(block.value);
+        if (block?.caption) parts.push(block.caption);
+        if (block?.items && Array.isArray(block.items)) parts.push(block.items.join(" "));
+        if (block?.images && Array.isArray(block.images)) {
+          block.images.forEach((img) => {
+            if (img?.caption) parts.push(img.caption);
+          });
+        }
+        return parts.join(" ");
       })
       .join(" ");
   }

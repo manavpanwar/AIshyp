@@ -164,17 +164,16 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-6 py-14 sm:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand Column (2 cols wide) */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3 w-fit">
-              <div className="bg-white rounded-xl px-3 py-1.5 flex items-center justify-center border border-slate-700 shadow-md">
-                <div className="relative h-8 w-40 flex items-center justify-start overflow-hidden flex-shrink-0">
-                  <Image
-                    src="/AIship1.png"
-                    alt="AIShip logo"
-                    fill
-                    sizes="160px"
-                    className="object-contain object-left scale-110 origin-left"
-                  />
-                </div>
+            <Link href="/" className="flex items-center no-underline flex-shrink-0 overflow-hidden group">
+              <div className="relative h-14 sm:h-16 md:h-[68px] w-52 sm:w-64 md:w-72 flex items-center justify-start flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]">
+                <Image
+                  src="/AIship1.png"
+                  alt="AIShip logo"
+                  fill
+                  sizes="(max-width: 768px) 240px, 300px"
+                  className="object-contain object-left scale-[3.1] sm:scale-[3.3] origin-left"
+                  priority
+                />
               </div>
             </Link>
 
