@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Current Project Color Theme */
   --color-navy: #101B3D;
   --color-navy-2: #16225A;
   --color-red: #D8331F;
@@ -8,10 +9,14 @@
   --color-ink: #10152B;
   --color-mute: #6A7086;
 
-  --font-sans: 'Manrope', system-ui, sans-serif;
+  /* Font Family - Poppins & Inter */
+  --font-sans: var(--font-poppins), 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-poppins: var(--font-poppins), 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-inter: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Animations */
 @keyframes shiny-text {
   0% {
     background-position: -200% 0;
@@ -25,6 +30,17 @@
   animation: shiny-text 4s linear infinite;
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Base Styles & Poppins Typography */
 html {
   scroll-behavior: smooth;
 }
@@ -36,9 +52,22 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   color: #0f172a;
-  font-family: var(--font-sans);
+  font-family: var(--font-poppins), 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+  scroll-behavior: smooth;
+}
+
+/* Typography Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/* Form elements inherit Poppins font */
+input, button, textarea, select {
+  font-family: inherit;
 }
 
 /* Custom Scrollbar */

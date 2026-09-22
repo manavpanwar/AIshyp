@@ -211,7 +211,7 @@ export default function AccordionGallery({
                 <div className="space-y-1.5 border-b border-slate-200 pb-3">
                   <div className="flex items-center justify-between gap-2">
                     <span
-                      className="text-[10.5px] font-mono font-bold px-2.5 py-0.5 rounded-full uppercase border shadow-2xs"
+                      className="text-[10.5px]  font-bold px-2.5 py-0.5 rounded-full uppercase border shadow-2xs"
                       style={{
                         color: accent,
                         backgroundColor: `color-mix(in srgb, ${accent} 12%, white)`,
@@ -220,7 +220,7 @@ export default function AccordionGallery({
                     >
                       {item.badge}
                     </span>
-                    <span className="text-[11px] font-mono font-extrabold text-slate-900">
+                    <span className="text-[11px]  font-extrabold text-slate-900">
                       Module 0{i + 1} / 10
                     </span>
                   </div>
@@ -258,7 +258,7 @@ export default function AccordionGallery({
               </div>
 
               {/* Bottom Action Footer */}
-              <div className="pt-3 flex items-center justify-between border-t border-slate-200 text-[10.5px] font-mono font-extrabold text-slate-700 mt-4">
+              <div className="pt-3 flex items-center justify-between border-t border-slate-200 text-[10.5px]  font-extrabold text-slate-700 mt-4">
                 <span className="flex items-center gap-1.5 text-emerald-800 font-bold">
                   <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
                   PRE-INTEGRATED MODULE
@@ -284,17 +284,17 @@ export default function AccordionGallery({
                     boxShadow: `0 0 8px ${accent}`,
                   }}
                 />
-                <span className="text-[12px] font-mono font-extrabold text-slate-900">
+                <span className="text-[12px]  font-extrabold text-slate-900">
                   0{i + 1}
                 </span>
               </div>
 
               {/* Label: Horizontal on mobile, Rotated Vertical on desktop */}
-              <span className="font-mono text-xs font-extrabold uppercase tracking-wider text-slate-950 whitespace-nowrap max-md:normal-case md:[writing-mode:vertical-rl] md:rotate-180">
+              <span className=" text-xs font-extrabold uppercase tracking-wider text-slate-950 whitespace-nowrap max-md:normal-case md:[writing-mode:vertical-rl] md:rotate-180">
                 {item.badge}
               </span>
 
-              <span className="text-xs font-mono font-bold text-slate-400 md:hidden">
+              <span className="text-xs  font-bold text-slate-400 md:hidden">
                 Tap to expand ↓
               </span>
             </div>

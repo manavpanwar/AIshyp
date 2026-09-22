@@ -1,11 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../../lib/blogs";
+import {
+  getAllBlogs,
+  getUnifiedBlogBySlug,
+  getUnifiedRelatedBlogs,
+} from "../../../lib/blogs";
 import { SITE_URL, SITE_NAME, getBreadcrumbSchema } from "../../../lib/seo";
 import BlogCardBanner from "../../../components/blog/BlogCardBanner";
 
+export const dynamicParams = true;
+
 function formatDate(dateString) {
+  if (!dateString) return "Recent";
   return new Date(dateString).toLocaleDateString("en-IN", {
     day: "2-digit",
     month: "short",
@@ -19,7 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const blog = getBlogBySlug(slug);
+  const blog = await getUnifiedBlogBySlug(slug);
   if (!blog) {
     return {
       title: "Blog Not Found | AI Shyp",
@@ -56,6 +64,16 @@ export async function generateMetadata({ params }) {
 }
 
 function renderContentBlock(block, index) {
+  if (!block) return null;
+
+  if (typeof block === "string") {
+    return (
+      <p key={`p-str-${index}`} className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4 font-medium">
+        {block}
+      </p>
+    );
+  }
+
   if (block.type === "heading") {
     return (
       <h2 key={`heading-${index}`} className="text-xl sm:text-2xl font-extrabold font-sans text-slate-950 mt-8 mb-3 tracking-tight">
@@ -67,14 +85,15 @@ function renderContentBlock(block, index) {
   if (block.type === "list") {
     return (
       <ul key={`list-${index}`} className="space-y-2.5 my-4 text-slate-800 text-sm sm:text-base leading-relaxed font-medium">
-        {block.items.map((item, idx) => (
-          <li key={idx} className="flex items-start gap-2.5">
-            <span className="w-5 h-5 rounded-full bg-red-50 text-[#D8331F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-red-200">
-              ✓
-            </span>
-            <span>{item}</span>
-          </li>
-        ))}
+        {block.items &&
+          block.items.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-2.5">
+              <span className="w-5 h-5 rounded-full bg-red-50 text-[#D8331F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border border-red-200">
+                ✓
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
       </ul>
     );
   }
@@ -100,10 +119,10 @@ function renderContentBlock(block, index) {
 
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
-  const blog = getBlogBySlug(slug);
+  const blog = await getUnifiedBlogBySlug(slug);
   if (!blog) notFound();
 
-  const relatedBlogs = getRelatedBlogs(blog.slug, 2);
+  const relatedBlogs = await getUnifiedRelatedBlogs(blog.slug, 2);
   const canonicalUrl = `${SITE_URL}/blog/${blog.slug}`;
   const blogPostingSchema = {
     "@context": "https://schema.org",
@@ -112,7 +131,7 @@ export default async function BlogDetailPage({ params }) {
     description: blog.description,
     author: {
       "@type": "Person",
-      name: blog.author,
+      name: blog.author || "AI Shyp Squad",
     },
     datePublished: blog.publishedDate,
     image: `${SITE_URL}${blog.featuredImage}`,
@@ -130,6 +149,11 @@ export default async function BlogDetailPage({ params }) {
     { name: "Blog", item: "/blog" },
     { name: blog.title, item: `/blog/${blog.slug}` },
   ]);
+
+  const hasCustomCover =
+    blog.featuredImage &&
+    blog.featuredImage !== "/aishiplogo.png" &&
+    !blog.featuredImage.includes("aishiplogo");
 
   return (
     <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
@@ -164,13 +188,15 @@ export default async function BlogDetailPage({ params }) {
 
         {/* Article Header */}
         <header className="space-y-4">
-          <div className="flex items-center gap-3 font-mono text-xs font-bold text-slate-400">
+          <div className="flex items-center gap-3 font-mono text-xs font-bold text-slate-400 flex-wrap">
             <span className="px-3 py-1 rounded-full bg-red-50 text-[#D8331F] border border-red-200">
-              {blog.tags[0] || "Logistics"}
+              {blog.category || blog.tags?.[0] || "Logistics"}
             </span>
             <span>{formatDate(blog.publishedDate)}</span>
             <span>•</span>
-            <span>{blog.readingTime}</span>
+            <span>{blog.readingTime || "4 min read"}</span>
+            <span>•</span>
+            <span className="text-slate-700 font-semibold">By {blog.author || "AI Shyp Squad"}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
@@ -181,7 +207,7 @@ export default async function BlogDetailPage({ params }) {
             {blog.description}
           </p>
 
-          {/* Key Takeaways Box for Answer Engine Extraction */}
+          {/* Key Takeaways Box */}
           <div className="p-5 rounded-2xl bg-red-50/60 border border-red-200/80 text-slate-900 space-y-1.5 shadow-sm">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#D8331F]">
               ⚡ Key Takeaways &amp; Executive Summary
@@ -192,14 +218,53 @@ export default async function BlogDetailPage({ params }) {
           </div>
         </header>
 
-        {/* Vector Header Card */}
+        {/* Cover Image or Vector Banner */}
         <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
-          <BlogCardBanner slug={blog.slug} title={blog.title} className="h-64 sm:h-72" />
+          {hasCustomCover ? (
+            <div className="relative w-full h-72 sm:h-96 bg-slate-900">
+              <Image
+                src={blog.featuredImage}
+                alt={blog.title}
+                fill
+                priority
+                className="object-cover"
+                unoptimized={
+                  blog.featuredImage.startsWith("http") ||
+                  blog.featuredImage.startsWith("/uploads/")
+                }
+              />
+            </div>
+          ) : (
+            <BlogCardBanner slug={blog.slug} title={blog.title} className="h-64 sm:h-72" />
+          )}
         </div>
 
         {/* Article Body Content */}
         <section className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md">
-          {blog.content.map((block, index) => renderContentBlock(block, index))}
+          {Array.isArray(blog.content) ? (
+            blog.content.map((block, index) => renderContentBlock(block, index))
+          ) : typeof blog.content === "string" ? (
+            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed whitespace-pre-line font-medium">
+              {blog.content}
+            </div>
+          ) : (
+            <p className="text-slate-500">No content available.</p>
+          )}
+
+          {/* Tags Footer */}
+          {Array.isArray(blog.tags) && blog.tags.length > 0 && (
+            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-mono font-bold text-slate-400 mr-2">Tags:</span>
+              {blog.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Call to Action Box */}
@@ -244,7 +309,6 @@ export default async function BlogDetailPage({ params }) {
             </div>
           </section>
         )}
-
       </article>
     </main>
   );

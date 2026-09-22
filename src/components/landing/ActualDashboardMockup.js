@@ -61,7 +61,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
     <div className="w-full bg-[#F4F7FC] rounded-2xl border border-slate-300/90 shadow-2xl overflow-hidden font-sans text-slate-800 text-[10px] leading-tight select-none">
       
       {/* ── TOP BROWSER TITLE BAR ── */}
-      <div className="bg-slate-900 text-slate-400 px-3.5 py-2 flex items-center justify-between font-mono text-[9px] border-b border-slate-800 shrink-0">
+      <div className="bg-slate-900 text-slate-400 px-3.5 py-2 flex items-center justify-between  text-[9px] border-b border-slate-800 shrink-0">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" />
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
@@ -76,7 +76,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
 
         {/* Live sync & White-label indicator */}
         <div className="flex items-center gap-2">
-          <span className="text-[8px] bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 px-1.5 py-0.5 rounded font-mono font-bold flex items-center gap-1">
+          <span className="text-[8px] bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 px-1.5 py-0.5 rounded  font-bold flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
             LIVE
           </span>
@@ -227,7 +227,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
             </div>
 
             {/* Date Filter & Actions */}
-            <div className="flex items-center gap-1 font-mono text-[8.5px]">
+            <div className="flex items-center gap-1  text-[8.5px]">
               <div className="bg-slate-50 px-2 py-1 rounded-lg border border-slate-200 text-slate-700 flex items-center gap-1 font-bold truncate">
                 <span>📅</span>
                 <span className="truncate">22 Jul - 28 Jul</span>
@@ -246,7 +246,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
           </div>
 
           {/* Metric Status Cards Row (Animated slowly increasing & looping numbers) */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 font-mono text-[8.5px]">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5  text-[8.5px]">
             
             {/* CREATED */}
             <div className="bg-white p-1.5 rounded-lg border border-slate-200/90 shadow-2xs space-y-0.5 hover:border-blue-300 transition-all">
@@ -323,11 +323,11 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
             <div className="lg:col-span-8 bg-white p-2.5 rounded-xl border border-slate-200/90 shadow-2xs space-y-1.5">
               <div className="flex justify-between items-center">
                 <h4 className="font-extrabold text-slate-900 text-[10px] font-sans">Dispatch Volume</h4>
-                <span className="text-[7.5px] text-slate-400 font-mono">Selected Period</span>
+                <span className="text-[7.5px] text-slate-400 ">Selected Period</span>
               </div>
 
               {/* Status Tags Pill Row with Live Numbers */}
-              <div className="flex flex-wrap gap-1 text-[7.5px] font-mono">
+              <div className="flex flex-wrap gap-1 text-[7.5px] ">
                 <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold tabular-nums">
                   created {formatNum(createdCount)}
                 </span>
@@ -343,7 +343,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
               </div>
 
               {/* Dynamic Bar Chart with Animated Heights */}
-              <div className="h-16 flex items-end justify-between gap-2 pt-2 border-b border-slate-100 font-mono text-[7.5px] text-slate-400">
+              <div className="h-16 flex items-end justify-between gap-2 pt-2 border-b border-slate-100  text-[7.5px] text-slate-400">
                 <div className="w-full bg-slate-100 rounded-t h-full flex items-end overflow-hidden">
                   <div
                     style={{ height: bar1Height }}
@@ -369,7 +369,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
                   />
                 </div>
               </div>
-              <div className="flex justify-between text-[7.5px] font-mono text-slate-400 px-0.5">
+              <div className="flex justify-between text-[7.5px]  text-slate-400 px-0.5">
                 <span>24 Jul</span>
                 <span>26 Jul</span>
                 <span>28 Jul</span>
@@ -381,12 +381,12 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
             <div className="lg:col-span-4 bg-white p-2.5 rounded-xl border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-1.5">
               <div>
                 <h4 className="font-extrabold text-slate-900 text-[10px] font-sans">Courier Distribution</h4>
-                <p className="text-[7.5px] text-slate-400 font-mono">Split by partner</p>
+                <p className="text-[7.5px] text-slate-400 ">Split by partner</p>
               </div>
 
               {/* Donut Chart Ring with Live Total */}
               <div className="flex items-center justify-center py-1">
-                <div className="relative w-16 h-16 rounded-full flex items-center justify-center font-mono text-center p-1.5 shadow-inner"
+                <div className="relative w-16 h-16 rounded-full flex items-center justify-center  text-center p-1.5 shadow-inner"
                      style={{
                        background: "conic-gradient(#2563EB 0% 42%, #10B981 42% 77%, #F59E0B 77% 100%)",
                      }}
@@ -400,7 +400,7 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-[7.5px] font-mono text-slate-600 border-t border-slate-100 pt-1 font-semibold">
+              <div className="flex justify-between items-center text-[7.5px]  text-slate-600 border-t border-slate-100 pt-1 font-semibold">
                 <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
                   Delhivery 42%
@@ -418,13 +418,13 @@ export default function ActualDashboardMockup({ brandName = "AIShyp" }) {
           <div className="space-y-1">
             <div className="flex items-center justify-between">
               <h4 className="font-extrabold text-slate-900 text-[10px] font-sans">Finance Remittance Metrics</h4>
-              <span className="text-[7.5px] text-emerald-600 font-mono font-bold flex items-center gap-1">
+              <span className="text-[7.5px] text-emerald-600  font-bold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 Live Settlements
               </span>
             </div>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 font-mono text-[8px]">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5  text-[8px]">
               
               <div className="bg-white p-1.5 rounded-lg border border-slate-200/90 shadow-2xs truncate hover:border-slate-300 transition-all">
                 <p className="text-[6.5px] font-bold text-slate-400 uppercase truncate">REMITTANCE GENERATED</p>

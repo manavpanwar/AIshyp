@@ -105,7 +105,7 @@ export default function ShiprocketComparisonPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F] font-mono text-xs font-bold"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F]  text-xs font-bold"
         >
           <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
           <span>// Head-to-Head Comparison</span>

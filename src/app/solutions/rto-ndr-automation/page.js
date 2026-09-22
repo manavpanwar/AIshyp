@@ -60,7 +60,7 @@ export default function RtoNdrAutomationPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F] font-mono text-xs font-bold"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F]  text-xs font-bold"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-[#D8331F] animate-pulse" />
           <span>// Automated WhatsApp NDR Engine</span>
@@ -119,7 +119,7 @@ export default function RtoNdrAutomationPage() {
 
           <div className="grid md:grid-cols-4 gap-6">
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-              <span className="text-xs font-mono font-bold text-[#D8331F]">STEP 01</span>
+              <span className="text-xs  font-bold text-[#D8331F]">STEP 01</span>
               <h3 className="text-base font-extrabold text-slate-950">Webhook Exception Ingest</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Courier rider marks &quot;Customer Unavailable&quot; or &quot;Wrong Address&quot;. Webhook reaches AIShyp in &lt; 10 seconds.
@@ -127,7 +127,7 @@ export default function RtoNdrAutomationPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-              <span className="text-xs font-mono font-bold text-[#D8331F]">STEP 02</span>
+              <span className="text-xs  font-bold text-[#D8331F]">STEP 02</span>
               <h3 className="text-base font-extrabold text-slate-950">Interactive WhatsApp Prompt</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Automated WhatsApp message sent to buyer with buttons to fix address, reschedule date, or confirm COD cash.
@@ -135,7 +135,7 @@ export default function RtoNdrAutomationPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-              <span className="text-xs font-mono font-bold text-[#D8331F]">STEP 03</span>
+              <span className="text-xs  font-bold text-[#D8331F]">STEP 03</span>
               <h3 className="text-base font-extrabold text-slate-950">Direct Courier Re-Attempt Push</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Updated delivery instructions pushed directly to courier rider handheld devices for next morning re-attempt.
@@ -143,7 +143,7 @@ export default function RtoNdrAutomationPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-              <span className="text-xs font-mono font-bold text-[#D8331F]">STEP 04</span>
+              <span className="text-xs  font-bold text-[#D8331F]">STEP 04</span>
               <h3 className="text-base font-extrabold text-slate-950">RTO Avoided &amp; Margin Saved</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Package delivered successfully, avoiding double freight return charges and protecting merchant profitability.

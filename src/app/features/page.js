@@ -327,13 +327,34 @@ const DETAILED_CAPABILITIES = [
   },
 ];
 
+// Inline Sparkles icon matching modern Lucide spec
+function SparklesIcon({ className = "w-3.5 h-3.5" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+      <path d="M5 3v4" />
+      <path d="M19 17v4" />
+      <path d="M3 5h4" />
+      <path d="M17 19h4" />
+    </svg>
+  );
+}
+
 export default function FeaturesPage() {
   const featuresBreadcrumbSchema = getBreadcrumbSchema([
     { name: "Platform Features", item: "/features" },
   ]);
 
   return (
-    <main className="w-full bg-[#FAFAFC] text-slate-900 font-sans overflow-hidden">
+    <main className="w-full bg-white text-slate-900 font-sans overflow-hidden pt-[116px] sm:pt-[128px]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(featuresBreadcrumbSchema) }}
@@ -347,55 +368,66 @@ export default function FeaturesPage() {
         </span>
       </div>
 
-      {/* ── 1. CLEAN APPLE HERO SECTION WITH FADE-IN MOTIONS ── */}
-      <section className="relative w-full pt-28 sm:pt-32 pb-14 sm:pb-20 px-6 sm:px-10 lg:px-16 text-center flex flex-col items-center justify-center border-b border-slate-200/60">
-        <div className="max-w-3xl mx-auto space-y-4">
+      {/* ── HERO SECTION STARTING DIRECTLY BELOW THE HEADER ── */}
+      <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden">
+        {/* Subtle Ambient Radial Glow starting below header */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.06)_40%,rgba(16,27,61,0.08)_70%,transparent_80%)] pointer-events-none" />
+
+        <div className="relative mx-auto max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F] font-mono text-[11px] font-bold"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50/90 border border-red-200/80 text-[#D8331F] text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs"
           >
-            <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
-            <span>// White-Label Logistics Platform OS</span>
+            <SparklesIcon className="w-3.5 h-3.5 text-[#D8331F]" />
+            <span>White-Label Logistics OS • Production Deployments</span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight"
           >
-            Engineered for scale. <br />
-            <span className="text-[#D8331F]">Built for speed.</span>
+            Engineered for Scale:{" "}
+            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
+              Built for Speed &amp; High-Impact Operations
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-medium leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal"
           >
-            Deploy your dedicated white-label shipping aggregator panel with 14+ carrier APIs, AI OCR parcel parsing, automated NDR recovery, and docket weight reconciliation.
+            Deep-dive into our flagship logistics OS — from AI-driven OCR parcel parsing and docket-based weight auditing to direct 14+ courier API consolidations deployed across India.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-2 flex flex-wrap items-center justify-center gap-3"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
           >
-            <Link
-              href="/contact"
-              className="bg-[#D8331F] text-white rounded-full px-7 py-3 text-xs sm:text-sm font-extrabold shadow-md hover:bg-[#FF8A6E] hover:scale-105 active:scale-95 transition-all duration-200"
+            <a
+              href="#feature-01"
+              className="bg-[#D8331F] hover:bg-[#c02816] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0"
             >
-              Launch Platform →
-            </Link>
+              1. White-Label Branding
+            </a>
+            <a
+              href="#feature-02"
+              className="border border-[#D8331F]/40 text-[#D8331F] bg-white hover:bg-red-50/80 hover:border-[#D8331F] px-5 py-2.5 rounded-xl text-xs font-bold transition-all hover:-translate-y-0.5 active:translate-y-0"
+            >
+              2. 14+ Multi-Carrier APIs
+            </a>
             <a
               href="#master-capabilities"
-              className="bg-slate-100 text-slate-700 hover:text-slate-950 rounded-full px-6 py-3 text-xs sm:text-sm font-bold border border-slate-200/90 transition-colors"
+              className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300 transition-all hover:-translate-y-0.5 active:translate-y-0"
             >
-              Explore Features ↓
+              View All 10 Core Modules ↓
             </a>
           </motion.div>
         </div>
@@ -422,10 +454,10 @@ export default function FeaturesPage() {
               className={`lg:col-span-6 space-y-5 ${idx % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}
             >
               <div className="flex items-center gap-2.5">
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono text-slate-400 tracking-tight">
+                <span className="text-2xl sm:text-3xl font-extrabold  text-slate-400 tracking-tight">
                   {feat.num}
                 </span>
-                <span className={`text-[10px] font-mono font-bold px-3 py-0.5 rounded-full border ${feat.pillColor} tracking-wider uppercase`}>
+                <span className={`text-[10px]  font-bold px-3 py-0.5 rounded-full border ${feat.pillColor} tracking-wider uppercase`}>
                   {feat.tag}
                 </span>
               </div>
@@ -450,7 +482,7 @@ export default function FeaturesPage() {
                     <p className="text-base sm:text-lg font-extrabold text-slate-900 font-sans tracking-tight">
                       {st.val}
                     </p>
-                    <p className="text-[9.5px] font-mono font-bold text-slate-500 uppercase tracking-wider mt-0.5">
+                    <p className="text-[9.5px]  font-bold text-slate-500 uppercase tracking-wider mt-0.5">
                       {st.label}
                     </p>
                   </div>
@@ -486,10 +518,10 @@ export default function FeaturesPage() {
                     <span className="w-2 h-2 rounded-full bg-amber-500/80" />
                     <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
                   </div>
-                  <span className="text-[9.5px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                  <span className="text-[9.5px]  text-slate-400 font-bold uppercase tracking-wider">
                     {feat.videoSlotName}
                   </span>
-                  <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950 border border-emerald-800 px-1.5 py-0.5 rounded">
+                  <span className="text-[9px]  text-emerald-400 bg-emerald-950 border border-emerald-800 px-1.5 py-0.5 rounded">
                     LIVE
                   </span>
                 </div>
@@ -519,7 +551,7 @@ export default function FeaturesPage() {
                       <div className="w-10 h-10 rounded-full bg-[#D8331F]/20 text-[#D8331F] flex items-center justify-center text-lg border border-[#D8331F]/40">
                         ▶
                       </div>
-                      <p className="text-[11px] font-mono font-bold text-white uppercase tracking-wider">
+                      <p className="text-[11px]  font-bold text-white uppercase tracking-wider">
                         {feat.videoSlotName}
                       </p>
                     </div>
@@ -543,7 +575,7 @@ export default function FeaturesPage() {
             transition={{ duration: 0.6 }}
             className="space-y-3 text-center max-w-2xl mx-auto"
           >
-            <span className="text-[11px] font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200/80 rounded-full">
+            <span className="text-[11px]  font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200/80 rounded-full">
               // Master Feature Directory & Capabilities
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-sans tracking-tight text-slate-950">
@@ -578,7 +610,7 @@ export default function FeaturesPage() {
             </h3>
             <div className="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-md">
               <table className="w-full text-left text-xs text-slate-800">
-                <thead className="bg-slate-50 text-slate-900 font-mono uppercase text-[10px] tracking-wider border-b border-slate-200">
+                <thead className="bg-slate-50 text-slate-900  uppercase text-[10px] tracking-wider border-b border-slate-200">
                   <tr>
                     <th className="py-3 px-5">Carrier Partner</th>
                     <th className="py-3 px-5">Integration Type</th>
@@ -588,42 +620,42 @@ export default function FeaturesPage() {
                 <tbody className="divide-y divide-slate-100 bg-white font-medium">
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">Delhivery (B2C & B2B)</td>
-                    <td className="py-3 px-5 text-emerald-700 font-mono text-[11px]">Direct API & Scraping</td>
+                    <td className="py-3 px-5 text-emerald-700  text-[11px]">Direct API & Scraping</td>
                     <td className="py-3 px-5 text-slate-700">Real-time Booking, Tracking, Manifests, Weight Scraping</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">DTDC (API, Portal, EFR)</td>
-                    <td className="py-3 px-5 text-sky-700 font-mono text-[11px]">Direct API & Crawler Portal</td>
+                    <td className="py-3 px-5 text-sky-700  text-[11px]">Direct API & Crawler Portal</td>
                     <td className="py-3 px-5 text-slate-700">Surface/Air Booking, AWB Generation, Auto-Status Sync</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">Xpressbees</td>
-                    <td className="py-3 px-5 text-amber-700 font-mono text-[11px]">Direct API & Scraping</td>
+                    <td className="py-3 px-5 text-amber-700  text-[11px]">Direct API & Scraping</td>
                     <td className="py-3 px-5 text-slate-700">COD/Prepaid Booking, Real-time Tracking, Automated Remittances</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">BlueDart</td>
-                    <td className="py-3 px-5 text-purple-700 font-mono text-[11px]">Direct API Integration</td>
+                    <td className="py-3 px-5 text-purple-700  text-[11px]">Direct API Integration</td>
                     <td className="py-3 px-5 text-slate-700">Express Delivery Routing, Secure Pincode Serviceability</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">DP World</td>
-                    <td className="py-3 px-5 text-teal-700 font-mono text-[11px]">Direct API Integration</td>
+                    <td className="py-3 px-5 text-teal-700  text-[11px]">Direct API Integration</td>
                     <td className="py-3 px-5 text-slate-700">B2B Cargo Shipments, Heavy Load Transport Booking</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">eKart</td>
-                    <td className="py-3 px-5 text-rose-700 font-mono text-[11px]">Direct API Integration</td>
+                    <td className="py-3 px-5 text-rose-700  text-[11px]">Direct API Integration</td>
                     <td className="py-3 px-5 text-slate-700">Prepaid & COD shipping, Retail pickup scheduling</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">Trackon & CriticaLog</td>
-                    <td className="py-3 px-5 text-indigo-700 font-mono text-[11px]">Direct API Integration</td>
+                    <td className="py-3 px-5 text-indigo-700  text-[11px]">Direct API Integration</td>
                     <td className="py-3 px-5 text-slate-700">Regional coverage and specialized cold-chain logistics</td>
                   </tr>
                   <tr className="hover:bg-slate-50/80 transition-colors">
                     <td className="py-3 px-5 font-bold text-slate-950">Shipmozo (Aggregator)</td>
-                    <td className="py-3 px-5 text-sky-700 font-mono text-[11px]">Aggregator API & Scraper</td>
+                    <td className="py-3 px-5 text-sky-700  text-[11px]">Aggregator API & Scraper</td>
                     <td className="py-3 px-5 text-slate-700">Rate Comparison, Weight Disputes, Scraped Status Updates</td>
                   </tr>
                 </tbody>
@@ -646,7 +678,7 @@ export default function FeaturesPage() {
           className="bg-white text-slate-900 rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-md grid lg:grid-cols-12 gap-8 items-center"
         >
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-[10px] font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
+            <span className="text-[10px]  font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
               // Summary Stack
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-sans leading-tight tracking-tight text-slate-950">
@@ -666,7 +698,7 @@ export default function FeaturesPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-2.5  text-xs">
             {[
               "01. 100% White-Label & Custom Domain",
               "02. 14+ Courier Direct APIs (B2C & B2B)",
@@ -700,7 +732,7 @@ export default function FeaturesPage() {
       {/* ── INTERNAL SOLUTIONS CROSS-LINKING MATRIX ── */}
       <section className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 pb-12">
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-4">
-          <h3 className="text-sm font-mono font-bold text-[#D8331F] uppercase tracking-wider">// Dedicated Solution Portals</h3>
+          <h3 className="text-sm  font-bold text-[#D8331F] uppercase tracking-wider">// Dedicated Solution Portals</h3>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/solutions/white-label-logistics-portal-india"

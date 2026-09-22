@@ -93,7 +93,7 @@ export default function WhiteLabelShippingSoftwarePage() {
   ]);
 
   return (
-    <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
+    <main className="w-full bg-[#FAFAFC] text-slate-900  sm:pt-32  font-sans overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -113,7 +113,7 @@ export default function WhiteLabelShippingSoftwarePage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F] font-mono text-xs font-bold"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-[#D8331F]  text-xs font-bold"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-[#D8331F] animate-pulse" />
           <span>// White-Label Logistics SaaS OS</span>
@@ -134,7 +134,7 @@ export default function WhiteLabelShippingSoftwarePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-600 text-base sm:text-lg font-medium max-w-3xl mx-auto leading-relaxed"
         >
-          Launch your own branded courier aggregator portal on your custom domain (<code className="bg-slate-100 px-2 py-0.5 rounded text-slate-900 font-mono text-sm">ship.yourbrand.com</code>). Connect 14+ direct courier APIs (Delhivery, BlueDart, DTDC, Xpressbees), automate WhatsApp NDR recovery, and keep 100% of your gross profit margins.
+          Launch your own branded courier aggregator portal on your custom domain (<code className="bg-slate-100 px-2 py-0.5 rounded text-slate-900  text-sm">ship.yourbrand.com</code>). Connect 14+ direct courier APIs (Delhivery, BlueDart, DTDC, Xpressbees), automate WhatsApp NDR recovery, and keep 100% of your gross profit margins.
         </motion.p>
 
         <motion.div
@@ -158,7 +158,7 @@ export default function WhiteLabelShippingSoftwarePage() {
         </motion.div>
 
         {/* Feature Pill Highlights */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-8 max-w-4xl mx-auto font-mono text-xs text-slate-700">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-8 max-w-4xl mx-auto  text-xs text-slate-700">
           <div className="bg-white p-3 rounded-2xl border border-slate-200/90 shadow-sm text-center">
             <span className="block font-extrabold text-[#D8331F] text-base">100%</span>
             <span className="text-[11px]">Custom Domain</span>
@@ -182,7 +182,7 @@ export default function WhiteLabelShippingSoftwarePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-20">
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
+            <span className="text-xs  font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
               // Why White-Label Software?
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
@@ -230,7 +230,7 @@ export default function WhiteLabelShippingSoftwarePage() {
       {/* ── COMPARISON TABLE ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-20 space-y-6">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
+          <span className="text-xs  font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200 rounded-full">
             // Solution Benchmarking
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">

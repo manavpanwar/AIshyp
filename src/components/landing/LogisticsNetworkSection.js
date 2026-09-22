@@ -103,44 +103,49 @@ export default function LogisticsNetworkSection() {
   const [activeTab, setActiveTab] = useState("matrix");
 
   return (
-    <section className="relative w-full py-8 sm:py-10 px-4 sm:px-8 lg:px-12 overflow-hidden bg-slate-50 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+    <section className="relative w-full py-16 sm:py-20 px-6 sm:px-10 lg:px-16 overflow-hidden bg-white border-t border-slate-200/80">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
         {/* Left Column (5 cols): Title, Subtitle, Hub Pills & 4 Equal Feature Badges */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -25 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.4 }}
-          className="lg:col-span-5 flex flex-col justify-between space-y-4"
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-5 flex flex-col justify-between space-y-6"
         >
-          <div className="space-y-3">
-            <div>
-              <p className="text-[11px] font-mono font-bold tracking-widest text-[#D8331F] uppercase mb-1">
-                // Pan-India Coverage & Network
-              </p>
-              <h2 className="font-sans font-extrabold text-slate-900 text-2xl sm:text-3xl leading-tight">
-                Manage Your Pan-India <span className="text-[#D8331F]">Logistics Network</span>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50/90 border border-red-200/80 text-[#D8331F]  text-xs font-bold shadow-2xs">
+                <span>✨</span>
+                <span className="uppercase tracking-wider">Pan-India Coverage & Network</span>
+              </div>
+              <h2 className="font-sans font-extrabold text-slate-950 text-3xl sm:text-4xl leading-tight tracking-tight">
+                Manage Your Pan-India{" "}
+                <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#D8331F] bg-clip-text text-transparent">
+                  Logistics Network
+                </span>
               </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed font-medium">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 Select any regional logistics hub to inspect carrier API connectivity, live order volume, SLA success ratios, and custom profit margin markups.
               </p>
             </div>
 
             {/* Hub Selector Buttons */}
             <div>
-              <p className="text-[11px] font-mono font-bold uppercase text-slate-500 mb-1.5">
-                Select Logistics Hub:
+              <p className="text-[11px]  font-bold uppercase text-slate-400 mb-2 tracking-wide">
+                Select Regional Logistics Hub:
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {HUBS.map((hub) => (
                   <button
                     key={hub.id}
                     onClick={() => setSelectedHub(hub)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${selectedHub.id === hub.id
-                        ? "bg-[#D8331F] text-white border-[#D8331F] shadow-xs"
-                        : "bg-white text-slate-700 border-slate-200 hover:border-[#D8331F] hover:text-[#D8331F]"
-                      }`}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs  font-bold transition-all border cursor-pointer ${
+                      selectedHub.id === hub.id
+                        ? "bg-[#D8331F] text-white border-[#D8331F] shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-white"
+                    }`}
                   >
                     {hub.name.split(" ")[0]} Hub
                   </button>
@@ -150,24 +155,24 @@ export default function LogisticsNetworkSection() {
           </div>
 
           {/* 4 Feature Badges */}
-          <div className="grid grid-cols-2 gap-2.5 pt-1">
-            <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-2xs">
-              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase">Coverage</p>
-              <p className="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5 font-sans">29,000+ Pincodes</p>
-              <p className="text-[10.5px] text-slate-500 font-medium">Pan-India Reach</p>
+          <div className="grid grid-cols-2 gap-3 pt-2">
+            <div className="bg-slate-50/80 hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-sm transition-all">
+              <p className="text-[10px]  font-bold text-slate-400 uppercase tracking-wider">Coverage</p>
+              <p className="text-base sm:text-lg font-extrabold text-slate-950 mt-1 font-sans">29,000+ Pincodes</p>
+              <p className="text-xs text-slate-500 font-normal">Pan-India Reach</p>
             </div>
-            <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-2xs">
-              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase">Latency</p>
-              <p className="text-sm sm:text-base font-extrabold text-emerald-600 mt-0.5 font-sans">&lt; 14ms API</p>
-              <p className="text-[10.5px] text-slate-500 font-medium">Real-Time Routing</p>
+            <div className="bg-slate-50/80 hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-sm transition-all">
+              <p className="text-[10px]  font-bold text-slate-400 uppercase tracking-wider">Latency</p>
+              <p className="text-base sm:text-lg font-extrabold text-emerald-600 mt-1 font-sans">&lt; 14ms API</p>
+              <p className="text-xs text-slate-500 font-normal">Real-Time Routing</p>
             </div>
-            <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-2xs">
-              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase">Profit</p>
-              <p className="text-sm sm:text-base font-extrabold text-[#D8331F] mt-0.5 font-sans">100% Margins</p>
-              <p className="text-[10.5px] text-slate-500 font-medium">0% Revenue Share</p>
+            <div className="bg-slate-50/80 hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-sm transition-all">
+              <p className="text-[10px]  font-bold text-slate-400 uppercase tracking-wider">Profit</p>
+              <p className="text-base sm:text-lg font-extrabold text-[#D8331F] mt-1 font-sans">100% Margins</p>
+              <p className="text-xs text-slate-500 font-normal">0% Revenue Share</p>
             </div>
-            <div className="bg-white p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-2xs">
-              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase">RTO Protection</p>
+            <div className="bg-slate-50/80 hover:bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-sm transition-all">
+              <p className="text-[10px]  font-bold text-slate-400 uppercase tracking-wider">RTO Protection</p>
               <p className="text-sm sm:text-base font-extrabold text-sky-600 mt-0.5 font-sans">42% Lower RTO</p>
               <p className="text-[10.5px] text-slate-500 font-medium">WhatsApp Engine</p>
             </div>
@@ -191,7 +196,7 @@ export default function LogisticsNetworkSection() {
                   {selectedHub.name}
                 </h3>
               </div>
-              <p className="text-xs text-slate-500 font-mono mt-1">
+              <p className="text-xs text-slate-500  mt-1">
                 {selectedHub.zone} • Latency: {selectedHub.latency} • <strong className="text-slate-800"><CountUp to={selectedHub.activeOrders} /> Active Orders</strong>
               </p>
             </div>
@@ -201,7 +206,7 @@ export default function LogisticsNetworkSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("matrix")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${activeTab === "matrix"
+                className={`px-3 py-1.5 rounded-lg text-xs  font-bold transition-all ${activeTab === "matrix"
                     ? "bg-[#D8331F] text-white shadow-2xs"
                     : "text-slate-600 hover:text-slate-900"
                   }`}
@@ -211,7 +216,7 @@ export default function LogisticsNetworkSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("dispatch")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${activeTab === "dispatch"
+                className={`px-3 py-1.5 rounded-lg text-xs  font-bold transition-all ${activeTab === "dispatch"
                     ? "bg-[#D8331F] text-white shadow-2xs"
                     : "text-slate-600 hover:text-slate-900"
                   }`}
@@ -221,7 +226,7 @@ export default function LogisticsNetworkSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("ndr")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${activeTab === "ndr"
+                className={`px-3 py-1.5 rounded-lg text-xs  font-bold transition-all ${activeTab === "ndr"
                     ? "bg-[#D8331F] text-white shadow-2xs"
                     : "text-slate-600 hover:text-slate-900"
                   }`}
@@ -243,10 +248,10 @@ export default function LogisticsNetworkSection() {
                 className="space-y-3.5 my-auto"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
+                  <span className="text-xs  text-slate-500 font-bold uppercase tracking-wider">
                     Carrier SLA & Gross Profit Comparison:
                   </span>
-                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                  <span className="text-[10px]  text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
                     Auto-Routing Active
                   </span>
                 </div>
@@ -269,13 +274,13 @@ export default function LogisticsNetworkSection() {
                           />
                         </div>
                         <div>
-                          <p className="text-xs text-slate-500 font-mono">
+                          <p className="text-xs text-slate-500 ">
                             Mode: <span className="text-slate-800 font-bold">{courier.speed}</span>
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between sm:justify-end gap-5 text-right font-mono text-xs border-t sm:border-t-0 border-slate-200/60 pt-2 sm:pt-0">
+                      <div className="flex items-center justify-between sm:justify-end gap-5 text-right  text-xs border-t sm:border-t-0 border-slate-200/60 pt-2 sm:pt-0">
                         <div>
                           <p className="text-[10px] text-slate-400 font-bold uppercase">SLA Ratio</p>
                           <p className="text-emerald-600 font-extrabold mt-0.5">{courier.sla}</p>
@@ -286,7 +291,7 @@ export default function LogisticsNetworkSection() {
                         </div>
                         <div>
                           <p className="text-[10px] text-slate-400 font-bold uppercase">Franchise Profit</p>
-                          <span className="text-xs font-mono font-extrabold text-[#D8331F] bg-[#D8331F]/10 px-2.5 py-1 rounded-lg border border-[#D8331F]/20 inline-block mt-0.5">
+                          <span className="text-xs  font-extrabold text-[#D8331F] bg-[#D8331F]/10 px-2.5 py-1 rounded-lg border border-[#D8331F]/20 inline-block mt-0.5">
                             {courier.margin}
                           </span>
                         </div>
@@ -307,13 +312,13 @@ export default function LogisticsNetworkSection() {
               className="space-y-3.5 my-auto"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
+                <span className="text-xs  text-slate-500 font-bold uppercase tracking-wider">
                   Real-Time Dispatch Stream:
                 </span>
-                <span className="text-[10px] font-mono text-slate-500">Live Socket Sync</span>
+                <span className="text-[10px]  text-slate-500">Live Socket Sync</span>
               </div>
 
-              <div className="space-y-3 font-mono">
+              <div className="space-y-3 ">
                 {DISPATCH_FEED.map((item) => (
                   <div
                     key={item.awb}
@@ -358,7 +363,7 @@ export default function LogisticsNetworkSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
-              className="space-y-4 my-auto font-mono"
+              className="space-y-4 my-auto "
             >
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
@@ -394,7 +399,7 @@ export default function LogisticsNetworkSection() {
           )}
 
           {/* Footer Bar */}
-          <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs font-mono text-slate-500">
+          <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-xs  text-slate-500">
             <span>Pan-India Logistics Infrastructure</span>
             <span className="text-[#D8331F] font-bold">100% Margin Control</span>
           </div>

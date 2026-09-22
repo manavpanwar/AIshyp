@@ -129,7 +129,7 @@ export default function GameChangersSection() {
   const brandDisplayName = brandSlug.charAt(0).toUpperCase() + brandSlug.slice(1);
 
   return (
-    <section className="relative w-full py-16 sm:py-20 px-6 sm:px-10 lg:px-16 bg-[#FAFAFC] text-slate-900 border-t border-slate-200/80 overflow-hidden">
+    <section className="relative w-full py-16 sm:py-20 px-6 sm:px-10 lg:px-16 bg-white text-slate-900  overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -140,19 +140,23 @@ export default function GameChangersSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-xs font-mono font-bold tracking-widest text-[#D8331F] uppercase">
-            // Personal Courier Aggregator Panel
-          </p>
-          <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-tight">
-            One Platform. <span className="text-[#D8331F]">Three Game-Changers.</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50/90 border border-red-200/80 text-[#D8331F]  text-xs font-bold shadow-2xs">
+            <span>✨</span>
+            <span className="uppercase tracking-wider">Personal Courier Aggregator Panel</span>
+          </div>
+          <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-950 leading-tight tracking-tight">
+            One Platform.{" "}
+            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#D8331F] bg-clip-text text-transparent">
+              Three Game-Changers.
+            </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base font-medium">
+          <p className="text-slate-600 text-sm sm:text-base font-normal">
             AIShyp gives shipping partners the tools, rates, and leads to scale overnight.
           </p>
         </div>
 
         {/* 3 Main Pillar Navigation Tab Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5">
           {PILLARS.map((pillar) => {
             const isActive = activePillar === pillar.id;
             return (
@@ -160,21 +164,21 @@ export default function GameChangersSection() {
                 key={pillar.id}
                 type="button"
                 onClick={() => setActivePillar(pillar.id)}
-                className={`p-4 sm:p-5 rounded-2xl text-left transition-all border flex items-center justify-between gap-3 group cursor-pointer ${
+                className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl text-left transition-all border flex items-center justify-between gap-3.5 group cursor-pointer ${
                   isActive
-                    ? "bg-white border-[#D8331F] shadow-lg border-l-4 border-l-[#D8331F]"
-                    : "bg-slate-50/90 border-slate-200/80 hover:bg-white hover:border-slate-300 shadow-2xs"
+                    ? "bg-white border-[#D8331F]/80 shadow-lg border-l-4 border-l-[#D8331F]"
+                    : "bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-sm"
                 }`}
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <span className={`text-[10px] font-mono font-extrabold px-2.5 py-0.5 rounded-md border ${pillar.badgeColor}`}>
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span className={`text-[10px]  font-extrabold px-2.5 py-0.5 rounded-full border ${pillar.badgeColor}`}>
                       {pillar.badge}
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-sans truncate">{pillar.title}</h3>
+                  <h3 className="text-sm sm:text-base font-extrabold text-slate-950 font-sans truncate">{pillar.title}</h3>
                 </div>
-                <span className={`text-lg font-mono font-extrabold shrink-0 ${isActive ? "text-[#D8331F]" : "text-slate-400"}`}>
+                <span className={`text-lg  font-extrabold shrink-0 ${isActive ? "text-[#D8331F]" : "text-slate-300"}`}>
                   0{pillar.id}
                 </span>
               </button>
@@ -196,7 +200,7 @@ export default function GameChangersSection() {
               {/* Left Column (5 cols): Highlights & Interactive Controls */}
               <div className="lg:col-span-5 space-y-3.5">
                 <div>
-                  <span className="text-[10px] font-mono text-[#D8331F] uppercase font-bold tracking-wider">
+                  <span className="text-[10px]  text-[#D8331F] uppercase font-bold tracking-wider">
                     Game-Changer #01
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-sans leading-tight">
@@ -213,7 +217,7 @@ export default function GameChangersSection() {
                     <div key={h.title} className="flex gap-2.5 items-start">
                       <span
                         style={{ borderColor: selectedTheme.primary, color: selectedTheme.primary }}
-                        className="w-4 h-4 rounded-full bg-white font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 font-mono border"
+                        className="w-4 h-4 rounded-full bg-white font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5  border"
                       >
                         {i + 1}
                       </span>
@@ -226,10 +230,10 @@ export default function GameChangersSection() {
                 </div>
 
                 {/* Compact Customizer Controls */}
-                <div className="space-y-2.5 font-mono pt-2 border-t border-slate-100">
+                <div className="space-y-2.5  pt-2 border-t border-slate-100">
                   {/* Domain Input */}
                   <div className="space-y-1">
-                    <label className="text-[11px] font-mono text-slate-700 block font-bold">
+                    <label className="text-[11px]  text-slate-700 block font-bold">
                       1. Test Custom Domain URL:
                     </label>
                     <div className="flex items-center gap-1">
@@ -293,7 +297,7 @@ export default function GameChangersSection() {
                         <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />
                       </div>
-                      <div className="flex items-center gap-2 font-mono text-[9px]">
+                      <div className="flex items-center gap-2  text-[9px]">
                         <span className="bg-emerald-950 text-emerald-400 border border-emerald-800/80 px-1.5 py-0.5 rounded font-bold flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                           SSL ACTIVE
@@ -303,7 +307,7 @@ export default function GameChangersSection() {
                     </div>
 
                     {/* Magnified Zoomed-in URL Address Bar */}
-                    <div className="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center justify-between text-xs font-mono shadow-inner">
+                    <div className="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 flex items-center justify-between text-xs  shadow-inner">
                       <div className="flex items-center gap-1.5 truncate">
                         <span className="text-emerald-400 text-xs shrink-0">🔒</span>
                         <span className="text-slate-500 shrink-0">https://</span>
@@ -337,7 +341,7 @@ export default function GameChangersSection() {
                           <h4 className="font-extrabold text-slate-900 text-xs sm:text-sm font-sans tracking-tight leading-tight">
                             {brandDisplayName} Logistics
                           </h4>
-                          <p className="text-[9px] font-mono text-slate-400 font-semibold">
+                          <p className="text-[9px]  text-slate-400 font-semibold">
                             Enterprise Shipping Console
                           </p>
                         </div>
@@ -355,7 +359,7 @@ export default function GameChangersSection() {
                     </div>
 
                     {/* Navigation Tabs with Active Brand Highlight */}
-                    <div className="flex items-center gap-1.5 pt-1 border-t border-slate-100 font-mono text-[10px]">
+                    <div className="flex items-center gap-1.5 pt-1 border-t border-slate-100  text-[10px]">
                       <span
                         style={{
                           backgroundColor: `${selectedTheme.primary}15`,
@@ -380,7 +384,7 @@ export default function GameChangersSection() {
                   </div>
 
                   {/* Compact DNS & White-Label Connection Details */}
-                  <div className="p-2.5 sm:p-3 bg-slate-50 space-y-1.5 font-mono text-[9.5px]">
+                  <div className="p-2.5 sm:p-3 bg-slate-50 space-y-1.5  text-[9.5px]">
                     <div className="grid sm:grid-cols-2 gap-2">
                       <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-2xs">
                         <p className="text-[8px] text-slate-400 font-bold uppercase">CNAME Record</p>
@@ -399,7 +403,7 @@ export default function GameChangersSection() {
                 </div>
 
                 {/* Bottom Color Summary Note */}
-                <div className="flex items-center justify-between text-[10.5px] font-mono text-slate-600 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+                <div className="flex items-center justify-between text-[10.5px]  text-slate-600 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
                   <span className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full" style={{ backgroundColor: selectedTheme.primary }} />
                     Active Accent: <strong className="text-slate-900 font-bold">{selectedTheme.name}</strong> ({selectedTheme.hex})
@@ -421,7 +425,7 @@ export default function GameChangersSection() {
             >
               <div className="lg:col-span-5 space-y-3.5">
                 <div>
-                  <span className="text-[10px] font-mono text-amber-600 uppercase font-bold tracking-wider">
+                  <span className="text-[10px]  text-amber-600 uppercase font-bold tracking-wider">
                     Game-Changer #02
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-sans leading-tight">
@@ -435,7 +439,7 @@ export default function GameChangersSection() {
                 <div className="space-y-2">
                   {PILLARS[1].highlights.map((h, i) => (
                     <div key={h.title} className="flex gap-2.5 items-start">
-                      <span className="w-4 h-4 rounded-full bg-amber-500/10 text-amber-700 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 font-mono border border-amber-500/30">
+                      <span className="w-4 h-4 rounded-full bg-amber-500/10 text-amber-700 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5  border border-amber-500/30">
                         {i + 1}
                       </span>
                       <div className="min-w-0">
@@ -448,7 +452,7 @@ export default function GameChangersSection() {
               </div>
 
               {/* Interactive Multi-Carrier Rate Calculator */}
-              <div className="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-xl p-3.5 sm:p-4 shadow-sm space-y-3 font-mono">
+              <div className="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-xl p-3.5 sm:p-4 shadow-sm space-y-3 ">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-2">
                   <span className="text-[11px] text-slate-700 font-bold uppercase">Rate Card Preview ({weightKg} kg shipment)</span>
                   <div className="flex items-center gap-2">
@@ -500,7 +504,7 @@ export default function GameChangersSection() {
             >
               <div className="lg:col-span-5 space-y-3.5">
                 <div>
-                  <span className="text-[10px] font-mono text-emerald-600 uppercase font-bold tracking-wider">
+                  <span className="text-[10px]  text-emerald-600 uppercase font-bold tracking-wider">
                     Game-Changer #03
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-sans leading-tight">
@@ -514,7 +518,7 @@ export default function GameChangersSection() {
                 <div className="space-y-2">
                   {PILLARS[2].highlights.map((h, i) => (
                     <div key={h.title} className="flex gap-2.5 items-start">
-                      <span className="w-4 h-4 rounded-full bg-emerald-600/10 text-emerald-700 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 font-mono border border-emerald-600/30">
+                      <span className="w-4 h-4 rounded-full bg-emerald-600/10 text-emerald-700 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5  border border-emerald-600/30">
                         {i + 1}
                       </span>
                       <div className="min-w-0">
@@ -527,7 +531,7 @@ export default function GameChangersSection() {
               </div>
 
               {/* Sample Revenue Lead Cards */}
-              <div className="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-xl p-3.5 sm:p-4 shadow-sm space-y-2.5 font-mono">
+              <div className="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-xl p-3.5 sm:p-4 shadow-sm space-y-2.5 ">
                 <div className="flex items-center justify-between border-b border-slate-200 pb-2">
                   <span className="text-[11px] text-slate-700 font-bold uppercase">Pre-Vetted Merchant Lead Feed</span>
                   <span className="text-[9.5px] text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200">

@@ -98,7 +98,7 @@ export default function MultiTenantShippingSaaSPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F] font-mono text-xs font-bold"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F]  text-xs font-bold"
         >
           <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
           <span>// Multi-Tenant Logistics SaaS Architecture</span>
@@ -147,7 +147,7 @@ export default function MultiTenantShippingSaaSPage() {
       {/* ── LITERAL ENTITY DEFINITION BOX ── */}
       <section className="max-w-4xl mx-auto px-6 mt-12 sm:mt-16">
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-3 text-center">
-          <p className="text-xs font-mono font-bold text-[#D8331F] uppercase tracking-widest">// Semantic Definition</p>
+          <p className="text-xs  font-bold text-[#D8331F] uppercase tracking-widest">// Semantic Definition</p>
           <h2 className="text-xl font-bold text-slate-900">What is AI Shyp?</h2>
           <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
             <strong>AI Shyp</strong> is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain.

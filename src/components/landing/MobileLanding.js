@@ -41,28 +41,35 @@ export default function MobileLanding() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen text-slate-900 pt-24 pb-16 px-5 space-y-16 bg-[#FAFAFC] overflow-x-hidden">
+    <div className="w-full min-h-screen text-slate-900 pt-24 pb-16 px-5 space-y-16 bg-white overflow-x-hidden relative">
+      {/* Ambient Mobile Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(216,51,31,0.12),transparent)] blur-2xl pointer-events-none -z-10" />
+
       {/* ── HERO MOBILE ── */}
-      <section className="text-center mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-4">
-        <span className="px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-widest text-[#D8331F] bg-red-50 border border-red-200/80 inline-block shadow-2xs">
-          White-Label Logistics OS
+      <section className="text-center mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-5">
+        <span className="px-4 py-1.5 rounded-full text-xs  font-bold uppercase tracking-widest text-[#D8331F] bg-red-50/90 border border-red-200/80 inline-flex items-center gap-1.5 shadow-2xs">
+          <span>✨</span>
+          <span>White-Label Logistics OS</span>
         </span>
-        
-        <h1 className="font-sans font-extrabold text-slate-950 text-3xl sm:text-4xl text-center leading-[1.15] tracking-tight">
+
+        <h1 className="font-sans font-extrabold text-slate-950 text-3xl sm:text-4xl text-center leading-[1.12] tracking-tight">
           Launch your own <br />
-          <span className="text-[#D8331F]">shipping aggregator platform.</span>
+          <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
+            shipping aggregator platform.
+          </span>
         </h1>
-        
-        <p className="text-slate-600 text-sm text-center font-medium leading-relaxed max-w-sm mx-auto">
-          You build the logistics brand — we power the technology. Deploy your custom domain portal with 14+ direct courier APIs in 5 minutes.
+
+        <p className="text-slate-600 text-sm text-center font-normal leading-relaxed max-w-sm mx-auto">
+          You build the <strong className="font-bold text-slate-900">logistics brand</strong> — we power the technology. Deploy your custom domain portal with <strong className="font-bold text-slate-900">14+ direct courier APIs</strong> in 5 minutes.
         </p>
 
         <div className="flex flex-col gap-3 justify-center pt-2">
           <Link
             href="/contact"
-            className="bg-[#D8331F] text-white rounded-full px-7 py-3.5 font-extrabold text-sm text-center shadow-[0_8px_20px_rgba(216,51,31,0.35)] active:scale-95 transition-transform"
+            className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-7 py-3.5 font-extrabold text-sm text-center shadow-[0_8px_20px_rgba(216,51,31,0.35)] active:scale-95 transition-transform flex items-center justify-center gap-2"
           >
-            Launch Your Platform →
+            <span>Launch Your Platform</span>
+            <span>→</span>
           </Link>
           <Link
             href="/pricing"
@@ -76,13 +83,13 @@ export default function MobileLanding() {
           {CARDS.map((c) => (
             <div
               key={c.title}
-              className="bg-white border border-slate-200/90 rounded-2xl p-4 space-y-1 shadow-sm"
+              className="bg-white border border-slate-200/90 rounded-2xl p-4 space-y-1.5 shadow-xs"
             >
               <h3 className="font-sans font-extrabold text-slate-950 text-sm flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D8331F]" />
                 {c.title}
               </h3>
-              <p className="text-slate-600 text-xs leading-relaxed font-medium pl-4">{c.body}</p>
+              <p className="text-slate-600 text-xs leading-relaxed font-normal pl-4">{c.body}</p>
             </div>
           ))}
         </div>
@@ -91,8 +98,8 @@ export default function MobileLanding() {
       {/* ── THREE GAME-CHANGERS MOBILE ── */}
       <section className="text-left mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-6">
         <div className="text-center space-y-1.5">
-          <p className="text-[11px] font-mono font-bold tracking-widest text-[#D8331F] uppercase">
-            // Personal Courier Aggregator Panel
+          <p className="text-[11px]  font-bold tracking-widest text-[#D8331F] uppercase">
+            Personal Courier Aggregator Panel
           </p>
           <h2 className="font-sans font-extrabold text-slate-950 text-2xl">
             One Platform. <span className="text-[#D8331F]">Three Game-Changers.</span>
@@ -106,12 +113,12 @@ export default function MobileLanding() {
           {/* Pillar 01 */}
           <div className="bg-white border border-slate-200 text-slate-900 rounded-2xl p-5 space-y-3 shadow-md border-t-4 border-t-[#D8331F]">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-extrabold text-[#D8331F] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">01 • Digital Empire OS</span>
+              <span className="text-xs  font-extrabold text-[#D8331F] bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">01 • Digital Empire OS</span>
               <span className="text-xl">🚀</span>
             </div>
             <h3 className="font-sans font-extrabold text-slate-950 text-lg">Go Digital Instantly</h3>
             <p className="text-xs text-slate-600 font-medium leading-relaxed">Deploy your white-label courier platform on your custom domain in under 5 minutes.</p>
-            <div className="space-y-2 pt-1 font-mono text-xs">
+            <div className="space-y-2 pt-1  text-xs">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-800 font-medium">Custom Domain</span>
                 <span className="text-emerald-700 font-bold text-[10px]">100% Yours</span>
@@ -130,12 +137,12 @@ export default function MobileLanding() {
           {/* Pillar 02 */}
           <div className="bg-white border border-slate-200 text-slate-900 rounded-2xl p-5 space-y-3 shadow-md border-t-4 border-t-amber-500">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-extrabold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">02 • Rate Engine</span>
+              <span className="text-xs  font-extrabold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">02 • Rate Engine</span>
               <span className="text-xl">⚡</span>
             </div>
             <h3 className="font-sans font-extrabold text-slate-950 text-lg">Control Rates & Margins</h3>
             <p className="text-xs text-slate-600 font-medium leading-relaxed">Configure custom buy & sell rate slabs per merchant and keep 100% of your gross profit margins.</p>
-            <div className="space-y-2 pt-1 font-mono text-xs">
+            <div className="space-y-2 pt-1  text-xs">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-800 font-medium">14+ Courier Networks</span>
                 <span className="text-amber-700 font-bold text-[10px]">Connected</span>
@@ -150,12 +157,12 @@ export default function MobileLanding() {
           {/* Pillar 03 */}
           <div className="bg-white border border-slate-200 text-slate-900 rounded-2xl p-5 space-y-3 shadow-md border-t-4 border-t-emerald-500">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">03 • Network Hierarchy</span>
+              <span className="text-xs  font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">03 • Network Hierarchy</span>
               <span className="text-xl">📈</span>
             </div>
             <h3 className="font-sans font-extrabold text-slate-950 text-lg">Manage Multi-Clients</h3>
             <p className="text-xs text-slate-600 font-medium leading-relaxed">Manage your clients, sub-branches, pickup hubs, and financial ledgers from one panel.</p>
-            <div className="space-y-2 pt-1 font-mono text-xs">
+            <div className="space-y-2 pt-1  text-xs">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-800 font-medium">Prepaid Merchant Wallets</span>
                 <span className="text-emerald-700 font-bold text-[10px]">Auto Balance</span>
@@ -172,7 +179,7 @@ export default function MobileLanding() {
       {/* ── CARRIER LOGOS MOBILE GRID ── */}
       <section className="text-center mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-4">
         <div>
-          <p className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+          <p className="text-[11px]  font-bold text-slate-400 uppercase tracking-widest">
             Pre-Integrated Carrier Networks
           </p>
           <h2 className="font-sans font-extrabold text-slate-950 text-2xl mt-1">

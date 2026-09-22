@@ -52,7 +52,7 @@ export default function Main() {
   };
 
   return (
-    <main className="w-full min-h-screen bg-white text-slate-900 overflow-x-hidden">
+    <main className="w-full min-h-screen bg-white text-slate-900 overflow-x-hidden ">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}

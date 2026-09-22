@@ -113,11 +113,11 @@ export default function BlogCardBanner({ slug, title, className = "h-48 sm:h-52"
       {/* Top Header Badge */}
       <div className="flex items-center justify-between z-10">
         <span
-          className={`text-[10px] font-mono font-extrabold px-3 py-1 rounded-full uppercase border shadow-2xs ${theme.pillBg}`}
+          className={`text-[10px]  font-extrabold px-3 py-1 rounded-full uppercase border shadow-2xs ${theme.pillBg}`}
         >
           {theme.badge}
         </span>
-        <span className="text-xs font-mono font-bold text-slate-400">
+        <span className="text-xs  font-bold text-slate-400">
           AI Shyp OS
         </span>
       </div>
@@ -127,13 +127,13 @@ export default function BlogCardBanner({ slug, title, className = "h-48 sm:h-52"
         <span className="text-3xl sm:text-4xl block drop-shadow-sm transition-transform duration-300 group-hover:scale-110">
           {theme.icon}
         </span>
-        <p className="text-xs font-mono font-bold text-slate-800/80 truncate max-w-[90%]">
+        <p className="text-xs  font-bold text-slate-800/80 truncate max-w-[90%]">
           {title}
         </p>
       </div>
 
       {/* Bottom Status Bar */}
-      <div className="z-10 flex items-center justify-between text-[10px] font-mono font-bold text-slate-500 pt-1 border-t border-slate-900/5">
+      <div className="z-10 flex items-center justify-between text-[10px]  font-bold text-slate-500 pt-1 border-t border-slate-900/5">
         <span className="flex items-center gap-1.5 text-slate-700">
           <span
             className="w-1.5 h-1.5 rounded-full"

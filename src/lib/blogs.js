@@ -1,3 +1,6 @@
+import { connectToMongo } from "./mongodb.js";
+import Blog from "../models/Blog.js";
+
 const blogTopics = [
   {
     title: "How to Reduce RTO in Ecommerce (India Guide 2026)",
@@ -657,3 +660,73 @@ export function getRelatedBlogs(slug, limit = 2) {
 
   return allBlogs.filter((b) => b.slug !== slug).slice(0, limit);
 }
+
+export async function getUnifiedBlogs() {
+  const staticBlogs = getAllBlogs();
+  try {
+    await connectToMongo();
+    const dbBlogs = await Blog.find({ isPublished: true })
+      .sort({ publishedDate: -1, createdAt: -1 })
+      .lean();
+
+    if (dbBlogs && dbBlogs.length > 0) {
+      const formattedDbBlogs = dbBlogs.map((b) => ({
+        _id: b._id.toString(),
+        title: b.title,
+        slug: b.slug,
+        description: b.description,
+        content: b.content,
+        featuredImage: b.featuredImage || FALLBACK_BLOG_IMAGE,
+        author: b.author || "AI Shyp Squad",
+        category: b.category || "Logistics Automation",
+        tags: b.tags && b.tags.length > 0 ? b.tags : ["Logistics Automation"],
+        readingTime: b.readingTime || "4 min read",
+        publishedDate: b.publishedDate
+          ? new Date(b.publishedDate).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
+        isFromDb: true,
+      }));
+
+      const dbSlugs = new Set(formattedDbBlogs.map((b) => b.slug));
+      const remainingStatic = staticBlogs.filter((sb) => !dbSlugs.has(sb.slug));
+      return [...formattedDbBlogs, ...remainingStatic];
+    }
+  } catch (error) {
+    console.error("Error fetching blogs from MongoDB:", error?.message);
+  }
+  return staticBlogs;
+}
+
+export async function getUnifiedBlogBySlug(slug) {
+  try {
+    await connectToMongo();
+    const b = await Blog.findOne({ slug, isPublished: true }).lean();
+    if (b) {
+      return {
+        _id: b._id.toString(),
+        title: b.title,
+        slug: b.slug,
+        description: b.description,
+        content: b.content,
+        featuredImage: b.featuredImage || FALLBACK_BLOG_IMAGE,
+        author: b.author || "AI Shyp Squad",
+        category: b.category || "Logistics Automation",
+        tags: b.tags && b.tags.length > 0 ? b.tags : ["Logistics Automation"],
+        readingTime: b.readingTime || "4 min read",
+        publishedDate: b.publishedDate
+          ? new Date(b.publishedDate).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
+        isFromDb: true,
+      };
+    }
+  } catch (error) {
+    console.error("Error fetching blog by slug from MongoDB:", error?.message);
+  }
+  return getBlogBySlug(slug);
+}
+
+export async function getUnifiedRelatedBlogs(slug, limit = 2) {
+  const all = await getUnifiedBlogs();
+  return all.filter((b) => b.slug !== slug).slice(0, limit);
+}
+

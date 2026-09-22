@@ -98,7 +98,7 @@ export default async function EncyclopediaTopicPage({ params }) {
           
           {/* Direct Answer Summary Box for Answer Engine Citation */}
           <div className="mt-4 p-5 rounded-2xl bg-blue-50/80 border border-blue-200 text-blue-950 space-y-1 shadow-sm">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">
+            <span className="text-xs  font-bold uppercase tracking-wider text-blue-800">
               ⚡ Direct Answer Summary (TL;DR)
             </span>
             <p className="text-base font-semibold leading-relaxed">

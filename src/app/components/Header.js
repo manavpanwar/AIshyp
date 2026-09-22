@@ -4,10 +4,44 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
+const FRANCHISE_MESSAGES = [
+  {
+    tag: "Franchise Aggregator OS",
+    tagColor: "bg-red-950/80 border-red-800/80 text-[#FF8A6E]",
+    text: "Launch your branded courier franchise & multi-carrier shipping aggregator on your own domain",
+    cta: "Franchise Software",
+    href: "/solutions/courier-franchise-software",
+  },
+  {
+    tag: "14+ Carrier APIs",
+    tagColor: "bg-blue-950/80 border-blue-800/80 text-sky-400",
+    text: "Connect Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax & Ekart in one unified dashboard",
+    cta: "Carrier Integrations",
+    href: "/integration",
+  },
+  {
+    tag: "0% Commission SaaS",
+    tagColor: "bg-emerald-950/80 border-emerald-800/80 text-emerald-400",
+    text: "Keep 100% margin spread • Multi-branch booking counters, sub-agents & master wallet",
+    cta: "0% Commission Plans",
+    href: "/pricing",
+  },
+  {
+    tag: "White-Label OS",
+    tagColor: "bg-amber-950/80 border-amber-800/80 text-amber-300",
+    text: "Full autonomy with custom domain, automated NDR/RTO engine & branded WhatsApp tracking",
+    cta: "Book Platform Demo",
+    href: "/contact",
+  },
+];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeMsgIndex, setActiveMsgIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,6 +58,14 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveMsgIndex((prev) => (prev + 1) % FRANCHISE_MESSAGES.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     const closeMenuOnDesktop = (event) => {
       if (event.matches) setMenuOpen(false);
@@ -35,6 +77,7 @@ export default function Header() {
 
   const navLinks = [
     { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
     { label: "Features", href: "/features" },
     { label: "Integrations", href: "/integration" },
     { label: "Pricing", href: "/pricing" },
@@ -43,101 +86,330 @@ export default function Header() {
 
   return (
     <>
-      {/* Header with dynamic scroll background */}
-      <header
-        style={{
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 20px rgba(15, 23, 42, 0.06)" : "none",
-        }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "py-3" : "py-5"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">
-          {/* Left: AI Shyp Logo */}
-          <Link href="/" className="flex items-center no-underline flex-shrink-0 overflow-hidden">
-            <div className="relative h-14 w-56 flex items-center justify-start flex-shrink-0">
-              <Image
-                src="/AIship1.png"
-                alt="AIShip logo"
-                fill
-                sizes="224px"
-                className="object-contain object-left scale-[2.9] origin-left"
-                priority
-              />
+      {/* ── FIXED WRAPPER CONTAINING TOP ANNOUNCEMENT BAR & MAIN HEADER ── */}
+      <div className="fixed top-0 left-0 w-full z-50">
+        {/* ── 1. FRANCHISE & AGGREGATOR TOP ANNOUNCEMENT BAR ── */}
+        <aside
+          aria-label="Courier Franchise & Shipping Aggregator Announcement"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="w-full bg-slate-950 text-slate-200 border-b border-slate-800/90 py-1.5 sm:py-2 px-3 sm:px-6 lg:px-8 text-[11px] sm:text-xs select-none relative overflow-hidden"
+        >
+          {/* Subtle Ambient Red Tint Glow */}
+          <div className="absolute top-0 left-1/4 w-80 h-full bg-gradient-to-r from-transparent via-[#D8331F]/20 to-transparent pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 relative z-10">
+            {/* Mobile View: Compact, High-converting Single Tap */}
+            <div className="flex sm:hidden items-center justify-between w-full">
+              <Link
+                href={FRANCHISE_MESSAGES[activeMsgIndex].href}
+                className="flex items-center gap-1.5 overflow-hidden text-left flex-1 mr-2"
+              >
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-red-950/90 border border-red-800/80 text-[#FF8A6E]  text-[9px] font-extrabold uppercase shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Franchise OS</span>
+                </span>
+                <span className="text-slate-200 text-[11px] font-medium truncate">
+                  {FRANCHISE_MESSAGES[activeMsgIndex].text}
+                </span>
+              </Link>
+              <Link
+                href="/solutions/courier-franchise-software"
+                className="text-[#FF8A6E] hover:text-white  font-bold text-[10.5px] shrink-0 inline-flex items-center gap-0.5 whitespace-nowrap bg-red-950/60 border border-red-800/60 px-2 py-0.5 rounded-md"
+              >
+                <span>Join</span>
+                <span>→</span>
+              </Link>
             </div>
-          </Link>
 
-          {/* Center: Desktop Nav Links with Active Route Highlight */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname === link.href || pathname?.startsWith(link.href);
+            {/* Desktop / Tablet View: Rich Rotating Franchise Headlines */}
+            <div className="hidden sm:flex items-center justify-between w-full gap-4">
+              {/* Left: Dynamic Franchise Value Prop */}
+              <div className="flex items-center gap-3 overflow-hidden min-w-0 flex-1">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeMsgIndex}
+                    initial={{ opacity: 0, y: 7 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -7 }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                    className="flex items-center gap-2.5 overflow-hidden text-ellipsis whitespace-nowrap"
+                  >
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border  text-[10px] font-bold uppercase tracking-wider shrink-0 shadow-2xs ${FRANCHISE_MESSAGES[activeMsgIndex].tagColor}`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>{FRANCHISE_MESSAGES[activeMsgIndex].tag}</span>
+                    </span>
+                    <span className="text-slate-600 hidden md:inline">•</span>
+                    <span className="text-slate-200 font-medium truncate text-xs">
+                      {FRANCHISE_MESSAGES[activeMsgIndex].text}
+                    </span>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-              return (
+              {/* Center / Indicators: Dot Pointers to switch messages */}
+              <div className="hidden lg:flex items-center gap-1 shrink-0">
+                {FRANCHISE_MESSAGES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveMsgIndex(i)}
+                    aria-label={`Show franchise slide ${i + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      activeMsgIndex === i
+                        ? "w-4 bg-[#FF8A6E]"
+                        : "w-1.5 bg-slate-700 hover:bg-slate-500"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Right: Quick Action CTAs */}
+              <div className="flex items-center gap-2.5 sm:gap-3 shrink-0  text-[11px]">
                 <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${
-                    isActive
-                      ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                      : "text-slate-700 hover:text-[#D8331F] font-semibold"
-                  }`}
+                  href={FRANCHISE_MESSAGES[activeMsgIndex].href}
+                  className="text-[#FF8A6E] hover:text-white font-bold transition-colors inline-flex items-center gap-1 whitespace-nowrap bg-red-950/70 hover:bg-red-900/80 border border-red-800/80 px-2.5 py-0.5 rounded-md shadow-2xs"
                 >
-                  {link.label}
+                  <span>{FRANCHISE_MESSAGES[activeMsgIndex].cta}</span>
+                  <span>→</span>
                 </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right: Glossy Orange Pill "Launch Platform" Button */}
-          <div className="hidden md:flex items-center flex-shrink-0">
-            <Link
-              href="/contact"
-              className="bg-[#D8331F] text-white rounded-full px-5 py-2.5 text-xs font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
-            >
-              Launch Platform →
-            </Link>
+                <span className="text-slate-700 hidden xl:inline">|</span>
+                <Link
+                  href="/solutions/courier-franchise-software"
+                  className="text-slate-400 hover:text-white hidden xl:inline transition-colors whitespace-nowrap"
+                >
+                  Franchise Portal
+                </Link>
+                <span className="text-slate-700 hidden lg:inline">|</span>
+                <Link
+                  href="/pricing"
+                  className="text-slate-400 hover:text-emerald-400 hidden lg:inline transition-colors whitespace-nowrap"
+                >
+                  0% Commission
+                </Link>
+              </div>
+            </div>
           </div>
+        </aside>
 
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer z-50"
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-slate-900 transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
-          </button>
-        </div>
-      </header>
+        {/* ── 2. MAIN HEADER NAVIGATION BAR ── */}
+        <header
+          style={{
+            backgroundColor: scrolled ? "rgba(255, 255, 255, 0.97)" : "rgba(255, 255, 255, 0.90)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid rgba(226, 232, 240, 0.7)",
+            boxShadow: scrolled ? "0 4px 25px rgba(15, 23, 42, 0.08)" : "none",
+          }}
+          className={`w-full transition-all duration-300 ${
+            scrolled ? "py-2 sm:py-2.5" : "py-3 sm:py-3.5"
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+            {/* Left: AI Shyp Logo - Increased Height & Width for Desktop and Mobile */}
+            <Link href="/" className="flex items-center no-underline flex-shrink-0 overflow-hidden group">
+              <div className="relative h-14 sm:h-16 md:h-[68px] w-52 sm:w-64 md:w-72 flex items-center justify-start flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]">
+                <Image
+                  src="/AIship1.png"
+                  alt="AIShip logo"
+                  fill
+                  sizes="(max-width: 768px) 240px, 300px"
+                  className="object-contain object-left scale-[3.1] sm:scale-[3.3] origin-left"
+                  priority
+                />
+              </div>
+            </Link>
+
+            {/* Center: Desktop Nav Links with About Dropdown (text-[15px] / text-base) */}
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+              {navLinks.map((link) => {
+                if (link.label === "About") {
+                  const isAboutActive =
+                    pathname === "/about" || pathname?.startsWith("/about");
+
+                  return (
+                    <div key="about-dropdown" className="relative group py-2">
+                      <div className="flex items-center gap-1 cursor-pointer">
+                        <Link
+                          href="/about"
+                          className={`text-[15px] lg:text-base font-sans transition-all duration-200 whitespace-nowrap relative py-1 ${
+                            isAboutActive
+                              ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                              : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
+                          }`}
+                        >
+                          About
+                        </Link>
+                        <svg
+                          className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#D8331F] transition-transform duration-200 group-hover:rotate-180"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </div>
+
+                      {/* Dropdown Menu Card */}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div className="bg-white/98 backdrop-blur-2xl rounded-2xl p-2.5 shadow-[0_20px_40px_rgba(15,23,42,0.14)] border border-slate-200/90 space-y-1">
+                          <Link
+                            href="/about"
+                            className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                              pathname === "/about"
+                                ? "bg-red-50 text-[#D8331F]"
+                                : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
+                            }`}
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                              ⚡
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-extrabold font-sans leading-tight">
+                                About Platform
+                              </p>
+                              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                                &quot;What If?&quot; Vision &amp; Architecture
+                              </p>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href="/about/team"
+                            className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                              pathname === "/about/team"
+                                ? "bg-red-50 text-[#D8331F]"
+                                : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
+                            }`}
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                              👥
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-extrabold font-sans leading-tight">
+                                Leadership &amp; Team
+                              </p>
+                              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                                Founder Mohit Panwar &amp; Dev Squad
+                              </p>
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                const isActive =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname === link.href || pathname?.startsWith(link.href);
+
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className={`text-[15px] lg:text-base font-sans transition-all duration-200 whitespace-nowrap relative py-1 ${
+                      isActive
+                        ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                        : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Right: Orange Pill "Launch Platform" Button */}
+            <div className="hidden md:flex items-center flex-shrink-0">
+              <Link
+                href="/contact"
+                className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-6 py-2.5 text-xs sm:text-[13px] font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
+              >
+                Launch Platform →
+              </Link>
+            </div>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-slate-100 transition-colors cursor-pointer z-50"
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
+                  menuOpen ? "rotate-45 translate-y-2" : ""
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
+                  menuOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              />
+            </button>
+          </div>
+        </header>
+      </div>
 
       {/* Mobile Drawer Menu with Active Route Highlight */}
       <nav
-        className={`fixed top-[72px] left-0 right-0 z-40 px-6 py-6 flex flex-col gap-4 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl transition-all duration-300 ${
+        className={`fixed top-[104px] sm:top-[112px] left-0 right-0 z-40 px-6 py-6 flex flex-col gap-3 bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl transition-all duration-300 ${
           menuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
       >
         {navLinks.map((link) => {
+          if (link.label === "About") {
+            const isAboutActive =
+              pathname === "/about" || pathname?.startsWith("/about");
+
+            return (
+              <div
+                key="mobile-about-group"
+                className="flex flex-col gap-1.5 bg-slate-50/80 p-2.5 rounded-2xl border border-slate-200/80"
+              >
+                <div className="px-2 pt-0.5 text-[11px] font-bold text-slate-400 uppercase tracking-wider ">
+                  About AI Shyp
+                </div>
+                <Link
+                  href="/about"
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${
+                    pathname === "/about"
+                      ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
+                  }`}
+                >
+                  <span>⚡</span>
+                  <span>About Platform (&quot;What If?&quot; Vision)</span>
+                </Link>
+                <Link
+                  href="/about/team"
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${
+                    pathname === "/about/team"
+                      ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
+                  }`}
+                >
+                  <span>👥</span>
+                  <span>Leadership &amp; Team (Founder Mohit Panwar)</span>
+                </Link>
+              </div>
+            );
+          }
+
           const isActive =
             link.href === "/"
               ? pathname === "/"
@@ -148,23 +420,32 @@ export default function Header() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`text-base font-sans transition-colors ${
+              className={`text-base sm:text-lg font-sans transition-all py-2.5 px-3 rounded-xl ${
                 isActive
-                  ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-                  : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+                  ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-50 font-semibold"
               }`}
             >
               {link.label}
             </Link>
           );
         })}
-        <Link
-          href="/contact"
-          onClick={() => setMenuOpen(false)}
-          className="bg-[#D8331F] text-white text-center rounded-full px-5 py-3 text-sm font-bold shadow-lg hover:bg-[#FF8A6E] transition-colors mt-2"
-        >
-          Launch Platform →
-        </Link>
+        <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
+          <Link
+            href="/solutions/courier-franchise-software"
+            onClick={() => setMenuOpen(false)}
+            className="block w-full bg-slate-900 text-slate-100 text-center rounded-xl px-4 py-2.5 text-xs font-bold border border-slate-800"
+          >
+            🏢 Franchise Software Solutions →
+          </Link>
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="block w-full bg-[#D8331F] text-white text-center rounded-full px-5 py-3 text-sm font-bold shadow-md hover:bg-[#c02816] transition-colors"
+          >
+            Launch Platform →
+          </Link>
+        </div>
       </nav>
     </>
   );
