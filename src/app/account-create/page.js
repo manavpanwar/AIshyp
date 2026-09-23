@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 const DOMAIN_ENDPOINT = "/api/tenant/check-domain";
-const CREATE_ENDPOINT = "api/tenant/create";
+const CREATE_ENDPOINT = "/api/tenant/create";
 
 const initialForm = {
   name: "",
@@ -367,13 +367,7 @@ export default function AccountCreatePage() {
                       Fill out your business and domain details to initialize your portal.
                     </p>
                   </div>
-                  <span
-                    title="Unique Session Reference"
-                    suppressHydrationWarning
-                    className="flex-none rounded-lg border border-dashed border-slate-300 bg-slate-50 px-2.5 py-1 font-mono text-xs font-medium text-slate-600"
-                  >
-                    {refCode || "TC-INIT"}
-                  </span>
+                 
                 </div>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">

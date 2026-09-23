@@ -48,6 +48,7 @@ export default function Footer() {
   const links = {
     Company: [
       { label: "About AI Shyp", href: "/about" },
+      { label: "Mission & Vision", href: "/about/mission-vision" },
       { label: "Logistics Blog", href: "/blog" },
       { label: "Careers", href: "/contact" },
       { label: "Contact Us", href: "/contact" },
