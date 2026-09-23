@@ -1,4 +1,6 @@
-import { Poppins, Inter } from "next/font/google";
+// import { Poppins, Inter } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
+
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,20 +20,32 @@ import {
   getSpeakableSchema,
 } from "../lib/seo";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   variable: "--font-poppins",
+//   display: "swap",
+//   weight: ["300", "400", "500", "600", "700", "800", "900"],
+// });
 
-const inter = Inter({
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+//   display: "swap",
+//   weight: ["400", "500", "600", "700", "800"],
+// });
+
+
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -84,8 +98,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className={`${poppins.className} antialiased relative min-h-screen text-slate-900 bg-white selection:bg-[#D8331F] selection:text-white`}>
+    <html lang="en" className={`${manrope.variable} ${jetbrainsMono.variable}`}>
+      <body className={`${manrope.className} antialiased relative min-h-screen text-slate-900 bg-white selection:bg-[#D8331F] selection:text-white`}>
         {/* Google Organization Structured Data */}
         <script
           type="application/ld+json"

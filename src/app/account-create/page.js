@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 const DOMAIN_ENDPOINT = "/api/tenant/check-domain";
-const CREATE_ENDPOINT = "/api/tenant/create";
+const CREATE_ENDPOINT = "api/tenant/create";
 
 const initialForm = {
   name: "",

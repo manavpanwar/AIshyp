@@ -302,6 +302,28 @@ export default function Header() {
                               </div>
                             </Link>
 
+                            <Link
+                              href="/about/mission-vision"
+                              className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${pathname === "/about/mission-vision"
+                                ? "bg-red-50 text-[#D8331F]"
+                                : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
+                                }`}
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                                🎯
+                              </div>
+
+                              <div className="min-w-0">
+                                <p className="text-xs font-extrabold font-sans leading-tight">
+                                  Our Mission &amp; Vision
+                                </p>
+
+                                <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                                  Building the future of intelligent logistics
+                                </p>
+                              </div>
+                            </Link>
+
                           </div>
 
                         </div>
@@ -404,6 +426,17 @@ export default function Header() {
                 >
                   <span>👥</span>
                   <span>Leadership &amp; Team (Founder Mohit Panwar)</span>
+                </Link>
+                <Link
+                  href="/about/mission-vision"
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${pathname === "/about/mission-vision"
+                    ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                    : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
+                    }`}
+                >
+                  <span>🎯</span>
+                  <span>Our Mission &amp; Vision</span>
                 </Link>
               </div>
             );
