@@ -60,7 +60,7 @@ export default async function BlogPage() {
       {/* ── 1. HERO SECTION STARTING DIRECTLY BELOW HEADER (MATCHING FEATURES STANDARD) ── */}
       <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden">
         {/* Subtle Ambient Radial Glow starting below header */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.06)_40%,rgba(16,27,61,0.08)_70%,transparent_80%)] pointer-events-none" />
+        {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.06)_40%,rgba(16,27,61,0.08)_70%,transparent_80%)] pointer-events-none" /> */}
 
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Breadcrumbs */}

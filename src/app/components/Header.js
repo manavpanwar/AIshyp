@@ -82,6 +82,7 @@ export default function Header() {
     { label: "Integrations", href: "/integration" },
     { label: "Pricing", href: "/pricing" },
     { label: "Blog", href: "/blog" },
+    { label: "Create Account", href: "/account-create" },
   ];
 
   return (
@@ -98,7 +99,7 @@ export default function Header() {
           {/* Subtle Ambient Red Tint Glow */}
           <div className="absolute top-0 left-1/4 w-80 h-full bg-gradient-to-r from-transparent via-[#D8331F]/20 to-transparent pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 relative z-10">
+          <div className="max-w-[1536px] mx-auto px-2 sm:px-4 lg:px-6 flex items-center justify-between gap-3 relative z-10">
             {/* Mobile View: Compact, High-converting Single Tap */}
             <div className="flex sm:hidden items-center justify-between w-full">
               <Link
@@ -156,11 +157,10 @@ export default function Header() {
                     key={i}
                     onClick={() => setActiveMsgIndex(i)}
                     aria-label={`Show franchise slide ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      activeMsgIndex === i
-                        ? "w-4 bg-[#FF8A6E]"
-                        : "w-1.5 bg-slate-700 hover:bg-slate-500"
-                    }`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${activeMsgIndex === i
+                      ? "w-4 bg-[#FF8A6E]"
+                      : "w-1.5 bg-slate-700 hover:bg-slate-500"
+                      }`}
                   />
                 ))}
               </div>
@@ -202,13 +202,12 @@ export default function Header() {
             borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid rgba(226, 232, 240, 0.7)",
             boxShadow: scrolled ? "0 4px 25px rgba(15, 23, 42, 0.08)" : "none",
           }}
-          className={`w-full transition-all duration-300 ${
-            scrolled ? "py-2 sm:py-2.5" : "py-3 sm:py-3.5"
-          }`}
+          className={`w-full transition-all duration-300 ${scrolled ? "py-2 sm:py-2.5" : "py-3 sm:py-3.5"
+            }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
-            {/* Left: AI Shyp Logo - Increased Height & Width for Desktop and Mobile */}
-            <Link href="/" className="flex items-center no-underline flex-shrink-0 overflow-hidden group">
+          <div className="max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between gap-4 lg:gap-8">
+            {/* Left: AI Shyp Logo - Pushed to the side with responsive positioning */}
+            <Link href="/" className="flex items-center no-underline flex-shrink-0 overflow-hidden group -ml-2 sm:-ml-3 lg:-ml-4">
               <div className="relative h-14 sm:h-16 md:h-[68px] w-52 sm:w-64 md:w-72 flex items-center justify-start flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]">
                 <Image
                   src="/AIship1.png"
@@ -221,23 +220,22 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Center: Desktop Nav Links with About Dropdown (text-[15px] / text-base) */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+            {/* Center: Desktop Nav Links with About Dropdown and generous gaps */}
+            <nav className="hidden md:flex items-center gap-2.5 lg:gap-4 xl:gap-6 2xl:gap-7">
               {navLinks.map((link) => {
                 if (link.label === "About") {
                   const isAboutActive =
                     pathname === "/about" || pathname?.startsWith("/about");
 
                   return (
-                    <div key="about-dropdown" className="relative group py-2">
-                      <div className="flex items-center gap-1 cursor-pointer">
+                    <div key="about-dropdown" className="relative group py-1.5">
+                      <div className="flex items-center gap-1 cursor-pointer px-2.5 lg:px-3 py-1.5 rounded-lg hover:bg-slate-100/70 transition-colors">
                         <Link
                           href="/about"
-                          className={`text-[15px] lg:text-base font-sans transition-all duration-200 whitespace-nowrap relative py-1 ${
-                            isAboutActive
-                              ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                              : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
-                          }`}
+                          className={`text-[14px] lg:text-[15px] xl:text-base font-sans transition-all duration-200 whitespace-nowrap relative ${isAboutActive
+                            ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                            : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
+                            }`}
                         >
                           About
                         </Link>
@@ -255,49 +253,57 @@ export default function Header() {
                       </div>
 
                       {/* Dropdown Menu Card */}
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
-                        <div className="bg-white/98 backdrop-blur-2xl rounded-2xl p-2.5 shadow-[0_20px_40px_rgba(15,23,42,0.14)] border border-slate-200/90 space-y-1">
-                          <Link
-                            href="/about"
-                            className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                              pathname === "/about"
-                                ? "bg-red-50 text-[#D8331F]"
-                                : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
-                            }`}
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
-                              ⚡
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-xs font-extrabold font-sans leading-tight">
-                                About Platform
-                              </p>
-                              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
-                                &quot;What If?&quot; Vision &amp; Architecture
-                              </p>
-                            </div>
-                          </Link>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div className="bg-white/98 backdrop-blur-2xl rounded-2xl p-2.5 shadow-[0_20px_40px_rgba(15,23,42,0.14)] border border-slate-200/90">
 
-                          <Link
-                            href="/about/team"
-                            className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                              pathname === "/about/team"
+                          <div className="grid grid-cols-3 gap-1">
+
+                            {/* 1st */}
+                            <Link
+                              href="/about"
+                              className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${pathname === "/about"
                                 ? "bg-red-50 text-[#D8331F]"
                                 : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
-                            }`}
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
-                              👥
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-xs font-extrabold font-sans leading-tight">
-                                Leadership &amp; Team
-                              </p>
-                              <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
-                                Founder Mohit Panwar &amp; Dev Squad
-                              </p>
-                            </div>
-                          </Link>
+                                }`}
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                                ⚡
+                              </div>
+
+                              <div className="min-w-0">
+                                <p className="text-xs font-extrabold font-sans leading-tight">
+                                  About Platform
+                                </p>
+                                <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                                  &quot;What If?&quot; Vision &amp; Architecture
+                                </p>
+                              </div>
+                            </Link>
+
+                            {/* 2nd */}
+                            <Link
+                              href="/about/team"
+                              className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${pathname === "/about/team"
+                                ? "bg-red-50 text-[#D8331F]"
+                                : "hover:bg-slate-50 text-slate-800 hover:text-[#D8331F]"
+                                }`}
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-red-100 text-[#D8331F] flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">
+                                👥
+                              </div>
+
+                              <div className="min-w-0">
+                                <p className="text-xs font-extrabold font-sans leading-tight">
+                                  Leadership &amp; Team
+                                </p>
+                                <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">
+                                  Founder Mohit Panwar &amp; Dev Squad
+                                </p>
+                              </div>
+                            </Link>
+
+                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -313,11 +319,10 @@ export default function Header() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`text-[15px] lg:text-base font-sans transition-all duration-200 whitespace-nowrap relative py-1 ${
-                      isActive
-                        ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                        : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
-                    }`}
+                    className={`text-[14px] lg:text-[15px] xl:text-base font-sans transition-all duration-200 whitespace-nowrap relative px-2.5 lg:px-3 py-1.5 rounded-lg hover:bg-slate-100/70 ${isActive
+                      ? "text-[#D8331F] font-bold after:content-[''] after:absolute after:-bottom-1 after:left-2.5 after:right-2.5 after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                      : "text-slate-700 hover:text-[#D8331F] font-medium hover:font-semibold"
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -326,10 +331,10 @@ export default function Header() {
             </nav>
 
             {/* Right: Orange Pill "Launch Platform" Button */}
-            <div className="hidden md:flex items-center flex-shrink-0">
+            <div className="hidden md:flex items-center flex-shrink-0 pl-1 lg:pl-3">
               <Link
                 href="/contact"
-                className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-6 py-2.5 text-xs sm:text-[13px] font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
+                className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-5 lg:px-6 py-2.5 text-xs sm:text-[13px] font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
               >
                 Launch Platform →
               </Link>
@@ -342,19 +347,16 @@ export default function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
-                  menuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
               />
               <span
-                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${menuOpen ? "opacity-0" : ""
+                  }`}
               />
               <span
-                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${
-                  menuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
+                className={`block w-5 h-0.5 bg-slate-900 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
               />
             </button>
           </div>
@@ -363,11 +365,10 @@ export default function Header() {
 
       {/* Mobile Drawer Menu with Active Route Highlight */}
       <nav
-        className={`fixed top-[104px] sm:top-[112px] left-0 right-0 z-40 px-6 py-6 flex flex-col gap-3 bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl transition-all duration-300 ${
-          menuOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-3 pointer-events-none"
-        }`}
+        className={`fixed top-[104px] sm:top-[112px] left-0 right-0 z-40 px-6 py-6 flex flex-col gap-3 bg-white/98 backdrop-blur-2xl border-b border-slate-200 shadow-2xl transition-all duration-300 ${menuOpen
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 -translate-y-3 pointer-events-none"
+          }`}
       >
         {navLinks.map((link) => {
           if (link.label === "About") {
@@ -385,11 +386,10 @@ export default function Header() {
                 <Link
                   href="/about"
                   onClick={() => setMenuOpen(false)}
-                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${
-                    pathname === "/about"
-                      ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
-                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
-                  }`}
+                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${pathname === "/about"
+                    ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                    : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
+                    }`}
                 >
                   <span>⚡</span>
                   <span>About Platform (&quot;What If?&quot; Vision)</span>
@@ -397,11 +397,10 @@ export default function Header() {
                 <Link
                   href="/about/team"
                   onClick={() => setMenuOpen(false)}
-                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${
-                    pathname === "/about/team"
-                      ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
-                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
-                  }`}
+                  className={`text-base font-sans transition-all py-2 px-3 rounded-xl flex items-center gap-2 ${pathname === "/about/team"
+                    ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                    : "text-slate-700 hover:text-slate-950 hover:bg-slate-100 font-semibold"
+                    }`}
                 >
                   <span>👥</span>
                   <span>Leadership &amp; Team (Founder Mohit Panwar)</span>
@@ -420,11 +419,10 @@ export default function Header() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`text-base sm:text-lg font-sans transition-all py-2.5 px-3 rounded-xl ${
-                isActive
-                  ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
-                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-50 font-semibold"
-              }`}
+              className={`text-base sm:text-lg font-sans transition-all py-2.5 px-3 rounded-xl ${isActive
+                ? "text-[#D8331F] font-bold bg-red-50 border border-red-200/80 shadow-2xs"
+                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50 font-semibold"
+                }`}
             >
               {link.label}
             </Link>

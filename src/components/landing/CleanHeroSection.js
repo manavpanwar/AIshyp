@@ -33,9 +33,9 @@ export default function CleanHeroSection() {
     { name: "Xpressbees", src: "/xpressbees.png" },
     { name: "DP World", src: "/dpworldlogo.png" },
     { name: "eKart", src: "/ekart.png" },
-    { name: "Shadowfax", src: "/shadowfax.png" },
-    { name: "Trackon", src: "/trackon_logo.png" },
-    { name: "Shopify", src: "/shopify.jpeg" },
+    // { name: "Shadowfax", src: "/shadowfax.png" },
+    // { name: "Trackon", src: "/trackon_logo.png" },
+    // { name: "Shopify", src: "/shopify.jpeg" },
   ];
 
   const quickStats = [
@@ -46,10 +46,10 @@ export default function CleanHeroSection() {
   ];
 
   return (
-    <section className="relative pt-[116px] sm:pt-[128px] lg:pt-[136px] pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden bg-white text-slate-900">
+    <section className="relative pt-[200px] sm:pt-[150px] lg:pt-[200px] pb-14 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden bg-white text-slate-900">
       {/* Ambient Color Theme radiating directly from below the fixed header */}
-      <div className="absolute top-[96px] sm:top-[104px] lg:top-[108px] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[440px] bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.18)_0%,rgba(255,138,110,0.10)_35%,rgba(16,27,61,0.06)_65%,transparent_80%)] pointer-events-none" />
-      <div className="absolute top-[96px] sm:top-[104px] lg:top-[108px] left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-20 bg-gradient-to-b from-[#D8331F]/12 via-[#FF8A6E]/6 to-transparent blur-xl pointer-events-none" />
+      {/* <div className="absolute top-[96px] sm:top-[104px] lg:top-[108px] left-1/2 -translate-x-1/2 w-full max-w-7xl h-[440px] bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.18)_0%,rgba(255,138,110,0.10)_35%,rgba(16,27,61,0.06)_65%,transparent_80%)] pointer-events-none" />
+      <div className="absolute top-[96px] sm:top-[104px] lg:top-[108px] left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-20 bg-gradient-to-b from-[#D8331F]/12 via-[#FF8A6E]/6 to-transparent blur-xl pointer-events-none" /> */}
 
       <div className="relative mx-auto max-w-4xl text-center">
         {/* Top Minimal Pill Badge with Sparkle Icon (Exact features page style) */}
@@ -126,16 +126,16 @@ export default function CleanHeroSection() {
           <p className="text-[10px]  font-bold text-slate-400 uppercase tracking-widest pt-10">
             Pre-Integrated With 14+ Courier Partner APIs &amp; Channels
           </p>
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl px-5 py-3 flex items-center justify-center gap-3 sm:gap-6 md:gap-7 flex-wrap shadow-2xs">
+          <div className=" rounded-2xl px-5 py-3 flex items-center justify-center gap-3 sm:gap-6 md:gap-7 flex-wrap s">
             {carrierLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="bg-white border border-slate-200/80 rounded-lg px-2.5 py-1 flex items-center justify-center shadow-2xs hover:scale-105 transition-transform duration-200"
+                className="rounded-lg px-2.5 py-1 flex items-center justify-center s hover:scale-105 transition-transform duration-200"
               >
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="h-3.5 sm:h-4.5 max-h-5 w-auto object-contain"
+                  className="h-10 sm:h-9 max-h-9 w-auto object-contain"
                 />
               </div>
             ))}

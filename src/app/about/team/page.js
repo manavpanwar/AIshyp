@@ -112,8 +112,8 @@ export default function TeamPage() {
       {/* ── 1. HERO SECTION WITH AMBIENT RADIAL GLOW ── */}
       <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden">
         {/* Ambient Color Theme radiating directly from below the fixed header */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[420px] bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.16)_0%,rgba(255,138,110,0.08)_35%,rgba(16,27,61,0.06)_65%,transparent_80%)] pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-20 bg-gradient-to-b from-[#D8331F]/12 via-[#FF8A6E]/6 to-transparent blur-xl pointer-events-none" />
+        {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[420px] bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.16)_0%,rgba(255,138,110,0.08)_35%,rgba(16,27,61,0.06)_65%,transparent_80%)] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-20 bg-gradient-to-b from-[#D8331F]/12 via-[#FF8A6E]/6 to-transparent blur-xl pointer-events-none" /> */}
 
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Breadcrumb Navigation */}

@@ -657,7 +657,7 @@ export default function CreateBlogPage() {
   };
 
   return (
-    <main className="w-full bg-white text-slate-900 pt-28 sm:pt-32 pb-24 font-sans min-h-screen">
+    <main className="w-full bg-white text-slate-900 pt-32 sm:pt-40 pb-24 font-sans min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Editorial Header */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
