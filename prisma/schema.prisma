@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Blog {
+  id            Int      @id @default(autoincrement())
+
+  title         String
+  slug          String   @unique
+  description   String
+
+  // Supports JSON content from your blog editor
+  content       Json
+
+  featuredImage String   @default("/aishiplogo.png")
+
+  author        String   @default("AI Shyp Squad")
+
+  category      String   @default("Logistics Automation")
+
+  tags          String[] @default([])
+
+  readingTime   String   @default("4 min read")
+
+  publishedDate DateTime @default(now())
+
+  isPublished   Boolean  @default(true)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([category])
+  @@index([isPublished])
+  @@index([publishedDate])
+  @@index([createdAt])
+}
