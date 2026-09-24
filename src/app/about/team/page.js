@@ -148,7 +148,7 @@ export default function TeamPage() {
             className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight"
           >
             The Minds Behind AI Shyp:{" "}
-            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
+            <span className="bg-red bg-clip-text text-transparent">
               10+ Years of Logistics Mastery Meets Modern Software
             </span>
           </motion.h1>

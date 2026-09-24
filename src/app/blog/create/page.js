@@ -84,6 +84,43 @@ export default function CreateBlogPage() {
     linkUrl: "",
   });
 
+  // Authentication State for direct URL protection (/blog/create)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthChecking, setIsAuthChecking] = useState(true);
+  const [pagePassword, setPagePassword] = useState("");
+  const [authError, setAuthError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    try {
+      const token = sessionStorage.getItem("blog_auth_token");
+      if (token === "authorized_123456") {
+        setIsAuthenticated(true);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsAuthChecking(false);
+    }
+  }, []);
+
+  const handlePageAuthSubmit = (e) => {
+    e.preventDefault();
+    if (pagePassword === "123456") {
+      try {
+        sessionStorage.setItem("blog_auth_token", "authorized_123456");
+      } catch (err) {
+        console.error(err);
+      }
+      setIsAuthenticated(true);
+      setAuthError("");
+      toast.success("Access Granted!");
+    } else {
+      setAuthError("Incorrect password. Default password is required.");
+      toast.error("Incorrect password!");
+    }
+  };
+
   // Current Date display
   const [currentDateDisplay, setCurrentDateDisplay] = useState("");
   useEffect(() => {
@@ -656,6 +693,106 @@ export default function CreateBlogPage() {
     }
   };
 
+  // Show minimal loader during auth verification
+  if (isAuthChecking) {
+    return (
+      <main className="w-full min-h-screen bg-slate-950 flex items-center justify-center pt-24 pb-12 font-sans">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-2 border-[#D8331F] border-t-transparent rounded-full animate-spin"></div>
+          <span className="text-xs text-slate-400 font-semibold tracking-wider">Verifying Authorization...</span>
+        </div>
+      </main>
+    );
+  }
+
+  // Password Lock Screen when accessed directly without authentication
+  if (!isAuthenticated) {
+    return (
+      <main className="w-full min-h-screen bg-[#0B0F19] text-white flex items-center justify-center p-4 pt-28 pb-16 font-sans">
+        <div className="w-full max-w-md bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute -top-20 -right-20 w-44 h-44 bg-[#D8331F]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-44 h-44 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Header Icon */}
+          <div className="relative text-center mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-red-500/10 border border-[#D8331F]/30 text-[#D8331F] flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+              🔒
+            </div>
+            <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              Blog Editor Locked
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+              Yeh page password-protected hai. Access karne ke liye authorization password enter karein.
+            </p>
+          </div>
+
+          {/* Auth Form */}
+          <form onSubmit={handlePageAuthSubmit} className="space-y-4 relative">
+            <div>
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={pagePassword}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setPagePassword(val);
+                    if (authError) setAuthError("");
+                    if (val === "123456") {
+                      try {
+                        sessionStorage.setItem("blog_auth_token", "authorized_123456");
+                      } catch (err) {}
+                      setIsAuthenticated(true);
+                      toast.success("Access Granted!");
+                    }
+                  }}
+                  placeholder="Enter password..."
+                  autoFocus
+                  className={`w-full bg-slate-800/80 border ${
+                    authError ? "border-red-500 ring-2 ring-red-500/20" : "border-slate-700 focus:border-[#D8331F] focus:ring-2 focus:ring-[#D8331F]/20"
+                  } rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition-all tracking-wider font-semibold`}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white px-2 py-1 rounded transition-colors"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+              {authError && (
+                <p className="text-xs font-semibold text-red-400 mt-1.5 flex items-center gap-1">
+                  <span>⚠️</span> {authError}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#D8331F] hover:bg-[#c02816] text-white py-3 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-red-900/30 hover:shadow-red-900/50 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Unlock Editor</span>
+              <span>→</span>
+            </button>
+          </form>
+
+          {/* Back Link */}
+          <div className="mt-6 pt-5 border-t border-slate-800/80 text-center">
+            <Link
+              href="/blog"
+              className="text-xs font-semibold text-slate-400 hover:text-white inline-flex items-center gap-1.5 transition-colors"
+            >
+              <span>←</span> Back to Public Blog Feed
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="w-full bg-white text-slate-900 pt-32 sm:pt-40 pb-24 font-sans min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -674,15 +811,33 @@ export default function CreateBlogPage() {
             </p>
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col gap-1 text-xs text-slate-600 shrink-0 font-mono">
-            <div className="flex items-center gap-2">
-              <span className="text-slate-400">Timestamp:</span>
-              <span className="font-bold text-slate-900">{currentDateDisplay || "Realtime"}</span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col gap-1 text-xs text-slate-600 font-mono">
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400">Timestamp:</span>
+                <span className="font-bold text-slate-900">{currentDateDisplay || "Realtime"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-slate-400">Blocks:</span>
+                <span className="font-bold text-[#D8331F]">{contentBlocks.length} content blocks</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-slate-400">Blocks:</span>
-              <span className="font-bold text-[#D8331F]">{contentBlocks.length} content blocks</span>
-            </div>
+            <button
+              type="button"
+              onClick={() => {
+                try {
+                  sessionStorage.removeItem("blog_auth_token");
+                } catch (e) {}
+                setIsAuthenticated(false);
+                setPagePassword("");
+                toast.success("Editor locked successfully.");
+              }}
+              className="px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-red-600 bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-200 transition-all flex items-center gap-1.5 cursor-pointer"
+              title="Lock Editor Session"
+            >
+              <span>🔒</span>
+              <span>Lock</span>
+            </button>
           </div>
         </div>
 

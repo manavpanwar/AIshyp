@@ -268,7 +268,7 @@ export default function AccountCreatePage() {
 
         {/* ── 2-COLUMN SPLIT LAYOUT ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
+
           {/* ══════════════════════════════════════════════════════
               LEFT COLUMN: FORM SECTION (7 COLS ON DESKTOP)
              ══════════════════════════════════════════════════════ */}
@@ -367,7 +367,7 @@ export default function AccountCreatePage() {
                       Fill out your business and domain details to initialize your portal.
                     </p>
                   </div>
-                 
+
                 </div>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
@@ -408,11 +408,10 @@ export default function AccountCreatePage() {
                         Contact Mobile Number
                       </label>
                       <div
-                        className={`flex h-12 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${
-                          errors.phoneNumber
+                        className={`flex h-12 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${errors.phoneNumber
                             ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
                             : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
-                        }`}
+                          }`}
                       >
                         <span className="flex items-center px-3.5 h-full rounded-l-xl bg-slate-50 border-r border-slate-200 font-mono text-sm font-medium text-slate-600 select-none">
                           +91
@@ -459,13 +458,12 @@ export default function AccountCreatePage() {
                     </label>
                     <div className="flex gap-2">
                       <div
-                        className={`flex h-12 flex-1 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${
-                          errors.subdomain
+                        className={`flex h-12 flex-1 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${errors.subdomain
                             ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
                             : domainStatus.state === "available"
-                            ? "border-emerald-500 focus-within:ring-emerald-100"
-                            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
-                        }`}
+                              ? "border-emerald-500 focus-within:ring-emerald-100"
+                              : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                          }`}
                       >
                         <input
                           id="subdomain"
@@ -546,13 +544,12 @@ export default function AccountCreatePage() {
                             <div key={label} className="flex-1 text-center">
                               <div className="flex items-center justify-center mb-1">
                                 <span
-                                  className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                                    isDone
+                                  className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${isDone
                                       ? "bg-emerald-600 text-white"
                                       : isActive
-                                      ? "bg-indigo-600 text-white animate-pulse"
-                                      : "bg-slate-200 text-slate-500"
-                                  }`}
+                                        ? "bg-indigo-600 text-white animate-pulse"
+                                        : "bg-slate-200 text-slate-500"
+                                    }`}
                                 >
                                   {isDone ? "✓" : idx + 1}
                                 </span>
@@ -572,7 +569,7 @@ export default function AccountCreatePage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#101B3D] via-[#16225A] to-[#D8331F] text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                      className="flex-1 h-12 rounded-xl bg-red text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                     >
                       {loading ? (
                         <>
@@ -617,7 +614,7 @@ export default function AccountCreatePage() {
               RIGHT COLUMN: IMAGE & CONTENT SHOWCASE (5 COLS)
              ══════════════════════════════════════════════════════ */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
-            
+
             {/* Primary Showcase Card */}
             <div className="relative rounded-3xl bg-gradient-to-br from-[#101B3D] via-[#152352] to-[#0A0E1A] text-white p-6 sm:p-8 shadow-2xl border border-slate-800/80 overflow-hidden">
               {/* Subtle Ambient Radial Glow */}
@@ -761,7 +758,7 @@ export default function AccountCreatePage() {
               <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
                 &ldquo;Setting up our shipping portal on AIshyp took barely 3 minutes. The automated courier rate comparison and WhatsApp NDR have reduced our return shipments dramatically.&rdquo;
               </p>
-             
+
             </div>
 
           </div>
@@ -796,11 +793,10 @@ function FormField({
       </label>
 
       <div
-        className={`flex h-12 items-center rounded-xl border bg-white px-3.5 transition-all focus-within:ring-3 ${
-          error
+        className={`flex h-12 items-center rounded-xl border bg-white px-3.5 transition-all focus-within:ring-3 ${error
             ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
             : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
-        }`}
+          }`}
       >
         {icon && <span className="mr-2.5 flex-none">{icon}</span>}
         <input
@@ -815,9 +811,8 @@ function FormField({
           disabled={disabled}
           autoComplete="off"
           spellCheck={false}
-          className={`min-w-0 flex-1 bg-transparent text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-400 ${
-            mono ? "font-mono tracking-wider" : ""
-          }`}
+          className={`min-w-0 flex-1 bg-transparent text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-400 ${mono ? "font-mono tracking-wider" : ""
+            }`}
         />
       </div>
 

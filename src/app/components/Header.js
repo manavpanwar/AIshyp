@@ -77,7 +77,6 @@ export default function Header() {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
     { label: "Features", href: "/features" },
     { label: "Integrations", href: "/integration" },
     { label: "Pricing", href: "/pricing" },
@@ -89,110 +88,6 @@ export default function Header() {
     <>
       {/* ── FIXED WRAPPER CONTAINING TOP ANNOUNCEMENT BAR & MAIN HEADER ── */}
       <div className="fixed top-0 left-0 w-full z-50">
-        {/* ── 1. FRANCHISE & AGGREGATOR TOP ANNOUNCEMENT BAR ── */}
-        <aside
-          aria-label="Courier Franchise & Shipping Aggregator Announcement"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="w-full bg-slate-950 text-slate-200 border-b border-slate-800/90 py-1.5 sm:py-2 px-3 sm:px-6 lg:px-8 text-[11px] sm:text-xs select-none relative overflow-hidden"
-        >
-          {/* Subtle Ambient Red Tint Glow */}
-          <div className="absolute top-0 left-1/4 w-80 h-full bg-gradient-to-r from-transparent via-[#D8331F]/20 to-transparent pointer-events-none" />
-
-          <div className="max-w-[1536px] mx-auto px-2 sm:px-4 lg:px-6 flex items-center justify-between gap-3 relative z-10">
-            {/* Mobile View: Compact, High-converting Single Tap */}
-            <div className="flex sm:hidden items-center justify-between w-full">
-              <Link
-                href={FRANCHISE_MESSAGES[activeMsgIndex].href}
-                className="flex items-center gap-1.5 overflow-hidden text-left flex-1 mr-2"
-              >
-                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-red-950/90 border border-red-800/80 text-[#FF8A6E]  text-[9px] font-extrabold uppercase shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Franchise OS</span>
-                </span>
-                <span className="text-slate-200 text-[11px] font-medium truncate">
-                  {FRANCHISE_MESSAGES[activeMsgIndex].text}
-                </span>
-              </Link>
-              <Link
-                href="/solutions/courier-franchise-software"
-                className="text-[#FF8A6E] hover:text-white  font-bold text-[10.5px] shrink-0 inline-flex items-center gap-0.5 whitespace-nowrap bg-red-950/60 border border-red-800/60 px-2 py-0.5 rounded-md"
-              >
-                <span>Join</span>
-                <span>→</span>
-              </Link>
-            </div>
-
-            {/* Desktop / Tablet View: Rich Rotating Franchise Headlines */}
-            <div className="hidden sm:flex items-center justify-between w-full gap-4">
-              {/* Left: Dynamic Franchise Value Prop */}
-              <div className="flex items-center gap-3 overflow-hidden min-w-0 flex-1">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeMsgIndex}
-                    initial={{ opacity: 0, y: 7 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -7 }}
-                    transition={{ duration: 0.28, ease: "easeOut" }}
-                    className="flex items-center gap-2.5 overflow-hidden text-ellipsis whitespace-nowrap"
-                  >
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border  text-[10px] font-bold uppercase tracking-wider shrink-0 shadow-2xs ${FRANCHISE_MESSAGES[activeMsgIndex].tagColor}`}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>{FRANCHISE_MESSAGES[activeMsgIndex].tag}</span>
-                    </span>
-                    <span className="text-slate-600 hidden md:inline">•</span>
-                    <span className="text-slate-200 font-medium truncate text-xs">
-                      {FRANCHISE_MESSAGES[activeMsgIndex].text}
-                    </span>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Center / Indicators: Dot Pointers to switch messages */}
-              <div className="hidden lg:flex items-center gap-1 shrink-0">
-                {FRANCHISE_MESSAGES.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveMsgIndex(i)}
-                    aria-label={`Show franchise slide ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${activeMsgIndex === i
-                      ? "w-4 bg-[#FF8A6E]"
-                      : "w-1.5 bg-slate-700 hover:bg-slate-500"
-                      }`}
-                  />
-                ))}
-              </div>
-
-              {/* Right: Quick Action CTAs */}
-              <div className="flex items-center gap-2.5 sm:gap-3 shrink-0  text-[11px]">
-                <Link
-                  href={FRANCHISE_MESSAGES[activeMsgIndex].href}
-                  className="text-[#FF8A6E] hover:text-white font-bold transition-colors inline-flex items-center gap-1 whitespace-nowrap bg-red-950/70 hover:bg-red-900/80 border border-red-800/80 px-2.5 py-0.5 rounded-md shadow-2xs"
-                >
-                  <span>{FRANCHISE_MESSAGES[activeMsgIndex].cta}</span>
-                  <span>→</span>
-                </Link>
-                <span className="text-slate-700 hidden xl:inline">|</span>
-                <Link
-                  href="/solutions/courier-franchise-software"
-                  className="text-slate-400 hover:text-white hidden xl:inline transition-colors whitespace-nowrap"
-                >
-                  Franchise Portal
-                </Link>
-                <span className="text-slate-700 hidden lg:inline">|</span>
-                <Link
-                  href="/pricing"
-                  className="text-slate-400 hover:text-emerald-400 hidden lg:inline transition-colors whitespace-nowrap"
-                >
-                  0% Commission
-                </Link>
-              </div>
-            </div>
-          </div>
-        </aside>
-
         {/* ── 2. MAIN HEADER NAVIGATION BAR ── */}
         <header
           style={{

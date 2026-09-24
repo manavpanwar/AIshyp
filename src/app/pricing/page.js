@@ -102,27 +102,6 @@ const FEATURE_MATRIX = [
   { id: 11, name: "Cash Collection", icon: "💵" },
 ];
 
-// Inline Sparkles icon
-function SparklesIcon({ className = "w-3.5 h-3.5" }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-      <path d="M5 3v4" />
-      <path d="M19 17v4" />
-      <path d="M3 5h4" />
-      <path d="M17 19h4" />
-    </svg>
-  );
-}
-
 export default function PricingPage() {
   const router = useRouter();
 
@@ -142,7 +121,7 @@ export default function PricingPage() {
   ]);
 
   return (
-    <main className="w-full bg-white text-slate-900 font-sans overflow-hidden pt-[116px] sm:pt-[128px]">
+    <main className="w-full bg-[#FAFAFC] text-slate-900 pt-28 sm:pt-32 pb-20 font-sans overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingFaqSchema) }}
@@ -160,81 +139,46 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingBreadcrumbSchema) }}
       />
 
-      {/* Semantic AI Summary for Answer Engine Extraction */}
-      <div className="sr-only" itemScope itemType="https://schema.org/SoftwareApplication">
-        <span itemProp="name">AI Shyp Multi-Tenant White-Label Logistics SaaS</span>
-        <span itemProp="description">
-          AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. Pricing offers three transparent plans: Starter at ₹6,999/month (500 orders), Growth at ₹11,999/month (2,000 orders), and Ultimate at ₹19,999/month (unlimited orders).
-        </span>
-      </div>
-
-      {/* ── 1. HERO SECTION MATCHING REQUESTED DESIGN WITH PROJECT COLOR THEME ── */}
-      <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden text-center">
-        {/* Subtle Ambient Radial Glow starting below header */}
-        {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.06)_40%,rgba(16,27,61,0.08)_70%,transparent_80%)] pointer-events-none" /> */}
-
-        <div className="relative mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50/90 border border-red-200/80 text-[#D8331F] text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs"
-          >
-            <SparklesIcon className="w-3.5 h-3.5 text-[#D8331F]" />
-            <span>Transparent SaaS Pricing • 0% Commission Splits</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight"
-          >
-            Simple Plans:{" "}
-            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
-              Zero Hidden Fees &amp; Unlimited Scale
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal"
-          >
-            Deploy your white-label shipping aggregator portal. Choose a plan tailored for your monthly order volume — upgrade or downgrade anytime.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3"
-          >
-            <a
-              href="#pricing-cards"
-              className="bg-[#D8331F] hover:bg-[#c02816] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0"
-            >
-              1. Explore SaaS Tiers
-            </a>
-            <Link
-              href="/contact"
-              className="border border-[#D8331F]/40 text-[#D8331F] bg-white hover:bg-red-50/80 hover:border-[#D8331F] px-5 py-2.5 rounded-xl text-xs font-bold transition-all hover:-translate-y-0.5 active:translate-y-0"
-            >
-              2. Book Partner Onboarding
-            </Link>
-            <a
-              href="#pricing-faq"
-              className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300 transition-all hover:-translate-y-0.5 active:translate-y-0"
-            >
-              View Pricing FAQs ↓
-            </a>
-          </motion.div>
+      {/* ── 1. CLEAN APPLE-STYLE HERO SECTION ── */}
+      <section className="max-w-4xl mx-auto px-6 text-center space-y-4">
+        {/* Semantic AI Summary for Answer Engine Extraction */}
+        <div className="sr-only" itemScope itemType="https://schema.org/SoftwareApplication">
+          <span itemProp="name">AI Shyp Multi-Tenant White-Label Logistics SaaS</span>
+          <span itemProp="description">
+            AI Shyp is a multi-tenant, white-label logistics SaaS platform based in India that allows businesses to launch their own branded shipping aggregator software on a custom domain. Pricing offers three transparent plans: Starter at ₹6,999/month (500 orders), Growth at ₹11,999/month (2,000 orders), and Ultimate at ₹19,999/month (unlimited orders).
+          </span>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-[#D8331F] font-mono text-xs font-bold"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#D8331F] animate-pulse" />
+          <span>// Transparent SaaS Pricing</span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight"
+        >
+          Simple plans. <span className="text-[#D8331F]">Zero hidden fees.</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-slate-600 text-sm sm:text-base font-medium max-w-xl mx-auto leading-relaxed"
+        >
+          Deploy your white-label shipping aggregator portal. Choose the plan tailored for your monthly order volume. Upgrade or downgrade anytime.
+        </motion.p>
       </section>
 
       {/* ── 2. 3 SLEEK PRICING CARDS ── */}
-      <section id="pricing-cards" className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16">
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-12 sm:mt-16">
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {PRICING_PLANS.map((plan, idx) => (
             <motion.div
@@ -251,7 +195,7 @@ export default function PricingPage() {
             >
               {/* Featured Badge */}
               {plan.featured && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#D8331F] text-white px-4 py-1 text-[10px]  font-extrabold uppercase tracking-widest shadow-md">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#D8331F] text-white px-4 py-1 text-[10px] font-mono font-extrabold uppercase tracking-widest shadow-md">
                   ★ {plan.badge}
                 </span>
               )}
@@ -260,7 +204,7 @@ export default function PricingPage() {
                 {/* Plan Title & Badge */}
                 <div className="space-y-1">
                   {!plan.featured && (
-                    <span className="text-[10px]  font-bold text-slate-400 uppercase tracking-widest">
+                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
                       {plan.badge}
                     </span>
                   )}
@@ -275,11 +219,11 @@ export default function PricingPage() {
                     <span className="text-4xl sm:text-5xl font-extrabold text-slate-950 font-sans tracking-tight">
                       {plan.price}
                     </span>
-                    <span className="text-xs  font-bold text-slate-400">
+                    <span className="text-xs font-mono font-bold text-slate-400">
                       / month
                     </span>
                   </div>
-                  <div className="inline-block mt-2 px-3 py-1 rounded-lg bg-slate-100 text-slate-800  text-xs font-extrabold">
+                  <div className="inline-block mt-2 px-3 py-1 rounded-lg bg-slate-100 text-slate-800 font-mono text-xs font-extrabold">
                     📦 Cap: <span className="text-[#D8331F]">{plan.shipments}</span>
                   </div>
                 </div>
@@ -290,7 +234,7 @@ export default function PricingPage() {
 
                 {/* Features Checklist */}
                 <div className="space-y-2.5 pt-2">
-                  <p className="text-[11px]  font-extrabold text-slate-400 uppercase tracking-wider">
+                  <p className="text-[11px] font-mono font-extrabold text-slate-400 uppercase tracking-wider">
                     Plan Benefits:
                   </p>
                   <ul className="space-y-2 text-xs font-medium text-slate-700">
@@ -339,7 +283,7 @@ export default function PricingPage() {
           className="space-y-6"
         >
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-[11px]  font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200/80 rounded-full">
+            <span className="text-[11px] font-mono font-bold text-[#D8331F] uppercase tracking-widest px-3 py-1 bg-red-50 border border-red-200/80 rounded-full">
               // Official Plan Benefits Matrix
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold font-sans text-slate-950 tracking-tight">
@@ -358,22 +302,22 @@ export default function PricingPage() {
                   <th className="py-4 px-6 font-extrabold">FEATURES (Plan Benefits)</th>
                   <th className="py-4 px-6 font-extrabold text-center bg-red-700 text-white min-w-[140px]">
                     <div>STARTER</div>
-                    <div className="text-xs  font-normal opacity-90">₹6,999 / mo</div>
+                    <div className="text-xs font-mono font-normal opacity-90">₹6,999 / mo</div>
                   </th>
                   <th className="py-4 px-6 font-extrabold text-center bg-red-800 text-white min-w-[140px]">
                     <div>GROWTH</div>
-                    <div className="text-xs  font-normal opacity-90">₹11,999 / mo</div>
+                    <div className="text-xs font-mono font-normal opacity-90">₹11,999 / mo</div>
                   </th>
                   <th className="py-4 px-6 font-extrabold text-center bg-red-900 text-white min-w-[140px]">
                     <div>ULTIMATE</div>
-                    <div className="text-xs  font-normal opacity-90">₹19,999 / mo</div>
+                    <div className="text-xs font-mono font-normal opacity-90">₹19,999 / mo</div>
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 font-medium">
                 {FEATURE_MATRIX.map((row) => (
                   <tr key={row.id} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3.5 px-6  font-bold text-slate-400 text-center">{row.id}</td>
+                    <td className="py-3.5 px-6 font-mono font-bold text-slate-400 text-center">{row.id}</td>
                     <td className="py-3.5 px-6 font-extrabold text-slate-900 flex items-center gap-2">
                       <span className="text-base">{row.icon}</span>
                       <span>{row.name}</span>
@@ -416,7 +360,7 @@ export default function PricingPage() {
 
                 {/* Total Shipment Row */}
                 <tr className="bg-slate-900 text-white font-sans">
-                  <td className="py-4 px-6 text-center  font-bold text-slate-400">-</td>
+                  <td className="py-4 px-6 text-center font-mono font-bold text-slate-400">-</td>
                   <td className="py-4 px-6 font-extrabold text-base">Total shipment cap</td>
                   <td className="py-4 px-6 text-center font-bold text-amber-300">500 order/m</td>
                   <td className="py-4 px-6 text-center font-bold text-amber-300">2000 order/m</td>

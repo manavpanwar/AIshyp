@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getUnifiedBlogs } from "../../lib/blogs";
 import { buildPageMetadata, getBreadcrumbSchema } from "../../lib/seo";
 import BlogFeed from "../../components/blog/BlogFeed";
+import CreateBlogAuthButton from "../../components/blog/CreateBlogAuthButton";
 
 export const dynamic = "force-dynamic";
 
@@ -57,66 +58,10 @@ export default async function BlogPage() {
         </span>
       </div>
 
-      {/* ── 1. HERO SECTION STARTING DIRECTLY BELOW HEADER (MATCHING FEATURES STANDARD) ── */}
-      <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-100 overflow-hidden">
-        {/* Subtle Ambient Radial Glow starting below header */}
-        {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-80 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.06)_40%,rgba(16,27,61,0.08)_70%,transparent_80%)] pointer-events-none" /> */}
-
-        <div className="relative mx-auto max-w-4xl text-center">
-          {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="text-xs  text-slate-400 mb-6">
-            <ol className="flex items-center justify-center gap-2">
-              <li>
-                <Link href="/" className="hover:text-slate-900 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>/</li>
-              <li className="text-[#D8331F] font-bold">Blog</li>
-            </ol>
-          </nav>
-
-          {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50/90 border border-red-200/80 text-[#D8331F] text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs">
-            <SparklesIcon className="w-3.5 h-3.5 text-[#D8331F]" />
-            <span>Industry Insights &amp; Playbooks</span>
-          </div>
-
-          {/* Clean High-Impact Headline with Gradient Accent */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight">
-            Logistics &amp; Shipping:{" "}
-            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
-              Aggregator Insights &amp; Playbooks
-            </span>
-          </h1>
-
-          {/* Subheadline (Exact content preserved) */}
-          <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Actionable technical and business playbooks on e-commerce shipping automation, RTO reduction, WhatsApp NDR workflows, courier rate optimization, and white-label aggregator SaaS.
-          </p>
-
-          {/* Action Button Group */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/blog/create"
-              className="bg-[#D8331F] hover:bg-[#c02816] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-1.5"
-            >
-              <span>✍️</span>
-              <span>+ Create Blog Article</span>
-            </Link>
-            <Link
-              href="/integration"
-              className="border border-[#D8331F]/40 text-[#D8331F] bg-white hover:bg-red-50/80 hover:border-[#D8331F] px-5 py-2.5 rounded-xl text-xs font-bold transition-all hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-1.5"
-            >
-              <span>14+ Courier APIs →</span>
-            </Link>
-            <Link
-              href="/features"
-              className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 hover:border-slate-300 transition-all hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-1.5"
-            >
-              <span>Platform Features ↓</span>
-            </Link>
-          </div>
+      {/* ── 1. TOP ACTION BAR (RIGHT-ALIGNED & HIGHER UP) ── */}
+      <section className="relative pt-4 pb-3 sm:pt-6 sm:pb-3 px-4 sm:px-8 lg:px-12 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto flex items-center justify-end">
+          <CreateBlogAuthButton />
         </div>
       </section>
 

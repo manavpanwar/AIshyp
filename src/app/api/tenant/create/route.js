@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "nodejs";
+// export const runtime = "nodejs";
 
 const API_BASE = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3500";
 const BACKEND_ENDPOINT = `${API_BASE}/tenant/AishypTenantcreate`;

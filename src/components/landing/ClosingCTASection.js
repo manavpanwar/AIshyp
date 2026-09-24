@@ -67,7 +67,7 @@ export default function ClosingCTASection() {
       {/* Heading */}
       <h2 className="font-sans font-extrabold text-slate-950 text-3xl sm:text-4xl md:text-5xl text-center mt-7 leading-tight tracking-tight max-w-3xl">
         You Build the Logistics Brand.{" "}
-        <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#D8331F] bg-clip-text text-transparent">
+        <span className="bg-red bg-clip-text text-transparent">
           We Power the Technology.
         </span>
       </h2>

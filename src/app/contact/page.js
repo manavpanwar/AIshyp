@@ -352,7 +352,7 @@ export default function ContactPage() {
             className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight"
           >
             Talk to Platform Specialists:{" "}
-            <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
+            <span className="bg-red bg-clip-text text-transparent">
               Deploy Your Aggregator in &lt; 24 Hours
             </span>
           </motion.h1>

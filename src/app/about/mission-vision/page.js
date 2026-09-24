@@ -268,7 +268,7 @@ export default function MissionVisionPage() {
               className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight leading-tight sm:leading-none uppercase"
             >
               Building the Future of{" "}
-              <span className="bg-gradient-to-r from-[#D8331F] via-[#FF5733] to-[#101B3D] bg-clip-text text-transparent">
+              <span className="bg-red bg-clip-text text-transparent">
                 Independent Logistics
               </span>{" "}
               Businesses
