@@ -11,7 +11,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion", "gsap"],
   },
-  serverExternalPackages: ["mongoose", "nodemailer"],
+  serverExternalPackages: ["@prisma/client", "minio", "mongoose", "nodemailer"],
   turbopack: {
     root: __dirname,
   },
@@ -25,6 +25,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "www.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.vizta.in",
+      },
+      {
+        protocol: "http",
+        hostname: "s3.vizta.in",
       },
     ],
   },

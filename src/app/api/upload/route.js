@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
 import path from "path";
+import { uploadToMinio } from "@/lib/minio";
 
 export const runtime = "nodejs";
 
@@ -50,21 +50,17 @@ export async function POST(req) {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e6)}`;
     const filename = `blog-${cleanBase ? cleanBase.slice(0, 30) + "-" : ""}${uniqueSuffix}${ext}`;
 
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-    await mkdir(uploadDir, { recursive: true });
+    // Upload directly to MinIO (no local disk storage)
+    const fileUrl = await uploadToMinio(buffer, filename, file.type);
 
-    const filepath = path.join(uploadDir, filename);
-    await writeFile(filepath, buffer);
-
-    const fileUrl = `/uploads/${filename}`;
     return NextResponse.json(
       { success: true, url: fileUrl, filename },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Upload error:", error);
+    console.error("Upload to MinIO error:", error);
     return NextResponse.json(
-      { error: "Failed to upload image", details: error.message },
+      { error: "Failed to upload image to MinIO", details: error.message },
       { status: 500 }
     );
   }

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { connectToMongo } from "@/lib/mongodb";
-import Blog from "@/models/Blog";
+import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 
@@ -11,8 +10,9 @@ export async function GET(req, { params }) {
       return NextResponse.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    await connectToMongo();
-    const blog = await Blog.findOne({ slug, isPublished: true }).lean();
+    const blog = await prisma.blog.findFirst({
+      where: { slug, isPublished: true },
+    });
 
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
@@ -35,12 +35,17 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    await connectToMongo();
-    const deleted = await Blog.findOneAndDelete({ slug });
+    const existing = await prisma.blog.findUnique({
+      where: { slug },
+    });
 
-    if (!deleted) {
+    if (!existing) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
+
+    await prisma.blog.delete({
+      where: { slug },
+    });
 
     return NextResponse.json({
       success: true,

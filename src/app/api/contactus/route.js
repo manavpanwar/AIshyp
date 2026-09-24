@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { connectToMongo } from "@/lib/mongodb";
-import ContactSubmission from "@/models/ContactSubmission";
+import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 
@@ -45,58 +44,42 @@ export async function POST(req) {
       );
     }
 
-    if (!process.env.MONGODB_URI) throw new Error("MONGODB_URI missing");
     const emailUser = String(process.env.EMAIL_USER ?? "").trim();
     const emailPass = String(process.env.EMAIL_PASS ?? "").trim();
     const receiverEmail = String(
       process.env.CONTACT_RECEIVER_EMAIL ?? emailUser,
     ).trim();
 
-    if (!emailUser || !emailPass) throw new Error("EMAIL env missing");
-
-    // ✅ CONNECT DB
-    await connectToMongo();
-
-    // ✅ SAVE DATA
-    const created = await ContactSubmission.create({
-      name,
-      email,
-      phone,
-      company: company || null,
-      subject,
-      message,
-    });
-
-    // ✅ SMTP CONFIG
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      requireTLS: true,
-      auth: {
-        user: emailUser,
-        pass: emailPass,
+    // ✅ SAVE DATA TO POSTGRESQL
+    const created = await prisma.contactSubmission.create({
+      data: {
+        name,
+        email,
+        phone,
+        company: company || null,
+        subject,
+        message,
       },
     });
 
-    // ✅ VERIFY CONNECTION
-    try {
-      await transporter.verify();
-      console.log("✅ SMTP Connected");
-    } catch (err) {
-      console.error("❌ SMTP VERIFY ERROR:", err);
-      throw new Error("SMTP connection failed");
-    }
+    // ✅ EMAIL NOTIFICATION (IF EMAIL CREDENTIALS ARE PROVIDED)
+    if (emailUser && emailPass) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: emailUser,
+            pass: emailPass,
+          },
+        });
 
-    // ✅ SEND EMAIL TO ADMIN
-    try {
-      const info = await transporter.sendMail({
-        from: `"AI Shyp Contact Form" <${emailUser}>`,
-        to: receiverEmail,
-        replyTo: email,
-        subject: `New Contact: ${subject}`,
-        text: `
+        // Send email to admin
+        await transporter.sendMail({
+          from: `"AI Shyp Contact Form" <${emailUser}>`,
+          to: receiverEmail,
+          replyTo: email,
+          subject: `New Contact: ${subject}`,
+          text: `
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
@@ -105,26 +88,24 @@ Subject: ${subject}
 
 Message:
 ${message}
-        `,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><b>Name:</b> ${name}</p>
-          <p><b>Email:</b> ${email}</p>
-          <p><b>Phone:</b> ${phone}</p>
-          <p><b>Company:</b> ${company || "N/A"}</p>
-          <p><b>Subject:</b> ${subject}</p>
-          <p><b>Message:</b><br/>${message.replace(/\n/g, "<br/>")}</p>
-        `,
-      });
+          `,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><b>Name:</b> ${name}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Phone:</b> ${phone}</p>
+            <p><b>Company:</b> ${company || "N/A"}</p>
+            <p><b>Subject:</b> ${subject}</p>
+            <p><b>Message:</b><br/>${message.replace(/\n/g, "<br/>")}</p>
+          `,
+        });
 
-      console.log("✅ ADMIN EMAIL SENT:", info.messageId);
-
-      // ✅ AUTO-REPLY TO USER (form email)
-      const autoReplyInfo = await transporter.sendMail({
-        from: `"AI Shyp Team" <${emailUser}>`,
-        to: email,
-        subject: "We received your enquiry - AI Shyp",
-        text: `Hi ${name},
+        // Auto-reply to user
+        await transporter.sendMail({
+          from: `"AI Shyp Team" <${emailUser}>`,
+          to: email,
+          subject: "We received your enquiry - AI Shyp",
+          text: `Hi ${name},
 
 Thanks for contacting AI Shyp.
 We have received your enquiry and our team will connect with you shortly.
@@ -135,31 +116,29 @@ Your submitted details:
 
 Best regards,
 AI Shyp Team`,
-        html: `
-          <p>Hi ${name},</p>
-          <p>Thanks for contacting <b>AI Shyp</b>.</p>
-          <p>We have received your enquiry and our team will connect with you shortly.</p>
-          <p><b>Your submitted details:</b></p>
-          <ul>
-            <li><b>Subject:</b> ${subject}</li>
-            <li><b>Phone:</b> ${phone}</li>
-          </ul>
-          <p>Best regards,<br/>AI Shyp Team</p>
-        `,
-      });
-
-      console.log("✅ USER AUTO-REPLY SENT:", autoReplyInfo.messageId);
-    } catch (err) {
-      console.error("❌ SEND MAIL ERROR:", err);
-      throw new Error("Email sending failed");
+          html: `
+            <p>Hi ${name},</p>
+            <p>Thanks for contacting <b>AI Shyp</b>.</p>
+            <p>We have received your enquiry and our team will connect with you shortly.</p>
+            <p><b>Your submitted details:</b></p>
+            <ul>
+              <li><b>Subject:</b> ${subject}</li>
+              <li><b>Phone:</b> ${phone}</li>
+            </ul>
+            <p>Best regards,<br/>AI Shyp Team</p>
+          `,
+        });
+      } catch (emailErr) {
+        console.warn("Email sending warning (data was saved in PostgreSQL):", emailErr.message);
+      }
     }
 
     return NextResponse.json(
-      { ok: true, message: "Saved + Email Sent ✅", id: created._id },
+      { ok: true, message: "Saved in PostgreSQL ✅", id: created.id },
       { status: 201 },
     );
   } catch (err) {
-    console.error("🔥 FINAL ERROR:", err);
+    console.error("🔥 Contact API Error:", err);
 
     return NextResponse.json(
       {

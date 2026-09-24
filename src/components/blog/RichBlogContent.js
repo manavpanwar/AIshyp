@@ -141,9 +141,7 @@ function parseNodes(str, depth = 0) {
   return elements.length > 0 ? elements : str;
 }
 
-/**
- * Single Image Card with alignment, sizing, caption and optional clickable URL
- */
+
 export function ContentImageItem({ img, isEmbedded = false, isGallery = false }) {
   if (!img || !img.url) return null;
 
@@ -237,9 +235,7 @@ export function ContentImageItem({ img, isEmbedded = false, isGallery = false })
   );
 }
 
-/**
- * Universal Block Renderer supporting all user features
- */
+
 export function RenderBlogBlock({ block, index = 0 }) {
   if (!block) return null;
 
@@ -511,9 +507,7 @@ export function RenderBlogBlock({ block, index = 0 }) {
   );
 }
 
-/**
- * Universal Rich Blog Content Component
- */
+
 export default function RichBlogContent({ content }) {
   if (!content) return null;
 

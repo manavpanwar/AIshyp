@@ -544,7 +544,7 @@ export default function CreateBlogPage() {
 
     const finalCategory = category === "Custom" ? customCategory.trim() || "Logistics" : category;
 
-    // Clean blocks for MongoDB storage
+    // Clean blocks for database storage
     const cleanedBlocks = contentBlocks.map((b) => {
       if (b.type === "heading") {
         return {
@@ -618,7 +618,7 @@ export default function CreateBlogPage() {
     });
 
     setIsSubmitting(true);
-    const toastId = toast.loading("Publishing rich article to MongoDB...");
+    const toastId = toast.loading("Publishing article to database...");
 
     try {
       const payload = {

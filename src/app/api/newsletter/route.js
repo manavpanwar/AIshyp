@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { connectToMongo } from "@/lib/mongodb";
-import NewsletterSubscription from "@/models/NewsletterSubscription";
+import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 
@@ -20,9 +19,9 @@ export async function POST(req) {
       );
     }
 
-    await connectToMongo();
-
-    const existing = await NewsletterSubscription.findOne({ email }).lean();
+    const existing = await prisma.newsletterSubscription.findUnique({
+      where: { email },
+    });
     if (existing) {
       return NextResponse.json(
         { ok: true, message: "Email already subscribed." },
@@ -30,14 +29,17 @@ export async function POST(req) {
       );
     }
 
-    await NewsletterSubscription.create({ email });
+    await prisma.newsletterSubscription.create({
+      data: { email },
+    });
 
     return NextResponse.json(
       { ok: true, message: "Subscribed successfully." },
       { status: 201 },
     );
   } catch (error) {
-    if (error?.code === 11000) {
+    // P2002 is Prisma's unique constraint violation error code
+    if (error?.code === "P2002") {
       return NextResponse.json(
         { ok: true, message: "Email already subscribed." },
         { status: 200 },

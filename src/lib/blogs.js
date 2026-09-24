@@ -1,5 +1,4 @@
-import { connectToMongo } from "./mongodb.js";
-import Blog from "../models/Blog.js";
+import { prisma } from "./prisma.js";
 
 const blogTopics = [
   {
@@ -664,14 +663,15 @@ export function getRelatedBlogs(slug, limit = 2) {
 export async function getUnifiedBlogs() {
   const staticBlogs = getAllBlogs();
   try {
-    await connectToMongo();
-    const dbBlogs = await Blog.find({ isPublished: true })
-      .sort({ publishedDate: -1, createdAt: -1 })
-      .lean();
+    const dbBlogs = await prisma.blog.findMany({
+      where: { isPublished: true },
+      orderBy: [{ publishedDate: "desc" }, { createdAt: "desc" }],
+    });
 
     if (dbBlogs && dbBlogs.length > 0) {
       const formattedDbBlogs = dbBlogs.map((b) => ({
-        _id: b._id.toString(),
+        _id: b.id.toString(),
+        id: b.id,
         title: b.title,
         slug: b.slug,
         description: b.description,
@@ -692,18 +692,20 @@ export async function getUnifiedBlogs() {
       return [...formattedDbBlogs, ...remainingStatic];
     }
   } catch (error) {
-    console.error("Error fetching blogs from MongoDB:", error?.message);
+    console.error("Error fetching blogs from PostgreSQL:", error?.message);
   }
   return staticBlogs;
 }
 
 export async function getUnifiedBlogBySlug(slug) {
   try {
-    await connectToMongo();
-    const b = await Blog.findOne({ slug, isPublished: true }).lean();
+    const b = await prisma.blog.findFirst({
+      where: { slug, isPublished: true },
+    });
     if (b) {
       return {
-        _id: b._id.toString(),
+        _id: b.id.toString(),
+        id: b.id,
         title: b.title,
         slug: b.slug,
         description: b.description,
@@ -720,7 +722,7 @@ export async function getUnifiedBlogBySlug(slug) {
       };
     }
   } catch (error) {
-    console.error("Error fetching blog by slug from MongoDB:", error?.message);
+    console.error("Error fetching blog by slug from PostgreSQL:", error?.message);
   }
   return getBlogBySlug(slug);
 }

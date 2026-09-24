@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { connectToMongo } from "@/lib/mongodb";
-import Blog from "@/models/Blog";
+import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 
@@ -33,21 +32,23 @@ function calculateReadingTime(content) {
 
 export async function GET(req) {
   try {
-    await connectToMongo();
-
     const { searchParams } = new URL(req.url);
     const category = searchParams.get("category");
     const limit = parseInt(searchParams.get("limit") || "100", 10);
 
-    const query = { isPublished: true };
+    const where = { isPublished: true };
     if (category && category !== "All") {
-      query.category = { $regex: new RegExp(`^${category}$`, "i") };
+      where.category = {
+        equals: category,
+        mode: "insensitive",
+      };
     }
 
-    const blogs = await Blog.find(query)
-      .sort({ publishedDate: -1, createdAt: -1 })
-      .limit(limit)
-      .lean();
+    const blogs = await prisma.blog.findMany({
+      where,
+      orderBy: [{ publishedDate: "desc" }, { createdAt: "desc" }],
+      take: limit,
+    });
 
     return NextResponse.json({ success: true, count: blogs.length, blogs });
   } catch (error) {
@@ -107,7 +108,7 @@ export async function POST(req) {
     }
     if (!content || (Array.isArray(content) && content.length === 0)) {
       return NextResponse.json(
-        { error: "Blog content cannot be empty" },
+        { error: "Blog content cann't be empty" },
         { status: 400 }
       );
     }
@@ -127,10 +128,10 @@ export async function POST(req) {
       readingTime = calculateReadingTime(content);
     }
 
-    await connectToMongo();
-
     // Check slug collision
-    const existing = await Blog.findOne({ slug });
+    const existing = await prisma.blog.findUnique({
+      where: { slug },
+    });
     if (existing) {
       return NextResponse.json(
         { error: `A blog post with slug "${slug}" already exists. Please choose a different title or slug.` },
@@ -138,25 +139,27 @@ export async function POST(req) {
       );
     }
 
-    // Create blog
-    const newBlog = await Blog.create({
-      title,
-      slug,
-      description,
-      content,
-      featuredImage,
-      author,
-      category,
-      tags,
-      readingTime,
-      publishedDate: new Date(),
-      isPublished: true,
+    // Create blog in PostgreSQL
+    const newBlog = await prisma.blog.create({
+      data: {
+        title,
+        slug,
+        description,
+        content,
+        featuredImage,
+        author,
+        category,
+        tags,
+        readingTime,
+        publishedDate: new Date(),
+        isPublished: true,
+      },
     });
 
     return NextResponse.json(
       {
         success: true,
-        message: "Blog created and published successfully!",
+        message: "Blog created and published successfully to PostgreSQL!",
         blog: newBlog,
       },
       { status: 201 }
