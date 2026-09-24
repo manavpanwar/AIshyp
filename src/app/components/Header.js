@@ -82,7 +82,7 @@ export default function Header() {
     { label: "Integrations", href: "/integration" },
     { label: "Pricing", href: "/pricing" },
     { label: "Blog", href: "/blog" },
-    { label: "Create Account", href: "/account-create" },
+    { label: "Contact-us", href: "/contact" },
   ];
 
   return (
@@ -355,7 +355,7 @@ export default function Header() {
             {/* Right: Orange Pill "Launch Platform" Button */}
             <div className="hidden md:flex items-center flex-shrink-0 pl-1 lg:pl-3">
               <Link
-                href="/contact"
+                href="/account-create"
                 className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-5 lg:px-6 py-2.5 text-xs sm:text-[13px] font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
               >
                 Launch Platform →
