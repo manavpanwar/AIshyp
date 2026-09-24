@@ -179,9 +179,8 @@ export function ContentImageItem({ img, isEmbedded = false, isGallery = false })
 
   const ImageElement = (
     <div
-      className={`relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-slate-50 group transition-all duration-300 ${
-        img.linkUrl ? "hover:shadow-xl hover:border-[#D8331F]/50 hover:scale-[1.01] cursor-pointer" : ""
-      } ${sizeClass}`}
+      className={`relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-slate-50 group transition-all duration-300 ${img.linkUrl ? "hover:shadow-xl hover:border-[#D8331F]/50 hover:scale-[1.01] cursor-pointer" : ""
+        } ${sizeClass}`}
     >
       <div className="relative w-full aspect-16/10 sm:aspect-16/9 bg-slate-100">
         <Image
@@ -439,8 +438,8 @@ export function RenderBlogBlock({ block, index = 0 }) {
   const embeddedImages = Array.isArray(block.images)
     ? block.images.filter((img) => img && img.url)
     : block.image && block.image.url
-    ? [block.image]
-    : [];
+      ? [block.image]
+      : [];
 
   return (
     <div key={`p-wrapper-${index}`} className="my-5 clear-both">

@@ -116,13 +116,12 @@ export default function CreateBlogAuthButton() {
         <div className="relative inline-flex items-center">
           <form
             onSubmit={handleSubmit}
-            className={`inline-flex items-center gap-1.5 bg-white border ${
-              error
-                ? "border-red-500 ring-2 ring-red-100"
-                : isSuccess
+            className={`inline-flex items-center gap-1.5 bg-white border ${error
+              ? "border-red-500 ring-2 ring-red-100"
+              : isSuccess
                 ? "border-emerald-500 ring-2 ring-emerald-100"
                 : "border-slate-300 focus-within:border-[#D8331F] focus-within:ring-2 focus-within:ring-red-100"
-            } rounded-xl px-2.5 py-1.5 shadow-md transition-all`}
+              } rounded-xl px-2.5 py-1.5 shadow-md transition-all`}
           >
             <span className="text-slate-400 text-xs">🔒</span>
             <input

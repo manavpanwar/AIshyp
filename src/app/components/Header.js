@@ -86,7 +86,7 @@ export default function Header() {
 
   return (
     <>
-      {/* ── FIXED WRAPPER CONTAINING TOP ANNOUNCEMENT BAR & MAIN HEADER ── */}
+
       <div className="fixed top-0 left-0 w-full z-50">
         {/* ── 2. MAIN HEADER NAVIGATION BAR ── */}
         <header
