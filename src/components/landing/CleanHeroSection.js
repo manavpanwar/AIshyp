@@ -16,12 +16,12 @@ export default function CleanHeroSection() {
   ];
 
   return (
-    <section className="relative w-full pt-52 sm:pt-52 pb-40 sm:pb-52 px-6 sm:px-10 lg:px-16 bg-white text-slate-900 overflow-hidden border-b border-slate-200/60 flex flex-col items-center justify-center text-center">
+    <section className="relative w-full pt-28 sm:pt-36 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-16 bg-[#FAFAFC] text-slate-900 overflow-hidden border-b border-slate-200/60 flex flex-col items-center justify-center text-center">
       {/* Sleek Mesh Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-red-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 z-10 flex flex-col items-center">
-
+        
         {/* Top Minimal Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
