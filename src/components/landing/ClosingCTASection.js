@@ -46,42 +46,35 @@ export default function ClosingCTASection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-16 sm:py-20 px-6 sm:px-10 overflow-hidden bg-white text-slate-900 border-t border-slate-200/80 flex flex-col items-center justify-center text-center"
+      className="relative w-full py-12 sm:py-16 px-4 sm:px-8 overflow-hidden bg-slate-50 text-slate-900 border-t border-slate-200 flex flex-col items-center justify-center text-center"
     >
-      {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[300px] bg-gradient-to-tr from-red-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-
       {/* Sleek CSS 3D Box Badge inside Dark Frame Card */}
-      <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl flex items-center justify-center overflow-hidden relative">
+      <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-slate-900 border border-slate-700 shadow-xl flex items-center justify-center overflow-hidden relative">
         <div
           ref={cubeRef}
-          className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-[#D8331F] to-[#FF8A6E] rounded-2xl shadow-[0_0_35px_rgba(216,51,31,0.55)] flex flex-col items-center justify-center border border-white/25 transform transition-transform"
+          className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-[#D8331F] to-[#FF8A6E] rounded-2xl shadow-[0_0_30px_rgba(216,51,31,0.5)] flex flex-col items-center justify-center border border-white/20 transform transition-transform"
         >
           <span className="text-2xl sm:text-3xl font-extrabold text-white">📦</span>
-          <span className="text-[9px]  font-bold text-white/90 uppercase tracking-widest mt-1">
+          <span className="text-[9px] font-mono font-bold text-white/90 uppercase tracking-widest mt-1">
             AI Shyp 3D
           </span>
         </div>
       </div>
 
       {/* Heading */}
-      <h2 className="font-sans font-extrabold text-slate-950 text-3xl sm:text-4xl md:text-5xl text-center mt-7 leading-tight tracking-tight max-w-3xl">
-        You Build the Logistics Brand.{" "}
-        <span className="bg-red bg-clip-text text-transparent">
-          We Power the Technology.
-        </span>
+      <h2 className="font-sans font-extrabold text-slate-900 text-2xl sm:text-3xl md:text-4xl text-center mt-5 leading-tight">
+        You Build the Logistics Brand. <span className="text-[#D8331F]">We Power the Technology.</span>
       </h2>
-      <p className="text-slate-600 text-sm sm:text-base max-w-xl text-center mt-3 font-normal leading-relaxed">
+      <p className="text-slate-600 text-xs sm:text-sm max-w-xl text-center mt-2 font-medium leading-relaxed">
         Deploy a full-featured white-label shipping aggregator platform on your custom domain in under 24 hours.
       </p>
 
       {/* Signup CTA Button */}
       <Link
         href="/contact"
-        className="bg-[#D8331F] hover:bg-[#c02816] text-white rounded-full px-8 py-3.5 font-extrabold text-xs sm:text-sm mt-6 shadow-[0_8px_25px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_30px_rgba(216,51,31,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all inline-flex items-center gap-2"
+        className="btn-red-orange text-white rounded-full px-7 py-3 font-extrabold text-xs sm:text-sm mt-5 shadow-lg inline-flex items-center gap-1.5"
       >
-        <span>Schedule Aggregator Demo</span>
-        <span>→</span>
+        Schedule Aggregator Demo →
       </Link>
     </section>
   );
