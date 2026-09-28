@@ -23,7 +23,7 @@ export default function EncyclopediaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(encyclopediaBreadcrumbSchema) }}
       />
-      <section className="max-w-6xl mx-auto">
+      <section  className="max-w-6xl mx-auto">
         {/* Semantic AI Summary for Answer Engine Extraction */}
         <div className="sr-only" itemScope itemType="https://schema.org/DefinedTermSet">
           <span itemProp="name">AIShyp Shipping &amp; Logistics Encyclopedia</span>

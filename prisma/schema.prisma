@@ -48,6 +48,7 @@ model ContactSubmission {
 model NewsletterSubscription {
   id        Int      @id @default(autoincrement())
   email     String   @unique
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
