@@ -193,7 +193,6 @@ export default function Footer() {
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },
                 { label: "Terms & Conditions", href: "/terms-and-conditions" },
-                { label: "Cancellation & Refund", href: "/refund-and-cancellation" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <Link
