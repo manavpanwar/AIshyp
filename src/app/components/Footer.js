@@ -59,8 +59,10 @@ export default function Footer() {
     Support: [
       { label: "SaaS Pricing", href: "/pricing" },
       { label: "Book Demo", href: "/contact" },
-      { label: "FAQs", href: "/pricing" },
-      { label: "Terms & Policy", href: "/contact" },
+      { label: "FAQs", href: "/faq" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Cancellation & Refund", href: "/refund-and-cancellation" },
     ],
   }
 
@@ -187,11 +189,12 @@ export default function Footer() {
             <p className="text-xs text-slate-500 font-mono tracking-wide">
               © {currentYear} AI Shyp Logistics SaaS. All rights reserved.
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               {[
-                { label: "Privacy Policy", href: "/contact" },
-                { label: "Terms of Use", href: "/contact" },
-                { label: "Cookie Policy", href: "/contact" },
+                { label: "Privacy Policy", href: "/privacy-policy" },
+                { label: "Terms & Conditions", href: "/terms-and-conditions" },
+                { label: "Cancellation & Refund", href: "/refund-and-cancellation" },
+                { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <Link
                   key={item.label}

@@ -411,7 +411,7 @@ export function getContactPageSchema() {
           "@type": "ContactPoint",
           telephone: "+91-7045814007",
           contactType: "customer service",
-          email: "support@aishyp.com",
+          email: "mohit@vizlabs.in",
           areaServed: "IN",
           availableLanguage: ["English", "Hindi"],
         },
@@ -419,3 +419,18 @@ export function getContactPageSchema() {
     },
   };
 }
+
+// Legal & Policy Document Schema Generator
+export function getLegalDocumentSchema({ title, description, path, dateModified = "2026-09-30" }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `${SITE_URL}${path}`,
+    description,
+    dateModified,
+    publisher: getOrganizationSchema(),
+    inLanguage: "en-IN",
+  };
+}
+
