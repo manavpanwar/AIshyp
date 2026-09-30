@@ -62,7 +62,7 @@ export default function Footer() {
       { label: "FAQs", href: "/faq" },
       { label: "Terms & Conditions", href: "/terms-and-conditions" },
       { label: "Privacy Policy", href: "/privacy-policy" },
-      // { label: "Cancellation & Refund", href: "/refund-and-cancellation" },
+    
     ],
   }
 

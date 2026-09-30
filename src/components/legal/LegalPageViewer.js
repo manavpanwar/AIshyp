@@ -8,7 +8,6 @@ import {
   LEGAL_METADATA,
   PRIVACY_POLICY,
   TERMS_AND_CONDITIONS,
-  REFUND_AND_CANCELLATION,
 } from "../../data/legalPolicies";
 
 // ── INLINE SVG ICONS ──
@@ -275,7 +274,6 @@ export default function LegalPageViewer({ initialTab = "privacy" }) {
                   >
                     {tab.id === "privacy" && <ShieldIcon className="w-4 h-4" />}
                     {tab.id === "terms" && <FileTextIcon className="w-4 h-4" />}
-                    {tab.id === "refund" && <RefreshCwIcon className="w-4 h-4" />}
                     {tab.id === "contact" && <PhoneCallIcon className="w-4 h-4" />}
                   </div>
                   <div className="min-w-0">
