@@ -155,15 +155,15 @@ export default function AccountCreatePage() {
       if (!response.ok || data.exists) {
         setDomainStatus({
           state: "taken",
-          message: data?.message || `${clean}.shipingtech.in is already taken.`,
+          message: data?.message || `${clean}.Aishyp.com is already taken.`,
         });
-        toast.error(`${clean}.shipingtech.in is not available.`);
+        toast.error(`${clean}.Aishyp.com is not available.`);
       } else {
         setDomainStatus({
           state: "available",
-          message: `${clean}.shipingtech.in is available!`,
+          message: `${clean}.Aishyp.com is available!`,
         });
-        toast.success(`Great! ${clean}.shipingtech.in is free.`);
+        toast.success(`Great! ${clean}.Aishyp.com is free.`);
       }
     } catch (error) {
       console.error("Domain check error:", error);
@@ -207,7 +207,7 @@ export default function AccountCreatePage() {
         throw new Error(data?.error || data?.message || "Failed to create tenant account.");
       }
 
-      const domain = data?.domain || `${cleanSub}.shipingtech.in`;
+      const domain = data?.domain || `${cleanSub}.Aishyp.com`;
       const href = domain ? toHref(domain) : "";
 
       clearTimers();
@@ -243,7 +243,7 @@ export default function AccountCreatePage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80 text-slate-900 selection:bg-[#D8331F] selection:text-white pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50/80 text-slate-900 selection:bg-[#D8331F] selection:text-white pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8 justify-center">
       {/* Background Decorative Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl" />
@@ -266,496 +266,452 @@ export default function AccountCreatePage() {
         </div>
 
         {/* ── 2-COLUMN SPLIT LAYOUT ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start lg:ml-36 px-4 sm:px-6 lg:px-0">
 
-          {/* ══════════════════════════════════════════════════════
-              LEFT COLUMN: FORM SECTION (7 COLS ON DESKTOP)
-             ══════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/40 p-6 sm:p-9 relative overflow-hidden transition-all">
-            {/* Top Accent Gradient Line */}
-            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#101B3D] via-[#D8331F] to-indigo-500" />
+          {/* LEFT COLUMN: FORM */}
+          <div className="w-full lg:col-span-5">
+            <div className="w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/40 p-5 sm:p-7 lg:p-9 relative overflow-hidden transition-all">
 
-            {status === "success" && outcome ? (
-              /* ── SUCCESS VIEW ── */
-              <div className="py-4 space-y-6">
-                <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 grid place-items-center text-emerald-600 shadow-sm">
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
+              {/* Top Accent Gradient Line */}
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#D8331F] via-red-500 to-indigo-600" />
+
+              {status === "success" && outcome ? (
+                /* ── SUCCESS VIEW ── */
+                <div className="py-4 space-y-6">
+                  {/* Your existing success content */}
                 </div>
+              ) : (
+                /* ── REGISTRATION FORM ── */
+                <>
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="min-w-0">
+                      <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                        Tenant Registration Details
+                      </h2>
 
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-md bg-emerald-100/70 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-2">
-                    Portal Active & Ready
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                    {outcome.message}
-                  </h2>
-                  <p className="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Congratulations! Your dedicated logistics portal for <strong className="text-slate-900">{outcome.name}</strong> has been provisioned and configured.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5 space-y-3.5">
-
-                  <div className="border-t border-dashed border-slate-200" />
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm">
-                    <span className="text-slate-500 font-medium">Portal Subdomain</span>
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={outcome.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-mono font-semibold text-indigo-600 hover:text-indigo-700 underline underline-offset-2 break-all"
-                      >
-                        {toHost(outcome.domain)}
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => copyToClipboard(outcome.href)}
-                        className="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-200/70 rounded-md transition-colors"
-                        title="Copy Portal Link"
-                      >
-                        {copied ? (
-                          <span className="text-emerald-600 text-xs font-bold">✓ Copied</span>
-                        ) : (
-                          <CopyIcon className="w-4 h-4" />
-                        )}
-                      </button>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                        Fill out your business and domain details to initialize your portal.
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <a
-                    href={outcome.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 h-12 rounded-xl bg-[#101B3D] text-white font-semibold text-sm hover:bg-[#16225A] shadow-md transition-colors"
+                  <form
+                    onSubmit={handleSubmit}
+                    noValidate
+                    className="space-y-5"
                   >
-                    <span>Open Shipping Portal</span>
-                    <ExternalLinkIcon className="w-4 h-4" />
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="px-6 h-12 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition-colors"
-                  >
-                    Create Another Account
-                  </button>
-                </div>
 
-                <p className="text-xs text-slate-500 text-center">
-                  Login instructions and admin credentials have also been linked to your registered email address.
-                </p>
-              </div>
-            ) : (
-              /* ── REGISTRATION FORM ── */
-              <>
-                <div className="flex items-start justify-between gap-4 mb-6">
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                      Tenant Registration Details
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                      Fill out your business and domain details to initialize your portal.
-                    </p>
-                  </div>
-
-                </div>
-
-                <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                  {/* Business Name Field */}
-                  <FormField
-                    id="name"
-                    name="name"
-                    label="Business / Company Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="e.g. Acme Retail Pvt Ltd"
-                    error={errors.name}
-                    disabled={loading}
-                    icon={<BuildingIcon className="w-5 h-5 text-slate-400" />}
-                  />
-
-                  {/* PAN & Phone Number in 2 Cols */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Business Name */}
                     <FormField
-                      id="panNumber"
-                      name="panNumber"
-                      label="Company PAN Number"
-                      value={formData.panNumber}
+                      id="name"
+                      name="name"
+                      label="Business / Company Name"
+                      value={formData.name}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      placeholder="ABCDE1234F"
-                      mono
-                      maxLength={10}
-                      error={errors.panNumber}
+                      placeholder="e.g. Acme Retail Pvt Ltd"
+                      error={errors.name}
                       disabled={loading}
-                      hint="10-digit entity PAN"
-                      icon={<IdCardIcon className="w-5 h-5 text-slate-400" />}
+                      icon={<BuildingIcon className="w-5 h-5 text-slate-400" />}
                     />
 
-                    <div>
-                      <label htmlFor="phoneNumber" className="mb-1.5 block text-xs sm:text-sm font-semibold text-slate-900">
-                        Contact Mobile Number
-                      </label>
-                      <div
-                        className={`flex h-12 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${errors.phoneNumber
-                          ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                          : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
-                          }`}
-                      >
-                        <span className="flex items-center px-3.5 h-full rounded-l-xl bg-slate-50 border-r border-slate-200 font-mono text-sm font-medium text-slate-600 select-none">
-                          +91
-                        </span>
-                        <input
-                          id="phoneNumber"
-                          name="phoneNumber"
-                          type="tel"
-                          value={formData.phoneNumber}
+                    {/* PAN + Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                      <div className="min-w-0">
+                        <FormField
+                          id="panNumber"
+                          name="panNumber"
+                          label="Company PAN Number"
+                          value={formData.panNumber}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          placeholder="9876543210"
+                          placeholder="ABCDE1234F"
+                          mono
                           maxLength={10}
+                          error={errors.panNumber}
                           disabled={loading}
-                          className="min-w-0 flex-1 px-3.5 bg-transparent font-mono text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-400"
+                          hint="10-digit entity PAN"
+                          icon={<IdCardIcon className="w-5 h-5 text-slate-400" />}
                         />
                       </div>
-                      {errors.phoneNumber && (
-                        <p className="mt-1.5 text-xs text-rose-600 font-medium">{errors.phoneNumber}</p>
+
+                      <div className="min-w-0">
+                        <label
+                          htmlFor="phoneNumber"
+                          className="mb-1.5 block text-xs sm:text-sm font-semibold text-slate-900"
+                        >
+                          Contact Mobile Number
+                        </label>
+
+                        <div
+                          className={`flex h-12 min-w-0 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${errors.phoneNumber
+                              ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                              : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                            }`}
+                        >
+                          <span className="flex items-center px-3 h-full rounded-l-xl bg-slate-50 border-r border-slate-200 font-mono text-xs sm:text-sm font-medium text-slate-600 select-none flex-none">
+                            +91
+                          </span>
+
+                          <input
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            type="tel"
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            placeholder="9876543210"
+                            maxLength={10}
+                            disabled={loading}
+                            className="min-w-0 w-full flex-1 px-3 bg-transparent font-mono text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-400"
+                          />
+                        </div>
+
+                        {errors.phoneNumber && (
+                          <p className="mt-1.5 text-xs text-rose-600 font-medium">
+                            {errors.phoneNumber}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Email */}
+                    <FormField
+                      id="email"
+                      name="email"
+                      type="email"
+                      label="Authorized Admin Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      placeholder="owner@yourcompany.com"
+                      error={errors.email}
+                      disabled={loading}
+                      hint="Your portal login access and invoices will be delivered here."
+                      icon={<MailIcon className="w-5 h-5 text-slate-400" />}
+                    />
+
+                    {/* Subdomain */}
+                    <div className="pt-2 border-t border-slate-100">
+                      <label
+                        htmlFor="subdomain"
+                        className="block text-xs sm:text-sm font-semibold text-slate-900 mb-1.5"
+                      >
+                        Choose Your Portal Subdomain
+                      </label>
+
+                      <div className="flex flex-col sm:flex-row gap-2 w-full">
+
+                        <div
+                          className={`flex h-12 w-full min-w-0 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${errors.subdomain
+                              ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                              : domainStatus.state === "available"
+                                ? "border-emerald-500 focus-within:ring-emerald-100"
+                                : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                            }`}
+                        >
+                          <input
+                            id="subdomain"
+                            name="subdomain"
+                            type="text"
+                            value={subdomain}
+                            onChange={(e) => {
+                              const clean = e.target.value
+                                .toLowerCase()
+                                .replace(/[^a-z0-9-]/g, "");
+
+                              setSubdomain(clean);
+
+                              setDomainStatus({
+                                state: "idle",
+                                message: "",
+                              });
+
+                              setErrors((prev) => ({
+                                ...prev,
+                                subdomain: undefined,
+                              }));
+                            }}
+                            placeholder="yourbrand"
+                            disabled={
+                              loading ||
+                              domainStatus.state === "checking"
+                            }
+                            autoComplete="off"
+                            spellCheck={false}
+                            className="min-w-0 w-full flex-1 px-3.5 bg-transparent font-mono text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400"
+                          />
+
+                          <span className="flex items-center px-2.5 sm:px-4 h-full bg-slate-50 border-l border-slate-200 font-mono text-[10px] sm:text-sm text-slate-500 whitespace-nowrap select-none flex-none">
+                            .aishyp.com
+                          </span>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={checkDomain}
+                          disabled={
+                            !subdomain.trim() ||
+                            domainStatus.state === "checking" ||
+                            loading
+                          }
+                          className="h-12 w-full sm:w-auto px-5 rounded-xl bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 flex-none shadow-sm"
+                        >
+                          {domainStatus.state === "checking" ? (
+                            <>
+                              <Spinner className="w-3.5 h-3.5" />
+                              <span>Checking</span>
+                            </>
+                          ) : (
+                            "Check"
+                          )}
+                        </button>
+                      </div>
+
+                      {domainStatus.state === "available" && (
+                        <p className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-emerald-600">
+                          <CheckIcon className="w-4 h-4 flex-none" />
+                          <span>{domainStatus.message}</span>
+                        </p>
+                      )}
+
+                      {domainStatus.state === "taken" && (
+                        <p className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-rose-600">
+                          <CrossIcon className="w-4 h-4 flex-none" />
+                          <span>{domainStatus.message}</span>
+                        </p>
+                      )}
+
+                      {errors.subdomain && (
+                        <p className="mt-1.5 text-xs text-rose-600 font-medium">
+                          {errors.subdomain}
+                        </p>
                       )}
                     </div>
-                  </div>
 
-                  {/* Owner Email */}
-                  <FormField
-                    id="email"
-                    name="email"
-                    type="email"
-                    label="Authorized Admin Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="owner@yourcompany.com"
-                    error={errors.email}
-                    disabled={loading}
-                    hint="Your portal login access and invoices will be delivered here."
-                    icon={<MailIcon className="w-5 h-5 text-slate-400" />}
-                  />
+                    {/* Error */}
+                    {status === "error" && outcome && (
+                      <div className="rounded-xl border border-rose-200 bg-rose-50/80 p-4 flex gap-3 items-start">
+                        <AlertCircleIcon className="w-5 h-5 text-rose-600 flex-none mt-0.5" />
 
-                  {/* Subdomain Chooser */}
-                  <div className="pt-2 border-t border-slate-100">
-                    <label htmlFor="subdomain" className="block text-xs sm:text-sm font-semibold text-slate-900 mb-1.5">
-                      Choose Your Portal Subdomain
-                    </label>
-                    <div className="flex gap-2">
-                      <div
-                        className={`flex h-12 flex-1 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${errors.subdomain
-                          ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                          : domainStatus.state === "available"
-                            ? "border-emerald-500 focus-within:ring-emerald-100"
-                            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
-                          }`}
-                      >
-                        <input
-                          id="subdomain"
-                          name="subdomain"
-                          type="text"
-                          value={subdomain}
-                          onChange={(e) => {
-                            const clean = e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "");
-                            setSubdomain(clean);
-                            setDomainStatus({ state: "idle", message: "" });
-                            setErrors((prev) => ({ ...prev, subdomain: undefined }));
-                          }}
-                          placeholder="yourbrand"
-                          disabled={loading || domainStatus.state === "checking"}
-                          autoComplete="off"
-                          spellCheck={false}
-                          className="min-w-0 flex-1 px-3.5 bg-transparent font-mono text-sm sm:text-base text-slate-900 outline-none placeholder:text-slate-400"
-                        />
-                        <span className="flex items-center px-3 sm:px-4 h-full bg-slate-50 border-l border-slate-200 font-mono text-xs sm:text-sm text-slate-500 whitespace-nowrap select-none">
-                          .shipingtech.in
-                        </span>
+                        <div className="min-w-0">
+                          <h4 className="text-sm font-semibold text-rose-800">
+                            Registration Failed
+                          </h4>
+
+                          <p className="text-xs text-rose-700 mt-0.5 leading-relaxed break-words">
+                            {outcome.message}
+                          </p>
+                        </div>
                       </div>
+                    )}
+
+                    {/* Loading Steps */}
+                    {loading && (
+                      <div className="py-2 border-t border-slate-100">
+                        <div className="flex items-start justify-between gap-1 sm:gap-2">
+                          {STEPS.map((label, idx) => {
+                            const isDone = idx < step;
+                            const isActive = idx === step;
+
+                            return (
+                              <div
+                                key={label}
+                                className="flex-1 text-center min-w-0"
+                              >
+                                <div className="flex items-center justify-center mb-1">
+                                  <span
+                                    className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${isDone
+                                        ? "bg-emerald-600 text-white"
+                                        : isActive
+                                          ? "bg-indigo-600 text-white animate-pulse"
+                                          : "bg-slate-200 text-slate-500"
+                                      }`}
+                                  >
+                                    {isDone ? "✓" : idx + 1}
+                                  </span>
+                                </div>
+
+                                <p
+                                  className={`text-[9px] sm:text-xs leading-tight line-clamp-2 ${isActive
+                                      ? "font-semibold text-slate-900"
+                                      : "text-slate-500"
+                                    }`}
+                                >
+                                  {label}
+                                </p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 pt-3">
+
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full sm:flex-1 h-12 rounded-xl bg-red text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                      >
+                        {loading ? (
+                          <>
+                            <Spinner className="w-4 h-4 text-white" />
+                            <span>Creating Portal...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Create Shipping Portal</span>
+                            <ArrowRightIcon className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
 
                       <button
                         type="button"
-                        onClick={checkDomain}
-                        disabled={!subdomain.trim() || domainStatus.state === "checking" || loading}
-                        className="h-12 px-4 rounded-xl bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-2 flex-none shadow-xs"
+                        onClick={handleReset}
+                        disabled={loading}
+                        className="w-full sm:w-auto h-12 px-5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 disabled:opacity-50 transition-colors"
                       >
-                        {domainStatus.state === "checking" ? (
-                          <>
-                            <Spinner className="w-3.5 h-3.5" />
-                            <span>Checking</span>
-                          </>
-                        ) : (
-                          "Check"
-                        )}
+                        Clear
                       </button>
                     </div>
-
-                    {/* Domain Status Feedback Pill */}
-                    {domainStatus.state === "available" && (
-                      <p className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-emerald-600">
-                        <CheckIcon className="w-4 h-4 text-emerald-600 flex-none" />
-                        <span>{domainStatus.message}</span>
-                      </p>
-                    )}
-                    {domainStatus.state === "taken" && (
-                      <p className="mt-2 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-rose-600">
-                        <CrossIcon className="w-4 h-4 text-rose-600 flex-none" />
-                        <span>{domainStatus.message}</span>
-                      </p>
-                    )}
-                    {errors.subdomain && (
-                      <p className="mt-1.5 text-xs text-rose-600 font-medium">{errors.subdomain}</p>
-                    )}
-                  </div>
-
-                  {/* Error Alert Box */}
-                  {status === "error" && outcome && (
-                    <div className="rounded-xl border border-rose-200 bg-rose-50/80 p-4 flex gap-3 items-start">
-                      <AlertCircleIcon className="w-5 h-5 text-rose-600 flex-none mt-0.5" />
-                      <div>
-                        <h4 className="text-sm font-semibold text-rose-800">Registration Failed</h4>
-                        <p className="text-xs text-rose-700 mt-0.5 leading-relaxed">{outcome.message}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Stepper Progress Bar (when creating) */}
-                  {loading && (
-                    <div className="py-2 border-t border-slate-100">
-                      <div className="flex items-center justify-between gap-2">
-                        {STEPS.map((label, idx) => {
-                          const isDone = idx < step;
-                          const isActive = idx === step;
-                          return (
-                            <div key={label} className="flex-1 text-center">
-                              <div className="flex items-center justify-center mb-1">
-                                <span
-                                  className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${isDone
-                                    ? "bg-emerald-600 text-white"
-                                    : isActive
-                                      ? "bg-indigo-600 text-white animate-pulse"
-                                      : "bg-slate-200 text-slate-500"
-                                    }`}
-                                >
-                                  {isDone ? "✓" : idx + 1}
-                                </span>
-                              </div>
-                              <p className={`text-[10px] sm:text-xs leading-tight line-clamp-2 ${isActive ? "font-semibold text-slate-900" : "text-slate-500"}`}>
-                                {label}
-                              </p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Submit and Clear Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 pt-3">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="flex-1 h-12 rounded-xl bg-red text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
-                    >
-                      {loading ? (
-                        <>
-                          <Spinner className="w-4 h-4 text-white" />
-                          <span>Creating Portal...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Create Shipping Portal</span>
-                          <ArrowRightIcon className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleReset}
-                      disabled={loading}
-                      className="h-12 px-5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 disabled:opacity-50 transition-colors"
-                    >
-                      Clear
-                    </button>
-                  </div>
-
-                  {/* Trust Micro-Text */}
-                  <div className="pt-2 text-center text-xs text-slate-500 flex items-center justify-center gap-4 flex-wrap">
-                    <span className="flex items-center gap-1">
-                      <LockIcon className="w-3.5 h-3.5 text-slate-400" />
-                      256-bit Encrypted
-                    </span>
-                    <span>•</span>
-                    <span>Zero Setup Fees</span>
-                    <span>•</span>
-                    <span>Instant API Keys</span>
-                  </div>
-                </form>
-              </>
-            )}
+                  </form>
+                </>
+              )}
+            </div>
           </div>
 
 
-          {/* ══════════════════════════════════════════════════════
-              RIGHT COLUMN: IMAGE & CONTENT SHOWCASE (5 COLS)
-             ══════════════════════════════════════════════════════ */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+          {/* RIGHT COLUMN */}
+          <div className="w-full lg:col-span-5 space-y-6 lg:sticky lg:top-28">
 
-            {/* Primary Showcase Card */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-[#101B3D] via-[#152352] to-[#0A0E1A] text-white p-6 sm:p-8 shadow-2xl border border-slate-800/80 overflow-hidden">
-              {/* Subtle Ambient Radial Glow */}
+            <div className="relative w-full rounded-3xl bg-gradient-to-br from-[#101B3D] via-[#152352] to-[#0A0E1A] text-white p-5 sm:p-7 lg:p-8 shadow-2xl border border-slate-800/80 overflow-hidden">
+
+              {/* Glow */}
               <div className="absolute -top-24 -right-24 w-60 h-60 bg-[#D8331F]/30 rounded-full blur-3xl pointer-events-none" />
+
               <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Tag / Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs font-semibold text-rose-300 mb-5">
-                <SparklesIcon className="w-3.5 h-3.5 text-[#D8331F]" />
-                <span>Next-Gen Logistics Engine</span>
+              {/* Badge */}
+              <div className="inline-flex max-w-full items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-[10px] sm:text-xs font-semibold text-rose-300 mb-5">
+                <SparklesIcon className="w-3.5 h-3.5 text-[#D8331F] flex-none" />
+                <span className="truncate">
+                  Next-Gen Logistics Engine
+                </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
                 One Single Dashboard for All Your Shipping Couriers
               </h3>
+
               <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Connect your business to India&apos;s leading parcel networks and automate fulfillment, billing, and NDR recovery automatically.
               </p>
 
-              {/* Simulated Interactive Logistics Preview Box */}
-              <div className="mt-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-4 sm:p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-xs font-semibold text-slate-200">AI Routing Engine</span>
+              {/* Preview */}
+              <div className="mt-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-3 sm:p-5 space-y-4">
+
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping flex-none" />
+
+                    <span className="text-[10px] sm:text-xs font-semibold text-slate-200 truncate">
+                      AI Routing Engine
+                    </span>
                   </div>
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+
+                  <span className="text-[9px] sm:text-[11px] font-mono px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex-none">
                     SLA: 99.9%
                   </span>
                 </div>
 
-                {/* Integrated Courier Logos Grid */}
+                {/* Courier Partners */}
                 <div>
-                  <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-2.5">
+                  <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-400 font-semibold mb-2.5">
                     Pre-Integrated Courier Partners
                   </p>
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all">
-                      <Image
-                        src="/delhivery.png"
-                        alt="Delhivery"
-                        width={70}
-                        height={24}
-                        className="object-contain brightness-0 invert opacity-90 max-h-6"
-                      />
-                    </div>
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all">
-                      <Image
-                        src="/bluedart.png"
-                        alt="Blue Dart"
-                        width={70}
-                        height={24}
-                        className="object-contain brightness-0 invert opacity-90 max-h-6"
-                      />
-                    </div>
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all">
-                      <Image
-                        src="/dtdc.png"
-                        alt="DTDC"
-                        width={70}
-                        height={24}
-                        className="object-contain brightness-0 invert opacity-90 max-h-6"
-                      />
-                    </div>
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all">
-                      <Image
-                        src="/xpressbees.png"
-                        alt="Xpressbees"
-                        width={70}
-                        height={24}
-                        className="object-contain brightness-0 invert opacity-90 max-h-6"
-                      />
-                    </div>
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all">
-                      <Image
-                        src="/ekart.png"
-                        alt="Ekart Logistics"
-                        width={70}
-                        height={24}
-                        className="object-contain brightness-0 invert opacity-90 max-h-6"
-                      />
-                    </div>
-                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 text-[11px] font-bold text-slate-300">
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+
+                    {[
+                      ["/delhivery.png", "Delhivery"],
+                      ["/bluedart.png", "Blue Dart"],
+                      ["/dtdc.png", "DTDC"],
+                      ["/xpressbees.png", "Xpressbees"],
+                      ["/ekart.png", "Ekart Logistics"],
+                    ].map(([src, alt]) => (
+                      <div
+                        key={alt}
+                        className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 hover:bg-white/15 transition-all"
+                      >
+                        <Image
+                          src={src}
+                          alt={alt}
+                          width={70}
+                          height={24}
+                          className="object-contain brightness-0 invert opacity-90 max-h-6 max-w-full"
+                        />
+                      </div>
+                    ))}
+
+                    <div className="h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center px-2 text-[10px] sm:text-[11px] font-bold text-slate-300">
                       + 7 More
                     </div>
                   </div>
                 </div>
 
-                {/* Live Metric Stats */}
+                {/* Stats */}
                 <div className="grid grid-cols-2 gap-2.5 pt-1">
-                  <div className="rounded-xl bg-white/5 p-3 border border-white/5">
-                    <span className="text-[11px] text-slate-400 block">RTO Reduction</span>
-                    <span className="text-base sm:text-lg font-bold text-emerald-400">↓ 34.2%</span>
+
+                  <div className="min-w-0 rounded-xl bg-white/5 p-2.5 sm:p-3 border border-white/5">
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 block">
+                      RTO Reduction
+                    </span>
+
+                    <span className="text-sm sm:text-lg font-bold text-emerald-400">
+                      ↓ 34.2%
+                    </span>
                   </div>
-                  <div className="rounded-xl bg-white/5 p-3 border border-white/5">
-                    <span className="text-[11px] text-slate-400 block">Delivery Time</span>
-                    <span className="text-base sm:text-lg font-bold text-indigo-300">~ 1.8 Days</span>
+
+                  <div className="min-w-0 rounded-xl bg-white/5 p-2.5 sm:p-3 border border-white/5">
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 block">
+                      Delivery Time
+                    </span>
+
+                    <span className="text-sm sm:text-lg font-bold text-indigo-300">
+                      ~ 1.8 Days
+                    </span>
                   </div>
+
                 </div>
               </div>
 
-              {/* Feature Points List */}
+              {/* Feature */}
               <div className="mt-6 space-y-3.5 text-xs sm:text-sm">
+
                 <div className="flex items-start gap-2.5">
                   <div className="w-5 h-5 rounded-full bg-[#D8331F]/20 text-[#D8331F] flex items-center justify-center flex-none mt-0.5">
                     ✓
                   </div>
-                  <div>
-                    <strong className="text-white font-semibold">100% White-Label Portal:</strong>
-                    <span className="text-slate-300 ml-1">Your own branded subdomain, custom tracking page, and logo.</span>
+
+                  <div className="min-w-0">
+                    <strong className="text-white font-semibold">
+                      100% White-Label Portal:
+                    </strong>
+
+                    <span className="text-slate-300 ml-1">
+                      Your own branded subdomain, custom tracking page, and logo.
+                    </span>
                   </div>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#D8331F]/20 text-[#D8331F] flex items-center justify-center flex-none mt-0.5">
-                    ✓
-                  </div>
-                  <div>
-                    <strong className="text-white font-semibold">AI Automated WhatsApp NDR:</strong>
-                    <span className="text-slate-300 ml-1">Reach customers instantly to re-attempt deliveries and slash returns.</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#D8331F]/20 text-[#D8331F] flex items-center justify-center flex-none mt-0.5">
-                    ✓
-                  </div>
-                  <div>
-                    <strong className="text-white font-semibold">Instant Commercial Rates:</strong>
-                    <span className="text-slate-300 ml-1">Pre-negotiated Tier-1 freight rates starting at ₹19 / 500g.</span>
-                  </div>
-                </div>
+
               </div>
             </div>
-
-            {/* Testimonial Quote Card */}
-            <div className="rounded-2xl bg-white p-5 sm:p-6 border border-slate-200/80 shadow-sm">
-              <div className="flex items-center gap-1 text-amber-400 mb-2">
-                {"★★★★★".split("").map((star, i) => (
-                  <span key={i} className="text-sm">{star}</span>
-                ))}
-              </div>
-              <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
-                &ldquo;Setting up our shipping portal on AIshyp took barely 3 minutes. The automated courier rate comparison and WhatsApp NDR have reduced our return shipments dramatically.&rdquo;
-              </p>
-
-            </div>
-
           </div>
+
         </div>
 
       </div>

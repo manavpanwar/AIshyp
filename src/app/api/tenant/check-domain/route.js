@@ -24,6 +24,7 @@ export async function POST(req) {
       body: JSON.stringify({ domain }),
       cache: "no-store",
     });
+    
 
     const data = await upstreamRes.json().catch(() => ({}));
 
