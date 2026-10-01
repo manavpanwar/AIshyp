@@ -183,7 +183,6 @@ export default function AccountCreatePage() {
       phoneNumber: formData.phoneNumber,
       email: formData.email.trim().toLowerCase(),
       domain: cleanSub,
-      referenceCode: refCode,
     };
 
     clearTimers();
@@ -298,12 +297,7 @@ export default function AccountCreatePage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-5 space-y-3.5">
-                  <div className="flex items-center justify-between text-xs sm:text-sm">
-                    <span className="text-slate-500 font-medium">Session Reference</span>
-                    <span suppressHydrationWarning className="font-mono font-semibold text-slate-800 bg-white px-2.5 py-1 rounded-md border border-slate-200">
-                      {outcome.referenceCode || refCode || "TC-INIT"}
-                    </span>
-                  </div>
+
                   <div className="border-t border-dashed border-slate-200" />
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs sm:text-sm">
                     <span className="text-slate-500 font-medium">Portal Subdomain</span>
@@ -409,8 +403,8 @@ export default function AccountCreatePage() {
                       </label>
                       <div
                         className={`flex h-12 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${errors.phoneNumber
-                            ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                          ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                          : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
                           }`}
                       >
                         <span className="flex items-center px-3.5 h-full rounded-l-xl bg-slate-50 border-r border-slate-200 font-mono text-sm font-medium text-slate-600 select-none">
@@ -459,10 +453,10 @@ export default function AccountCreatePage() {
                     <div className="flex gap-2">
                       <div
                         className={`flex h-12 flex-1 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${errors.subdomain
-                            ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                            : domainStatus.state === "available"
-                              ? "border-emerald-500 focus-within:ring-emerald-100"
-                              : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                          ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                          : domainStatus.state === "available"
+                            ? "border-emerald-500 focus-within:ring-emerald-100"
+                            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
                           }`}
                       >
                         <input
@@ -545,10 +539,10 @@ export default function AccountCreatePage() {
                               <div className="flex items-center justify-center mb-1">
                                 <span
                                   className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${isDone
-                                      ? "bg-emerald-600 text-white"
-                                      : isActive
-                                        ? "bg-indigo-600 text-white animate-pulse"
-                                        : "bg-slate-200 text-slate-500"
+                                    ? "bg-emerald-600 text-white"
+                                    : isActive
+                                      ? "bg-indigo-600 text-white animate-pulse"
+                                      : "bg-slate-200 text-slate-500"
                                     }`}
                                 >
                                   {isDone ? "✓" : idx + 1}
@@ -794,8 +788,8 @@ function FormField({
 
       <div
         className={`flex h-12 items-center rounded-xl border bg-white px-3.5 transition-all focus-within:ring-3 ${error
-            ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+          ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+          : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
           }`}
       >
         {icon && <span className="mr-2.5 flex-none">{icon}</span>}

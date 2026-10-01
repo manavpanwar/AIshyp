@@ -39,6 +39,8 @@ export default function Header() {
     { label: "Integrations", href: "/integration" },
     { label: "Pricing", href: "/pricing" },
     { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+
   ];
 
   return (
@@ -81,7 +83,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${isActive
+                  className={`text-sm font-sans  transition-all duration-200 whitespace-nowrap relative ${isActive
                     ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
                     : "text-slate-700 hover:text-[#D8331F] font-semibold"
                     }`}
@@ -95,7 +97,7 @@ export default function Header() {
           {/* Right: Glossy Orange Pill "Launch Platform" Button */}
           <div className="hidden md:flex items-center flex-shrink-0">
             <Link
-              href="/contact"
+              href="/account-create"
               className="bg-[#D8331F] text-white rounded-full px-5 py-2.5 text-xs font-extrabold shadow-[0_8px_20px_rgba(216,51,31,0.35)] hover:shadow-[0_12px_25px_rgba(216,51,31,0.48)] hover:scale-105 active:scale-95 transition-all duration-200 inline-block whitespace-nowrap"
             >
               Launch Platform →
