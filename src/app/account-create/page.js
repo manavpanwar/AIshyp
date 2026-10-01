@@ -346,8 +346,8 @@ export default function AccountCreatePage() {
 
                         <div
                           className={`flex h-12 min-w-0 items-center rounded-xl border bg-white transition-all focus-within:ring-3 ${errors.phoneNumber
-                              ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                              : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                            ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                            : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
                             }`}
                         >
                           <span className="flex items-center px-3 h-full rounded-l-xl bg-slate-50 border-r border-slate-200 font-mono text-xs sm:text-sm font-medium text-slate-600 select-none flex-none">
@@ -405,10 +405,10 @@ export default function AccountCreatePage() {
 
                         <div
                           className={`flex h-12 w-full min-w-0 items-center rounded-xl border bg-white transition-all focus-within:ring-3 overflow-hidden ${errors.subdomain
-                              ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
-                              : domainStatus.state === "available"
-                                ? "border-emerald-500 focus-within:ring-emerald-100"
-                                : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
+                            ? "border-rose-400 focus-within:border-rose-500 focus-within:ring-rose-100"
+                            : domainStatus.state === "available"
+                              ? "border-emerald-500 focus-within:ring-emerald-100"
+                              : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-indigo-100"
                             }`}
                         >
                           <input
@@ -523,10 +523,10 @@ export default function AccountCreatePage() {
                                 <div className="flex items-center justify-center mb-1">
                                   <span
                                     className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${isDone
-                                        ? "bg-emerald-600 text-white"
-                                        : isActive
-                                          ? "bg-indigo-600 text-white animate-pulse"
-                                          : "bg-slate-200 text-slate-500"
+                                      ? "bg-emerald-600 text-white"
+                                      : isActive
+                                        ? "bg-indigo-600 text-white animate-pulse"
+                                        : "bg-slate-200 text-slate-500"
                                       }`}
                                   >
                                     {isDone ? "✓" : idx + 1}
@@ -535,8 +535,8 @@ export default function AccountCreatePage() {
 
                                 <p
                                   className={`text-[9px] sm:text-xs leading-tight line-clamp-2 ${isActive
-                                      ? "font-semibold text-slate-900"
-                                      : "text-slate-500"
+                                    ? "font-semibold text-slate-900"
+                                    : "text-slate-500"
                                     }`}
                                 >
                                   {label}
