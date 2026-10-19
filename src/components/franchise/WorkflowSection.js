@@ -148,7 +148,7 @@ export default function WorkflowSection() {
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-70 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold font-mono tracking-wide uppercase">
@@ -194,13 +194,12 @@ export default function WorkflowSection() {
                   >
                     {/* Circle Node */}
                     <div
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-sm transition-all duration-300 shadow-md ${
-                        isCurrent
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-sm transition-all duration-300 shadow-md ${isCurrent
                           ? "bg-blue-600 text-white ring-4 ring-blue-100 scale-110"
                           : isPassed
-                          ? "bg-emerald-600 text-white"
-                          : "bg-white border-2 border-slate-300 text-slate-500 group-hover:border-blue-400 group-hover:text-blue-600"
-                      }`}
+                            ? "bg-emerald-600 text-white"
+                            : "bg-white border-2 border-slate-300 text-slate-500 group-hover:border-blue-400 group-hover:text-blue-600"
+                        }`}
                     >
                       {isPassed ? (
                         <CheckCircle2 className="w-6 h-6 text-white" />
@@ -234,7 +233,7 @@ export default function WorkflowSection() {
           className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-lg mb-12"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             {/* Step Explanation */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">

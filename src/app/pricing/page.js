@@ -192,8 +192,8 @@ export default function PricingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-8 bg-white border transition-all duration-300 ${plan.featured
-                  ? "border-[#D8331F] shadow-[0_16px_40px_rgba(216,51,31,0.18)] scale-[1.02] z-20"
-                  : "border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300 z-10"
+                ? "border-[#D8331F] shadow-[0_16px_40px_rgba(216,51,31,0.18)] scale-[1.02] z-20"
+                : "border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300 z-10"
                 }`}
             >
               {/* Featured Badge */}
@@ -341,7 +341,7 @@ export default function PricingPage() {
 
                     {/* Growth */}
                     <td className="py-3.5 px-6 text-center bg-slate-50/50">
-                      {row.id !== 11 ? (
+                      {row.id !== 12 ? (
                         <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center font-extrabold text-xs shadow-2xs">
                           ✓
                         </span>
