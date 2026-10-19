@@ -51,6 +51,7 @@ export default function Footer() {
       { label: "Contact Us", href: "/contact" },
     ],
     Solutions: [
+      { label: "Courier Franchise Solutions", href: "/courier-franchise-solutions" },
       { label: "White Label Portal India", href: "/solutions/white-label-logistics-portal-india" },
       { label: "Courier Aggregation Software", href: "/solutions/courier-aggregation-software-india" },
       { label: "Multi-Tenant Shipping SaaS", href: "/solutions/multi-tenant-shipping-saas" },
@@ -62,7 +63,7 @@ export default function Footer() {
       { label: "FAQs", href: "/faq" },
       { label: "Terms & Conditions", href: "/terms-and-conditions" },
       { label: "Privacy Policy", href: "/privacy-policy" },
-    
+
     ],
   }
 
@@ -105,7 +106,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-[#D8331F] hover:bg-[#FF8A6E] text-white px-6 py-2.5 rounded-full text-sm font-semibold flex-shrink-0 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-[#D8331F] cursor-pointer hover:bg-[#FF8A6E] text-white px-6 py-2.5 rounded-full text-sm font-semibold flex-shrink-0 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Subscribing..." : "Subscribe"}
                 </button>
@@ -131,13 +132,13 @@ export default function Footer() {
           {/* Brand col */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-3 w-fit">
-              <div className="relative h-10 w-52 flex items-center justify-start overflow-hidden flex-shrink-0">
+              <div className="relative h-32 w-72 flex items-center justify-start overflow-hidden flex-shrink-0">
                 <Image
                   src="/AIship1.png"
                   alt="AIShip logo"
                   fill
-                  sizes="208px"
-                  className="object-contain object-left scale-125 origin-left"
+                  sizes="288px"
+                  className="object-contain object-left scale-150 origin-left"
                 />
               </div>
             </Link>

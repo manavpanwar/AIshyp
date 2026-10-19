@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getCarrierIntegrationsSchema, getBreadcrumbSchema } from "../../lib/seo";
 
 const INTEGRATION_CATEGORIES = [
-  { id: "all", label: "All Integrations (14+)" },
+  { id: "all", label: "All Integrations (15+)" },
+  { id: "app", label: "App & Franchise Solutions" },
   { id: "storefront", label: "Storefront Channels" },
   { id: "courier", label: "Courier Carriers" },
   { id: "wms", label: "B2B & WMS Systems" },
@@ -135,6 +136,16 @@ const INTEGRATIONS_LIST = [
     desc: "Full developer API endpoint documentation for custom ERPs, Magento, Custom Node/Python back-ends, and WMS software.",
     badgeColor: "bg-slate-100 text-slate-800 border-slate-300",
   },
+  {
+    name: "Courier Franchise Web & Mobile Apps",
+    category: "app",
+    type: "Connected Platform",
+    logo: "/aishiplogo.png",
+    status: "Active Platform",
+    desc: "Integrated web dashboard and smartphone app suite for courier franchises with mobile camera docket scanning, OCR address capture & pickup runs.",
+    badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+    href: "/courier-franchise-solutions",
+  },
 ];
 
 const SHOPIFY_STEPS = [
@@ -159,6 +170,34 @@ const SHOPIFY_STEPS = [
     desc: "AI Shyp automatically updates order fulfillment status on Shopify and emails branded tracking links to buyers.",
   },
 ];
+
+const WOOCOMMERCE_STEPS = [
+  {
+    step: 1,
+    icon: "🌐",
+    title: "Enter Your Store URL",
+    desc: "Enter your WooCommerce website URL, including https://, to identify the store you want to connect with AI Shyp.",
+  },
+  {
+    step: 2,
+    icon: "🔑",
+    title: "Add API Credentials",
+    desc: "Generate REST API Consumer Key and Consumer Secret in WooCommerce under Settings → Advanced → REST API, then enter both credentials securely.",
+  },
+  {
+    step: 3,
+    icon: "🔗",
+    title: "Connect Your Store",
+    desc: "Click Connect Store to validate your store URL and API credentials. AI Shyp connects through the WooCommerce REST API with the permissions you grant.",
+  },
+  {
+    step: 4,
+    icon: "📦",
+    title: "Sync Orders & Shipments",
+    desc: "After successful connection, import eligible orders, process shipments, generate AWBs and shipping labels, and sync tracking updates when supported by your configuration.",
+  },
+];
+
 
 export default function IntegrationPage() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -190,7 +229,7 @@ export default function IntegrationPage() {
           AI Shyp comes pre-integrated with 14+ direct carrier APIs and storefront channels: Delhivery, BlueDart, DTDC, Xpressbees, Shadowfax, Ekart Logistics, Trackon, Ecom Express, DP World B2B Freight, FedEx, Amazon Shipping, 1-click Shopify app integration, and WooCommerce.
         </span>
       </div>
-      
+
       {/* ── 1. PROMINENT SHOPIFY LOGO HERO HIGHLIGHT SECTION ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-xl grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden">
@@ -199,7 +238,7 @@ export default function IntegrationPage() {
 
           {/* Left Column: Shopify Copy & Action */}
           <div className="lg:col-span-6 space-y-6">
-            
+
             {/* PROMINENT SHOPIFY BRAND LOGO BADGE */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -365,6 +404,281 @@ export default function IntegrationPage() {
         </div>
       </section>
 
+      {/* woocommerce step 1integation */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 sm:mt-20">
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-xl grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden">
+
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 via-amber-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+
+          {/* Left Column: WooCommerce Copy & Action */}
+          <div className="lg:col-span-6 space-y-6">
+
+            {/* WooCommerce Brand Logo Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-slate-200 shadow-md"
+            >
+              <div className="w-8 h-8 rounded-lg bg-purple-50 p-1 flex items-center justify-center shrink-0 border border-purple-200">
+                <img
+                  src="/woocommerce.png"
+                  alt="WooCommerce Logo"
+                  className="object-contain max-h-full max-w-full"
+                />
+              </div>
+
+              <div className="text-left font-mono">
+                <p className="text-[11px] font-extrabold text-slate-900 leading-none">
+                  WOOCOMMERCE INTEGRATION
+                </p>
+                <p className="text-[9.5px] font-bold text-purple-700 mt-0.5">
+                  ● Automated Order Sync
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.1]"
+            >
+              Connect your WooCommerce store
+              <br />
+              <span className="text-[#7F54B3]">
+                and simplify shipping.
+              </span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed"
+            >
+              Integrate your WooCommerce store with your shipping dashboard to
+              streamline order processing. Sync eligible orders, manage shipments,
+              generate shipping labels and AWBs, and share tracking updates with
+              customers from one convenient platform.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-3.5 pt-1"
+            >
+              <Link
+                href="/contact"
+                className="px-7 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-white bg-[#7F54B3] shadow-[0_8px_20px_rgba(127,84,179,0.35)] hover:shadow-[0_12px_25px_rgba(127,84,179,0.48)] hover:scale-105 active:scale-95 transition-all"
+              >
+                Connect WooCommerce →
+              </Link>
+
+              <a
+                href="#woocommerce-flow"
+                className="px-6 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-slate-800 bg-slate-100 border border-slate-200 hover:bg-slate-200 transition-all"
+              >
+                See How It Works ↓
+              </a>
+            </motion.div>
+
+            {/* Quick Metrics */}
+            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-slate-100 font-mono text-xs">
+              <div>
+                <p className="text-[10px] text-slate-400 font-bold uppercase">
+                  Order Sync
+                </p>
+                <p className="text-sm font-extrabold text-slate-900 mt-0.5">
+                  Automated
+                </p>
+              </div>
+
+              <div>
+                <p className="text-[10px] text-slate-400 font-bold uppercase">
+                  Shipping
+                </p>
+                <p className="text-sm font-extrabold text-[#7F54B3] mt-0.5">
+                  Multi-Courier
+                </p>
+              </div>
+
+              <div>
+                <p className="text-[10px] text-slate-400 font-bold uppercase">
+                  Tracking
+                </p>
+                <p className="text-sm font-extrabold text-emerald-700 mt-0.5">
+                  Centralized
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: WooCommerce Integration Flow */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            id="woocommerce-flow"
+            className="lg:col-span-6 bg-slate-950 rounded-3xl p-6 sm:p-8 border border-slate-800 text-white shadow-2xl relative space-y-6 flex flex-col items-center justify-center text-center"
+          >
+
+            {/* Node 1: WooCommerce Store */}
+            <div className="space-y-2 flex flex-col items-center">
+              <div className="w-20 h-20 rounded-2xl bg-white p-3 flex items-center justify-center shadow-xl border-2 border-purple-400 relative">
+                <img
+                  src="/woocommerce.png"
+                  alt="WooCommerce Logo"
+                  className="object-contain max-h-full max-w-full"
+                />
+
+                <span className="absolute -bottom-2.5 bg-purple-500 text-white font-mono text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">
+                  Online Store
+                </span>
+              </div>
+
+              <p className="text-xs font-extrabold font-sans text-white pt-1">
+                WooCommerce Store
+              </p>
+            </div>
+
+            {/* Connecting Arrow & Sync Indicator */}
+            <div className="w-full flex flex-col items-center space-y-1 py-1">
+              <div className="w-0.5 h-6 bg-gradient-to-b from-purple-400 to-emerald-400 animate-pulse" />
+
+              <div className="px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-emerald-400 font-mono text-[10px] font-bold shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <span>
+                  Order Import • Shipment Updates • Tracking
+                </span>
+              </div>
+
+              <div className="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-purple-400 animate-pulse" />
+            </div>
+
+            {/* Node 2: Courier Partner Network */}
+            <div className="w-full bg-slate-900/90 rounded-2xl p-4 border border-slate-800 space-y-3">
+              <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+                Ship Orders With Your Connected Couriers
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+
+                <div className="bg-white p-1.5 rounded-lg w-16 h-8 flex items-center justify-center">
+                  <img
+                    src="/delhivery.png"
+                    alt="Delhivery"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+
+                <div className="bg-white p-1.5 rounded-lg w-16 h-8 flex items-center justify-center">
+                  <img
+                    src="/bluedart.png"
+                    alt="Blue Dart"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+
+                <div className="bg-white p-1.5 rounded-lg w-16 h-8 flex items-center justify-center">
+                  <img
+                    src="/dtdc.png"
+                    alt="DTDC"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+
+                <div className="bg-white p-1.5 rounded-lg w-16 h-8 flex items-center justify-center">
+                  <img
+                    src="/xpressbees.png"
+                    alt="Xpressbees"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </div>
+
+              <p className="text-[10px] text-slate-500 font-medium">
+                Courier availability depends on your shipping account and configuration.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* woocomerce step flow */}
+      <section
+        id="woocommerce-flow"
+        className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-16 sm:mt-20"
+      >
+        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-2xl space-y-8">
+
+          {/* Section Heading */}
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-[11px] font-mono font-bold text-purple-400 uppercase tracking-widest px-3 py-1 bg-purple-400/10 border border-purple-400/20 rounded-full">
+              Guided WooCommerce Integration
+            </span>
+
+            <h2 className="text-2xl sm:text-4xl font-extrabold font-sans tracking-tight">
+              How AI Shyp + WooCommerce Integration Works
+            </h2>
+
+            <p className="text-slate-400 text-xs sm:text-sm font-medium">
+              Connect your WooCommerce store using its URL and REST API
+              credentials, then manage your shipping workflow in four steps.
+            </p>
+          </div>
+
+          {/* Four Integration Steps */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {WOOCOMMERCE_STEPS.map((st) => (
+              <div
+                key={st.step}
+                className="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 space-y-3 hover:border-purple-400/60 transition-colors"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl">{st.icon}</span>
+
+                  <span className="text-[10px] font-mono font-extrabold text-purple-400 bg-purple-400/10 px-2 py-0.5 rounded border border-purple-400/30">
+                    Step {st.step}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-extrabold font-sans text-white">
+                    {st.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-400 font-medium leading-relaxed mt-1">
+                    {st.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Security Note */}
+          <div className="flex items-start gap-3 rounded-2xl border border-purple-400/20 bg-purple-400/5 p-4">
+            <span className="text-xl">🔒</span>
+
+            <div>
+              <h3 className="text-sm font-bold text-white">
+                Secure API Connection
+              </h3>
+
+              <p className="text-xs text-slate-400 leading-relaxed mt-1">
+                Enjoy a secure WooCommerce integration with encrypted HTTPS communication, restricted API access, and server-side credential management. Your Consumer Secret stays protected, ensuring safer and more reliable store connectivity.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ── 3. 14+ COURIER CARRIER & ALL INTEGRATIONS DIRECTORY ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 mt-20 sm:mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
@@ -386,11 +700,10 @@ export default function IntegrationPage() {
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
-                activeCategory === cat.id
-                  ? "bg-slate-900 text-white shadow-md scale-105"
-                  : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-100"
-              }`}
+              className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${activeCategory === cat.id
+                ? "bg-slate-900 text-white shadow-md scale-105"
+                : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-100"
+                }`}
             >
               {cat.label}
             </button>
@@ -400,53 +713,77 @@ export default function IntegrationPage() {
         {/* Integration Cards Grid */}
         <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence>
-            {filteredIntegrations.map((item) => (
-              <motion.div
-                key={item.name}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 group"
-              >
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 p-2 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                      <img
-                        src={item.logo}
-                        alt={item.name}
-                        className="max-h-full max-w-full object-contain"
-                      />
+            {filteredIntegrations.map((item) => {
+              const CardContent = (
+                <>
+                  <div className="space-y-3.5">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 p-2 flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                        <img
+                          src={item.logo}
+                          alt={item.name}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                      <span
+                        className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}
+                      >
+                        {item.type}
+                      </span>
                     </div>
-                    <span
-                      className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}
-                    >
-                      {item.type}
+
+                    <div>
+                      <h3 className="text-lg font-extrabold font-sans text-slate-950 tracking-tight">
+                        {item.name}
+                      </h3>
+                      <p className="text-xs text-slate-600 font-medium leading-relaxed mt-1">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono font-extrabold text-slate-500">
+                    <span className="flex items-center gap-1.5 text-emerald-700">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                      {item.status}
+                    </span>
+                    <span className="text-[#D8331F] group-hover:translate-x-0.5 transition-all">
+                      {item.href ? "Explore Apps →" : "API Active →"}
                     </span>
                   </div>
+                </>
+              );
 
-                  <div>
-                    <h3 className="text-lg font-extrabold font-sans text-slate-950 tracking-tight">
-                      {item.name}
-                    </h3>
-                    <p className="text-xs text-slate-600 font-medium leading-relaxed mt-1">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono font-extrabold text-slate-500">
-                  <span className="flex items-center gap-1.5 text-emerald-700">
-                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-                    {item.status}
-                  </span>
-                  <span className="text-[#D8331F] opacity-0 group-hover:opacity-100 transition-opacity">
-                    API Active →
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+              return item.href ? (
+                <motion.div
+                  key={item.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="h-full bg-white rounded-3xl p-6 border-2 border-blue-200 shadow-md hover:shadow-xl hover:border-blue-500 transition-all flex flex-col justify-between space-y-4 group block"
+                  >
+                    {CardContent}
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={item.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between space-y-4 group"
+                >
+                  {CardContent}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </section>
@@ -489,7 +826,7 @@ export default function IntegrationPage() {
               <span className="text-emerald-400 font-bold">200 OK (142ms)</span>
             </div>
             <pre className="text-slate-300 overflow-x-auto leading-relaxed text-[11.5px]">
-{`{
+              {`{
   "api_key": "aishyp_live_8f92k01a...",
   "shipment": {
     "order_id": "ORD-98421",

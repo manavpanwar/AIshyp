@@ -554,7 +554,7 @@ export default function AccountCreatePage() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full sm:flex-1 h-12 rounded-xl bg-red text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                        className="w-full sm:flex-1 cursor-pointer h-12 rounded-xl bg-red text-white font-semibold text-sm sm:text-base hover:opacity-95 shadow-md shadow-indigo-950/20 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
                       >
                         {loading ? (
                           <>
@@ -573,7 +573,7 @@ export default function AccountCreatePage() {
                         type="button"
                         onClick={handleReset}
                         disabled={loading}
-                        className="w-full sm:w-auto h-12 px-5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 disabled:opacity-50 transition-colors"
+                        className="w-full cursor-pointer sm:w-auto h-12 px-5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 disabled:opacity-50 transition-colors"
                       >
                         Clear
                       </button>
@@ -854,33 +854,6 @@ function ArrowRightIcon({ className = "w-4 h-4" }) {
   );
 }
 
-function ExternalLinkIcon({ className = "w-4 h-4" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-      <polyline points="15 3 21 3 21 9" />
-      <line x1="10" y1="14" x2="21" y2="3" />
-    </svg>
-  );
-}
-
-function CopyIcon({ className = "w-4 h-4" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-    </svg>
-  );
-}
-
-function LockIcon({ className = "w-4 h-4" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  );
-}
 
 function Spinner({ className = "w-4 h-4" }) {
   return (
