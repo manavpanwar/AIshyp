@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getFeaturedSuccessStories } from "../../data/successStories";
+import { getFeaturedCaseStudies } from "../../data/caseStudies";
 
 const COURIERS = [
   { name: "Delhivery", logo: "/delhivery.png" },
@@ -193,6 +195,117 @@ export default function MobileLanding() {
               />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── SECTION A: CUSTOMER SUCCESS STORIES (MOBILE) ── */}
+      <section className="text-left mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-4">
+        <div className="space-y-1">
+          <p className="text-[11px] font-mono font-bold tracking-widest text-[#D8331F] uppercase">
+            // Client Results
+          </p>
+          <h2 className="font-sans font-extrabold text-slate-950 text-2xl">
+            Customer <span className="text-[#D8331F]">Success Stories</span>
+          </h2>
+          <p className="text-slate-600 text-xs font-medium">
+            See how Indian D2C brands scale dispatch speed with AI Shyp.
+          </p>
+        </div>
+
+        <div className="space-y-3.5">
+          {getFeaturedSuccessStories(3).map((story) => (
+            <div
+              key={story.slug}
+              className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm space-y-2.5"
+            >
+              <div className="flex items-center justify-between text-[10px] font-mono">
+                <span className="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded-full">
+                  {story.industry}
+                </span>
+                <span className="text-[#D8331F] font-bold">
+                  Demo Case
+                </span>
+              </div>
+              <h3 className="font-sans font-extrabold text-slate-950 text-base leading-snug">
+                {story.company}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                {story.challenge}
+              </p>
+              <div className="bg-red-50/80 border border-red-100 rounded-xl p-2 text-xs font-bold text-[#D8331F]">
+                ★ {story.keyOutcome}
+              </div>
+              <Link
+                href={`/success-stories/${story.slug}`}
+                className="text-xs font-extrabold text-[#D8331F] inline-flex items-center gap-1 pt-1"
+              >
+                Read Full Story →
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="pt-1 text-center">
+          <Link
+            href="/success-stories"
+            className="w-full inline-block bg-white border border-slate-200 text-slate-800 rounded-full px-5 py-3 font-bold text-xs shadow-xs"
+          >
+            View All Success Stories →
+          </Link>
+        </div>
+      </section>
+
+      {/* ── SECTION B: FEATURED CASE STUDIES (MOBILE) ── */}
+      <section className="text-left mobile-fade-in opacity-0 translate-y-6 transition-all duration-700 space-y-4">
+        <div className="space-y-1">
+          <p className="text-[11px] font-mono font-bold tracking-widest text-[#D8331F] uppercase">
+            // Technical Blueprints
+          </p>
+          <h2 className="font-sans font-extrabold text-slate-950 text-2xl">
+            Featured <span className="text-[#D8331F]">Case Studies</span>
+          </h2>
+          <p className="text-slate-600 text-xs font-medium">
+            Deep-dive operational playbooks covering rates, COD, and tracking.
+          </p>
+        </div>
+
+        <div className="space-y-3.5">
+          {getFeaturedCaseStudies(3).map((cs) => (
+            <div
+              key={cs.slug}
+              className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm space-y-2.5"
+            >
+              <div className="flex items-center justify-between text-[10px] font-mono">
+                <span className="font-bold text-white bg-[#D8331F] px-2 py-0.5 rounded-full">
+                  Topic {cs.topicNumber}
+                </span>
+                <span className="text-slate-500 font-medium">
+                  {cs.readTime}
+                </span>
+              </div>
+              <h3 className="font-sans font-extrabold text-slate-950 text-base leading-snug">
+                {cs.title}
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                {cs.subtitle}
+              </p>
+              <Link
+                href={`/case-studies/${cs.slug}`}
+                className="text-xs font-extrabold text-[#D8331F] inline-flex items-center gap-1 pt-1"
+              >
+                Read Case Study →
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className="pt-1 text-center">
+          <Link
+            href="/case-studies"
+            className="w-full inline-block bg-slate-900 text-white rounded-full px-5 py-3 font-bold text-xs shadow-sm"
+          >
+            Explore All Case Studies →
+          </Link>
         </div>
       </section>
 

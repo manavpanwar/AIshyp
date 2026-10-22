@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import CleanHeroSection from "../../components/landing/CleanHeroSection";
 import HeroSection from "../../components/landing/HeroSection";
 import { buildFaqSchema, faqItems } from "../../data/faq";
+import CustomerFeedback from "@/components/landing/customerfeedback";
 
 // Lazy load below-the-fold sections to prevent dev server compilation spikes & RAM freeze on page load
 const GameChangersSection = dynamic(() => import("../../components/landing/GameChangersSection"));
@@ -14,6 +15,8 @@ const BusinessAdvantageSection = dynamic(() => import("../../components/landing/
 const RevenueCalculatorSection = dynamic(() => import("../../components/landing/RevenueCalculatorSection"));
 const LaunchStepsSection = dynamic(() => import("../../components/landing/LaunchStepsSection"));
 const LogisticsNetworkSection = dynamic(() => import("../../components/landing/LogisticsNetworkSection"));
+const HomeSuccessStoriesSection = dynamic(() => import("../../components/landing/HomeSuccessStoriesSection"));
+const HomeCaseStudiesSection = dynamic(() => import("../../components/landing/HomeCaseStudiesSection"));
 const RateStripSection = dynamic(() => import("../../components/landing/RateStripSection"));
 const ClosingCTASection = dynamic(() => import("../../components/landing/ClosingCTASection"));
 const MobileLanding = dynamic(() => import("../../components/landing/MobileLanding"));
@@ -80,6 +83,14 @@ export default function Main() {
           <LaunchStepsSection />
 
           <LogisticsNetworkSection />
+
+          {/* Section A: Customer Success Stories */}
+          <HomeSuccessStoriesSection />
+
+          <CustomerFeedback />
+
+          {/* Section B: Featured Case Studies */}
+          <HomeCaseStudiesSection />
 
           <RateStripSection />
 

@@ -46,8 +46,10 @@ export default function Footer() {
 
   const links = {
     Company: [
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/contact" },
+      { label: "Success Stories", href: "/success-stories" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Logistics Blog", href: "/blog" },
+      { label: "Shipping Encyclopedia", href: "/encyclopedia" },
       { label: "Contact Us", href: "/contact" },
     ],
     Solutions: [

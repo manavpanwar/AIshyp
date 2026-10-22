@@ -62,7 +62,7 @@ export default function ClosingCTASection() {
       </div>
 
       {/* Heading */}
-      <h2 className="font-sans font-extrabold text-slate-900 text-2xl sm:text-3xl md:text-4xl text-center mt-5 leading-tight">
+      <h2 className="font-sans font-extrabold text-slate-900 text-2xl sm:text-3xl md:text-4xl text-center mt-5 leading-tight ">
         You Build the Logistics Brand. <span className="text-[#D8331F]">We Power the Technology.</span>
       </h2>
       <p className="text-slate-600 text-xs sm:text-sm max-w-xl text-center mt-2 font-medium leading-relaxed">
@@ -72,7 +72,7 @@ export default function ClosingCTASection() {
       {/* Signup CTA Button */}
       <Link
         href="/contact"
-        className="btn-red-orange text-white rounded-full px-7 py-3 font-extrabold text-xs sm:text-sm mt-5 shadow-lg inline-flex items-center gap-1.5"
+        className="btn-orange-300 text-black rounded-full px-7 py-3 font-extrabold text-xs sm:text-sm mt-5 shadow-lg inline-flex items-center gap-1.5"
       >
         Schedule Aggregator Demo →
       </Link>

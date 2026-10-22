@@ -124,6 +124,20 @@ export function getSiteNavigationSchema() {
       {
         "@type": "SiteNavigationElement",
         position: 5,
+        name: "Success Stories",
+        description: "Real business customer stories and verified shipping automation outcomes.",
+        url: `${SITE_URL}/success-stories`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 6,
+        name: "Case Studies",
+        description: "Detailed logistics engineering blueprints for rates, COD, and tracking.",
+        url: `${SITE_URL}/case-studies`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        position: 7,
         name: "Contact & Onboarding",
         description: "Talk to platform engineering specialists to deploy your shipping portal.",
         url: `${SITE_URL}/contact`,

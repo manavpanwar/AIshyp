@@ -4,15 +4,18 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Smartphone, Layers } from "lucide-react";
+import { ChevronDown, Smartphone, Layers, Sparkles, BookOpen, FileText } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [integrationDropdownOpen, setIntegrationDropdownOpen] = useState(false);
   const [mobileIntegrationOpen, setMobileIntegrationOpen] = useState(false);
+  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const pathname = usePathname();
   const dropdownTimeoutRef = useRef(null);
+  const resourcesTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,11 +36,15 @@ export default function Header() {
       if (event.matches) {
         setMenuOpen(false);
         setMobileIntegrationOpen(false);
+        setMobileResourcesOpen(false);
+        setResourcesDropdownOpen(false);
       }
     };
     if (mediaQuery.matches) {
       setMenuOpen(false);
       setMobileIntegrationOpen(false);
+      setMobileResourcesOpen(false);
+      setResourcesDropdownOpen(false);
     }
     mediaQuery.addEventListener("change", closeMenuOnDesktop);
     return () => mediaQuery.removeEventListener("change", closeMenuOnDesktop);
@@ -54,12 +61,29 @@ export default function Header() {
     }, 150);
   };
 
+  const handleMouseEnterResources = () => {
+    if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
+    setResourcesDropdownOpen(true);
+  };
+
+  const handleMouseLeaveResources = () => {
+    resourcesTimeoutRef.current = setTimeout(() => {
+      setResourcesDropdownOpen(false);
+    }, 150);
+  };
+
   const isIntegrationActive =
     pathname === "/integration" ||
     pathname?.startsWith("/integration") ||
     pathname === "/courier-franchise-solutions" ||
     pathname?.startsWith("/courier-franchise-solutions") ||
     pathname === "/app-integration";
+
+  const isResourcesActive =
+    pathname === "/success-stories" ||
+    pathname?.startsWith("/success-stories") ||
+    pathname === "/case-studies" ||
+    pathname?.startsWith("/case-studies")
 
   return (
     <>
@@ -95,8 +119,8 @@ export default function Header() {
             <Link
               href="/"
               className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/"
-                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                : "text-slate-700 hover:text-[#D8331F] font-semibold"
                 }`}
             >
               Home
@@ -106,8 +130,8 @@ export default function Header() {
             <Link
               href="/features"
               className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/features" || pathname?.startsWith("/features")
-                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                : "text-slate-700 hover:text-[#D8331F] font-semibold"
                 }`}
             >
               Features
@@ -123,8 +147,8 @@ export default function Header() {
                 type="button"
                 onClick={() => setIntegrationDropdownOpen((prev) => !prev)}
                 className={`text-sm font-sans flex items-center gap-1 transition-all duration-200 whitespace-nowrap relative cursor-pointer ${isIntegrationActive
-                    ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                    : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
                   }`}
                 aria-expanded={integrationDropdownOpen}
                 aria-haspopup="true"
@@ -139,8 +163,8 @@ export default function Header() {
               {/* Desktop Sublink Dropdown Menu */}
               <div
                 className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 transition-all duration-200 z-50 ${integrationDropdownOpen
-                    ? "opacity-100 translate-y-0 pointer-events-auto"
-                    : "opacity-0 -translate-y-2 pointer-events-none"
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-2 pointer-events-none"
                   }`}
               >
                 <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-[0_12px_36px_rgba(15,23,42,0.12)] p-2 space-y-1">
@@ -195,30 +219,105 @@ export default function Header() {
             <Link
               href="/pricing"
               className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/pricing" || pathname?.startsWith("/pricing")
-                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                : "text-slate-700 hover:text-[#D8331F] font-semibold"
                 }`}
             >
               Pricing
             </Link>
 
-            {/* Blog */}
-            <Link
-              href="/blog"
-              className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/blog" || pathname?.startsWith("/blog")
+            {/* Resources Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnterResources}
+              onMouseLeave={handleMouseLeaveResources}
+            >
+              <button
+                type="button"
+                onClick={() => setResourcesDropdownOpen((prev) => !prev)}
+                className={`text-sm font-sans flex items-center gap-1 transition-all duration-200 whitespace-nowrap relative cursor-pointer ${isResourcesActive
                   ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
                   : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                  }`}
+                aria-expanded={resourcesDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>Resources</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${resourcesDropdownOpen ? "rotate-180 text-[#D8331F]" : ""
+                    }`}
+                />
+              </button>
+
+              {/* Desktop Resources Sublink Dropdown */}
+              <div
+                className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-88 transition-all duration-200 z-50 ${resourcesDropdownOpen
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+              >
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-[0_12px_36px_rgba(15,23,42,0.12)] p-2 space-y-1">
+
+                  {/* Resource 1: Success Stories */}
+                  <Link
+                    href="/success-stories"
+                    onClick={() => setResourcesDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-red-50/60 transition-colors group text-left"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-red-50 text-[#D8331F] flex items-center justify-center shrink-0 border border-red-100 group-hover:scale-105 transition-transform">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-extrabold text-slate-900 group-hover:text-[#D8331F] transition-colors flex items-center gap-1.5">
+                        <span>Success Stories</span>
+                        <span className="px-1.5 py-0.2 rounded bg-red-100 text-[#D8331F] text-[9px] font-mono font-bold"> NEW </span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-snug mt-0.5">
+                        Real D2C brands &amp; courier franchises scaling with AI Shyp.
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Resource 2: Case Studies */}
+                  <Link
+                    href="/case-studies"
+                    onClick={() => setResourcesDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group text-left"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100 group-hover:scale-105 transition-transform">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                        <span>Case Studies</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-snug mt-0.5">
+                        Detailed logistics blueprints for rates, COD, and tracking.
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+
+            <Link
+              href="/blog"
+              className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/blog" || pathname?.startsWith("/blog/")
+                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                : "text-slate-700 hover:text-[#D8331F] font-semibold"
                 }`}
             >
               Blog
             </Link>
 
+
             {/* Contact */}
             <Link
               href="/contact"
               className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/contact" || pathname?.startsWith("/contact")
-                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                : "text-slate-700 hover:text-[#D8331F] font-semibold"
                 }`}
             >
               Contact
@@ -260,8 +359,8 @@ export default function Header() {
       {/* Mobile Drawer Menu with Active Route Highlight & Integrations Sublink */}
       <nav
         className={`fixed top-[72px] left-0 right-0 z-40 px-6 py-6 flex flex-col gap-3 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl transition-all duration-300 max-h-[calc(100vh-80px)] overflow-y-auto ${menuOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-3 pointer-events-none"
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 -translate-y-3 pointer-events-none"
           }`}
       >
         {/* Home */}
@@ -269,8 +368,8 @@ export default function Header() {
           href="/"
           onClick={() => setMenuOpen(false)}
           className={`text-base font-sans transition-colors ${pathname === "/"
-              ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-              : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
+            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
             }`}
         >
           Home
@@ -281,8 +380,8 @@ export default function Header() {
           href="/features"
           onClick={() => setMenuOpen(false)}
           className={`text-base font-sans transition-colors ${pathname === "/features" || pathname?.startsWith("/features")
-              ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-              : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
+            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
             }`}
         >
           Features
@@ -350,20 +449,90 @@ export default function Header() {
           href="/pricing"
           onClick={() => setMenuOpen(false)}
           className={`text-base font-sans transition-colors ${pathname === "/pricing" || pathname?.startsWith("/pricing")
-              ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-              : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
+            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
             }`}
         >
           Pricing
         </Link>
 
-        {/* Blog */}
+        {/* Resources with Collapsible Sublinks on Mobile */}
+        <div className="border-b border-slate-100 py-1">
+          <button
+            type="button"
+            onClick={() => setMobileResourcesOpen((prev) => !prev)}
+            className="w-full flex items-center justify-between text-base font-sans font-semibold text-slate-700 hover:text-slate-900 py-2 cursor-pointer"
+          >
+            <span className={isResourcesActive ? "text-[#D8331F] font-extrabold" : ""}>
+              Resources
+            </span>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${mobileResourcesOpen ? "rotate-180 text-[#D8331F]" : "text-slate-400"
+                }`}
+            />
+          </button>
+
+          {/* Sublinks Container */}
+          <div
+            className={`space-y-2 pl-3 pt-1 pb-2 transition-all duration-200 ${mobileResourcesOpen ? "block" : "hidden"
+              }`}
+          >
+            <Link
+              href="/success-stories"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-red-50 text-[#D8331F] flex items-center justify-center shrink-0">
+                <Sparkles className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span>Success Stories</span>
+                  <span className="px-1.5 py-0.2 rounded bg-red-100 text-[#D8331F] text-[8px] font-mono font-bold">
+                    NEW
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-500 font-normal">Real businesses &amp; outcomes</div>
+              </div>
+            </Link>
+
+            <Link
+              href="/case-studies"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <BookOpen className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div>Case Studies</div>
+                <div className="text-[10px] text-slate-500 font-normal">Technical logistics playbooks</div>
+              </div>
+            </Link>
+
+            <Link
+              href="/blog"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <FileText className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div>Logistics Blog</div>
+                <div className="text-[10px] text-slate-500 font-normal">Actionable shipping guides</div>
+              </div>
+            </Link>
+
+
+          </div>
+        </div>
+
         <Link
           href="/blog"
-          onClick={() => setMenuOpen(false)}
-          className={`text-base font-sans transition-colors ${pathname === "/blog" || pathname?.startsWith("/blog")
-              ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-              : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+          className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/blog" || pathname?.startsWith("/blog/")
+            ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+            : "text-slate-700 hover:text-[#D8331F] font-semibold"
             }`}
         >
           Blog
@@ -374,8 +543,8 @@ export default function Header() {
           href="/contact"
           onClick={() => setMenuOpen(false)}
           className={`text-base font-sans transition-colors ${pathname === "/contact" || pathname?.startsWith("/contact")
-              ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-              : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
+            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
+            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
             }`}
         >
           Contact

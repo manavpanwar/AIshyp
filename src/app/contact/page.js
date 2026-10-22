@@ -493,11 +493,10 @@ export default function ContactPage() {
                         key={pill}
                         type="button"
                         onClick={() => handleSelectSubject(pill)}
-                        className={`text-xs font-sans font-semibold px-3 py-1.5 rounded-xl border transition-all cursor-pointer ${
-                          isSelected
-                            ? "bg-[#D8331F] text-white border-[#D8331F] shadow-sm scale-[1.02]"
-                            : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
-                        }`}
+                        className={`text-xs font-sans font-semibold px-3 py-1.5 rounded-xl border transition-all cursor-pointer ${isSelected
+                          ? "bg-[#D8331F] text-white border-[#D8331F] shadow-sm scale-[1.02]"
+                          : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
+                          }`}
                       >
                         {pill}
                       </button>
@@ -548,9 +547,19 @@ export default function ContactPage() {
                     type="tel"
                     name="phone"
                     required
-                    placeholder="e.g. +91 98765 43210"
+                    placeholder="e.g. 9876543210"
                     value={formData.phone}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                      setFormData((prev) => ({
+                        ...prev,
+                        phone: value,
+                      }));
+                    }}
+                    minLength={10}
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="Please enter exactly 10 digits."
                     className={INPUT_CLASS}
                   />
                 </div>
