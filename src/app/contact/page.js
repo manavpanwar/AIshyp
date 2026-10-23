@@ -157,7 +157,7 @@ const QUICK_CHANNELS = [
   {
     label: "PRIORITY EMAIL",
     value: "mohit@vizlabs.in",
-    href: "mailto:mohit@vizlabs.in",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=mohit@vizlabs.in&su=AIshyp%20Platform%20Inquiry",
     subtext: "< 2 Hour Engineering SLA",
     badge: "Direct Inbox",
     badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
@@ -177,7 +177,7 @@ const QUICK_CHANNELS = [
   {
     label: "ENGINEERING HQ",
     value: "Gurgaon, NCR, India",
-    href: null,
+    href: "https://www.google.com/maps/place//@28.477449,77.0150007,17z/data=!3m1!4b1!4m3!3m2!1s0x390d19126d5f02e1:0xa92b03d2080d027c!12e1?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D",
     subtext: "Logistics Tech Hub",
     badge: "India Office",
     badgeColor: "bg-amber-50 text-amber-800 border-amber-200",
@@ -396,13 +396,30 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {QUICK_CHANNELS.map((card, idx) => {
             const Icon = card.icon;
+            const isExternal = card.href?.startsWith("http");
+
             return (
-              <motion.div
+              <motion.a
                 key={card.label}
+                href={card.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                onClick={(e) => {
+                  if (card.label === "PRIORITY EMAIL") {
+                    const isMobile =
+                      typeof navigator !== "undefined" &&
+                      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                    if (isMobile) {
+                      e.preventDefault();
+                      window.location.href =
+                        "mailto:mohit@vizlabs.in?subject=AI%20Shyp%20Platform%20Inquiry";
+                    }
+                  }
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+                className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#D8331F]/30 transition-all duration-300 group flex flex-col justify-between cursor-pointer block text-inherit no-underline"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -422,31 +439,18 @@ export default function ContactPage() {
                     {card.label}
                   </p>
 
-                  {card.href ? (
-                    <a
-                      href={card.href}
-                      target={card.href.startsWith("http") ? "_blank" : undefined}
-                      rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-sm sm:text-[15px] font-extrabold font-sans text-slate-900 hover:text-[#D8331F] transition-colors truncate block mt-0.5"
-                    >
-                      {card.value}
-                    </a>
-                  ) : (
-                    <p className="text-sm sm:text-[15px] font-extrabold font-sans text-slate-900 truncate mt-0.5">
-                      {card.value}
-                    </p>
-                  )}
+                  <p className="text-sm sm:text-[15px] font-extrabold font-sans text-slate-900 group-hover:text-[#D8331F] transition-colors truncate block mt-0.5">
+                    {card.value}
+                  </p>
                 </div>
 
-                <p className="text-xs text-slate-500 font-medium mt-2 pt-2 border-t border-slate-100 flex items-center justify-between">
+                <div className="text-xs text-slate-500 font-medium mt-2 pt-2 border-t border-slate-100 flex items-center justify-between">
                   <span>{card.subtext}</span>
-                  {card.href && (
-                    <span className="text-slate-400 group-hover:text-[#D8331F] font-bold transition-colors">
-                      →
-                    </span>
-                  )}
-                </p>
-              </motion.div>
+                  <span className="text-slate-400 group-hover:text-[#D8331F] group-hover:translate-x-1 font-bold transition-all">
+                    →
+                  </span>
+                </div>
+              </motion.a>
             );
           })}
         </div>

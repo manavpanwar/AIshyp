@@ -29,9 +29,7 @@ import {
 } from "lucide-react";
 import { getCulturePageSchema, getBreadcrumbSchema } from "../../lib/seo";
 
-// ─────────────────────────────────────────────────────────────
-// ALL 40 AUTHENTIC LIFE @ AISHYP CULTURE PHOTOS
-// ─────────────────────────────────────────────────────────────
+
 export const ALL_CULTURE_PHOTOS = [
   {
     id: 1,
@@ -621,9 +619,7 @@ export const ALL_CULTURE_PHOTOS = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────
-// TEAMWORK TENETS (Real Team Photos)
-// ─────────────────────────────────────────────────────────────
+
 const TEAMWORK_TENETS = [
   {
     id: "problem-solving",
@@ -677,9 +673,6 @@ const TEAMWORK_TENETS = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────
-// CHEERS & CELEBRATIONS GALLERY
-// ─────────────────────────────────────────────────────────────
 const CHEERS_GALLERY = [
   {
     id: "cheers-1",
@@ -715,9 +708,7 @@ const CHEERS_GALLERY = [
   },
 ];
 
-// ─────────────────────────────────────────────────────────────
-// FESTIVAL MEMORIES (100% Real Celebrations)
-// ─────────────────────────────────────────────────────────────
+
 const FESTIVAL_MEMORIES = [
   {
     id: "holi-2024",

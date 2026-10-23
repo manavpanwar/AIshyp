@@ -33,7 +33,7 @@ const CORE_TEAM = [
     image: "/Parag.png",
     bio: "Develops reliable and user-friendly web applications across frontend and backend systems.",
     skills: ["React", "Next.js", "Node.js", "Tailwind CSS"],
-    linkedIn: "https://linkedin.com",
+    linkedIn: "https://www.linkedin.com/in/paragaggarwall/",
     github: "https://github.com",
   },
   {
@@ -43,7 +43,7 @@ const CORE_TEAM = [
     image: "/Danish.png",
     bio: "Builds modern web applications with a focus on scalable frontend and backend solutions.",
     skills: ["Next.js", "Node.js", "PostgreSQL", "REST APIs"],
-    linkedIn: "https://linkedin.com",
+    linkedIn: "https://www.linkedin.com/in/danishkhan786/?isSelfProfile=true",
     github: "https://github.com",
   },
   {
@@ -53,7 +53,7 @@ const CORE_TEAM = [
     image: "/Manav.png",
     bio: "Manages scalable cloud infrastructure, deployments, automation, and high-availability production environments.",
     skills: ["AWS", "Docker", "DevOps", "CI/CD", "Linux"],
-    linkedIn: "https://linkedin.com",
+    linkedIn: "https://www.linkedin.com/in/manav-panwar-031213179/",
     github: "https://github.com",
   },
   {
