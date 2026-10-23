@@ -160,7 +160,7 @@ export default function TeamPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal"
           >
-            Founded by DTDC logistics veterans and engineered by passionate full-stack systems architects. We build the operating system that powers India&apos;s independent courier aggregators and regional franchises.
+            Founded by DTDC logistics s and engineered by passionate full-stack systems architects. We build the operating system that powers India&apos;s independent courier aggregators and regional franchises.
           </motion.p>
 
           {/* Quick Metrics Badges */}
@@ -235,7 +235,7 @@ export default function TeamPage() {
                     Mohit Panwar
                   </h3>
                   <p className="text-xs text-slate-300 font-mono">
-                    10+ Years Logistics Veteran • DTDC
+                    10+ Years Logistics • DTDC
                   </p>
                 </div>
               </div>
@@ -294,7 +294,7 @@ export default function TeamPage() {
                     ✓
                   </span>
                   <span>
-                    <strong>10+ Years DTDC Veteran:</strong> Hands-on expertise in regional franchise network scaling, pincode mapping, and hub operations.
+                    <strong>10+ Years DTDC :</strong> Hands-on expertise in regional franchise network scaling, pincode mapping, and hub operations.
                   </span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs text-slate-800 font-semibold">
@@ -420,7 +420,7 @@ export default function TeamPage() {
             // OUR ENGINEERING PHILOSOPHY
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold font-sans text-slate-950 tracking-tight mt-3">
-            Built by Logistics Veterans, For Logistics Leaders
+            Built by Logistics s, For Logistics Leaders
           </h2>
         </div>
 

@@ -4,7 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Smartphone, Layers, Sparkles, BookOpen, FileText } from "lucide-react";
+import {
+  ChevronDown,
+  Smartphone,
+  Layers,
+  Sparkles,
+  BookOpen,
+  FileText,
+  PhoneCall,
+  Building2,
+  HeartHandshake,
+} from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,9 +23,12 @@ export default function Header() {
   const [mobileIntegrationOpen, setMobileIntegrationOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
+  const [mobileContactOpen, setMobileContactOpen] = useState(false);
   const pathname = usePathname();
   const dropdownTimeoutRef = useRef(null);
   const resourcesTimeoutRef = useRef(null);
+  const contactTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,20 +44,34 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+      if (resourcesTimeoutRef.current) clearTimeout(resourcesTimeoutRef.current);
+      if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     const closeMenuOnDesktop = (event) => {
       if (event.matches) {
         setMenuOpen(false);
         setMobileIntegrationOpen(false);
         setMobileResourcesOpen(false);
+        setMobileContactOpen(false);
         setResourcesDropdownOpen(false);
+        setIntegrationDropdownOpen(false);
+        setContactDropdownOpen(false);
       }
     };
     if (mediaQuery.matches) {
       setMenuOpen(false);
       setMobileIntegrationOpen(false);
       setMobileResourcesOpen(false);
+      setMobileContactOpen(false);
       setResourcesDropdownOpen(false);
+      setIntegrationDropdownOpen(false);
+      setContactDropdownOpen(false);
     }
     mediaQuery.addEventListener("change", closeMenuOnDesktop);
     return () => mediaQuery.removeEventListener("change", closeMenuOnDesktop);
@@ -72,6 +99,17 @@ export default function Header() {
     }, 150);
   };
 
+  const handleMouseEnterContact = () => {
+    if (contactTimeoutRef.current) clearTimeout(contactTimeoutRef.current);
+    setContactDropdownOpen(true);
+  };
+
+  const handleMouseLeaveContact = () => {
+    contactTimeoutRef.current = setTimeout(() => {
+      setContactDropdownOpen(false);
+    }, 150);
+  };
+
   const isIntegrationActive =
     pathname === "/integration" ||
     pathname?.startsWith("/integration") ||
@@ -83,7 +121,19 @@ export default function Header() {
     pathname === "/success-stories" ||
     pathname?.startsWith("/success-stories") ||
     pathname === "/case-studies" ||
-    pathname?.startsWith("/case-studies")
+    pathname?.startsWith("/case-studies");
+
+  const isContactActive =
+    pathname === "/contact" ||
+    pathname?.startsWith("/contact") ||
+    pathname === "/about" ||
+    pathname?.startsWith("/about") ||
+    pathname === "/culture" ||
+    pathname?.startsWith("/culture") ||
+    pathname === "/culture-at-aishyp" ||
+    pathname?.startsWith("/culture-at-aishyp") ||
+    pathname === "/careers" ||
+    pathname?.startsWith("/careers");
 
   return (
     <>
@@ -312,16 +362,101 @@ export default function Header() {
             </Link>
 
 
-            {/* Contact */}
-            <Link
-              href="/contact"
-              className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/contact" || pathname?.startsWith("/contact")
-                ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-                : "text-slate-700 hover:text-[#D8331F] font-semibold"
-                }`}
+            {/* Contact Us with Sublink Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnterContact}
+              onMouseLeave={handleMouseLeaveContact}
             >
-              Contact
-            </Link>
+              <button
+                type="button"
+                onClick={() => setContactDropdownOpen((prev) => !prev)}
+                className={`text-sm font-sans flex items-center gap-1 transition-all duration-200 whitespace-nowrap relative cursor-pointer ${isContactActive
+                  ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
+                  : "text-slate-700 hover:text-[#D8331F] font-semibold"
+                  }`}
+                aria-expanded={contactDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>Contact Us</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${contactDropdownOpen ? "rotate-180 text-[#D8331F]" : ""
+                    }`}
+                />
+              </button>
+
+              {/* Desktop Contact Us Sublinks Dropdown */}
+              <div
+                className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 w-88 transition-all duration-200 z-50 ${contactDropdownOpen
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-2 pointer-events-none"
+                  }`}
+              >
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-[0_12px_36px_rgba(15,23,42,0.12)] p-2 space-y-1">
+
+                  {/* Sublink 1: Contact Us */}
+                  <Link
+                    href="/contact"
+                    onClick={() => setContactDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-red-50/60 transition-colors group text-left"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-red-50 text-[#D8331F] flex items-center justify-center shrink-0 border border-red-100 group-hover:scale-105 transition-transform">
+                      <PhoneCall className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-extrabold text-slate-900 group-hover:text-[#D8331F] transition-colors flex items-center gap-1.5">
+                        <span>Contact Us</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-snug mt-0.5">
+                        Direct phone, email, franchise demos &amp; support squad.
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Sublink 2: About Us */}
+                  <Link
+                    href="/about"
+                    onClick={() => setContactDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50/60 transition-colors group text-left"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100 group-hover:scale-105 transition-transform">
+                      <Building2 className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                        <span>About Us</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-snug mt-0.5">
+                        Our white-label vision, narrative milestones &amp; core team.
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Sublink 3: Culture @ AIshyp */}
+                  <Link
+                    href="/culture"
+                    onClick={() => setContactDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-emerald-50/60 transition-colors group text-left"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100 group-hover:scale-105 transition-transform">
+                      <HeartHandshake className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-extrabold text-slate-900 group-hover:text-emerald-600 transition-colors flex items-center gap-1.5">
+                        <span>Culture @ AIshyp</span>
+                        <span className="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-700 text-[9px] font-mono font-bold">
+                          LIFE
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-snug mt-0.5">
+                        Life at AIshyp, team celebrations, values &amp; office moments.
+                      </div>
+                    </div>
+                  </Link>
+
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Right: Glossy Orange Pill "Launch Platform" Button */}
@@ -528,27 +663,87 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Blog */}
         <Link
           href="/blog"
-          className={`text-sm font-sans transition-all duration-200 whitespace-nowrap relative ${pathname === "/blog" || pathname?.startsWith("/blog/")
-            ? "text-[#D8331F] font-extrabold after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2.5px] after:bg-[#D8331F] after:rounded-full"
-            : "text-slate-700 hover:text-[#D8331F] font-semibold"
+          onClick={() => setMenuOpen(false)}
+          className={`text-base font-sans transition-colors ${pathname === "/blog" || pathname?.startsWith("/blog/")
+            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
+            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
             }`}
         >
           Blog
         </Link>
 
-        {/* Contact */}
-        <Link
-          href="/contact"
-          onClick={() => setMenuOpen(false)}
-          className={`text-base font-sans transition-colors ${pathname === "/contact" || pathname?.startsWith("/contact")
-            ? "text-[#D8331F] font-extrabold bg-red-50 px-3.5 py-2 rounded-xl border border-red-200/80"
-            : "text-slate-700 hover:text-slate-900 font-semibold py-2 border-b border-slate-100"
-            }`}
-        >
-          Contact
-        </Link>
+        {/* Contact Us with Collapsible Sublinks on Mobile */}
+        <div className="border-b border-slate-100 py-1">
+          <button
+            type="button"
+            onClick={() => setMobileContactOpen((prev) => !prev)}
+            className="w-full flex items-center justify-between text-base font-sans font-semibold text-slate-700 hover:text-slate-900 py-2 cursor-pointer"
+          >
+            <span className={isContactActive ? "text-[#D8331F] font-extrabold" : ""}>
+              Contact Us
+            </span>
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${mobileContactOpen ? "rotate-180 text-[#D8331F]" : "text-slate-400"
+                }`}
+            />
+          </button>
+
+          {/* Sublinks Container */}
+          <div
+            className={`space-y-2 pl-3 pt-1 pb-2 transition-all duration-200 ${mobileContactOpen ? "block" : "hidden"
+              }`}
+          >
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-red-50 text-[#D8331F] flex items-center justify-center shrink-0">
+                <PhoneCall className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div>Contact Us</div>
+                <div className="text-[10px] text-slate-500 font-normal">Direct phone, email &amp; support</div>
+              </div>
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <Building2 className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div>About Us</div>
+                <div className="text-[10px] text-slate-500 font-normal">Our vision, milestones &amp; team</div>
+              </div>
+            </Link>
+
+            <Link
+              href="/culture"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-emerald-50/60 text-xs font-bold text-slate-800"
+            >
+              <div className="w-7 h-7 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <HeartHandshake className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span>Culture @ AIshyp</span>
+                  <span className="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 text-[8px] font-mono font-bold">
+                    LIFE
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-500 font-normal">Life at AIshyp, team celebrations &amp; moments</div>
+              </div>
+            </Link>
+          </div>
+        </div>
 
         <Link
           href="/account-create"

@@ -448,3 +448,15 @@ export function getLegalDocumentSchema({ title, description, path, dateModified 
   };
 }
 
+// Culture & Careers Page Schema Generator
+export function getCulturePageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Culture & Careers @ AI Shyp",
+    url: `${SITE_URL}/culture`,
+    description: "Discover life, engineering ethos, values, and open career opportunities at AI Shyp — India's premier white-label logistics operating system.",
+    publisher: getOrganizationSchema(),
+  };
+}
+

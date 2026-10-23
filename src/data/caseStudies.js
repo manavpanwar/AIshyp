@@ -167,7 +167,7 @@ export const CASE_STUDIES = [
       },
       {
         "label": "Address Accuracy",
-        "value": "99.8%",
+        "value": "99.8%",       
         "desc": "Validated recipient details & mobile numbers"
       },
       {

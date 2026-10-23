@@ -46,6 +46,8 @@ export default function Footer() {
 
   const links = {
     Company: [
+      { label: "About Us", href: "/about" },
+      { label: "Culture & Careers", href: "/culture" },
       { label: "Success Stories", href: "/success-stories" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Logistics Blog", href: "/blog" },
