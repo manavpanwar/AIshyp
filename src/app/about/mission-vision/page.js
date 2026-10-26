@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { getBreadcrumbSchema } from "../../../lib/seo";
 
-// ── SVG ICONS ──
+
 function SparklesIcon({ className = "w-4 h-4" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -114,7 +114,7 @@ function LayersIcon({ className = "w-5 h-5" }) {
   );
 }
 
-// ── DATA FOR "WHAT WE BELIEVE" ──
+
 const BELIEFS = [
   {
     num: "01",
@@ -158,7 +158,7 @@ const BELIEFS = [
   },
 ];
 
-// ── DATA FOR "HOW AishypENABLES YOUR BUSINESS" ──
+
 const ENABLERS = [
   {
     step: "01",
@@ -234,13 +234,13 @@ export default function MissionVisionPage() {
 
   return (
     <main className="w-full bg-white text-slate-900 font-sans overflow-hidden pt-[116px] sm:pt-[128px]">
-      {/* ── JSON-LD BREADCRUMBS SCHEMA ── */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
-      {/* ── AMBIENT BACKGROUND GLOW ── */}
+
       <div className="relative">
         {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_at_top,rgba(216,51,31,0.12)_0%,rgba(255,138,110,0.05)_40%,rgba(16,27,61,0.06)_70%,transparent_80%)] pointer-events-none" /> */}
 

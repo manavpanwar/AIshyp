@@ -918,14 +918,14 @@ export default function CulturePage() {
   const cultureSchema = getCulturePageSchema();
   const cultureBreadcrumbs = getBreadcrumbSchema([{ name: "culture@aishyp", item: "/culture" }]);
 
-  // Current active festival memory
+
   const currentFestival = useMemo(() => {
     return (
       FESTIVAL_MEMORIES.find((f) => f.festivalKey === activeFestivalKey) || FESTIVAL_MEMORIES[0]
     );
   }, [activeFestivalKey]);
 
-  // Filtered 40 photos for the mosaic
+
   const filteredPhotos = useMemo(() => {
     return ALL_CULTURE_PHOTOS.filter((photo) => {
       const matchesCategory = activeCategory === "all" || photo.category === activeCategory;
@@ -939,7 +939,7 @@ export default function CulturePage() {
     });
   }, [activeCategory, searchQuery]);
 
-  // Visible items in the 40-photo mosaic (initial 12 or all)
+  
   const visiblePhotos = useMemo(() => {
     if (showAllGrid || searchQuery.trim().length > 0 || activeCategory !== "all") {
       return filteredPhotos;
@@ -947,7 +947,7 @@ export default function CulturePage() {
     return filteredPhotos.slice(0, 12);
   }, [filteredPhotos, showAllGrid, searchQuery, activeCategory]);
 
-  // Lightbox navigation helpers
+ 
   const activePhoto = useMemo(() => {
     if (activeLightboxIndex === null) return null;
     return ALL_CULTURE_PHOTOS[activeLightboxIndex] || null;
@@ -976,7 +976,7 @@ export default function CulturePage() {
     setActiveLightboxIndex(null);
   }, []);
 
-  // Keyboard navigation for Lightbox
+ 
   useEffect(() => {
     if (activeLightboxIndex === null) return;
     const onKeyDown = (e) => {
@@ -990,7 +990,7 @@ export default function CulturePage() {
 
   return (
     <main className="w-full bg-white text-slate-900 font-sans overflow-hidden pt-[116px] sm:pt-[128px]">
-      {/* ── JSON-LD SCHEMAS ── */}
+   
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cultureSchema) }}
@@ -1000,7 +1000,7 @@ export default function CulturePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cultureBreadcrumbs) }}
       />
 
-      {/* Semantic Summary for Answer Engines */}
+      
       <div className="sr-only" itemScope itemType="https://schema.org/AboutPage">
         <span itemProp="name">culture@aishyp | Life, Culture & Celebrations</span>
         <span itemProp="description">

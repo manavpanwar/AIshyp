@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { getAboutPageSchema, getBreadcrumbSchema } from "../../lib/seo";
 
-// Core Engineering & Developer Team Members
+
 const CORE_TEAM = [
   {
     name: "Parag Aggarwal",
@@ -78,7 +78,7 @@ const CORE_TEAM = [
   },
 ];
 
-// Mission & Vision Pillars
+
 const MISSION_POINTS = [
   "Eliminate multi-lakh engineering costs for emerging logistics businesses",
   "Provide 100% white-label autonomy on custom domains (zero watermarks)",

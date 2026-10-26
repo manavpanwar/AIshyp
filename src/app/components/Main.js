@@ -7,6 +7,7 @@ import CleanHeroSection from "../../components/landing/CleanHeroSection";
 import HeroSection from "../../components/landing/HeroSection";
 import { buildFaqSchema, faqItems } from "../../data/faq";
 import CustomerFeedback from "@/components/landing/customerfeedback";
+import Brandingpromotionpage from "@/components/landing/Brandingpromotionpage";
 
 // Lazy load below-the-fold sections to prevent dev server compilation spikes & RAM freeze on page load
 const GameChangersSection = dynamic(() => import("../../components/landing/GameChangersSection"));
@@ -70,6 +71,8 @@ export default function Main() {
 
           {/* Section 2: Detailed Platform Overview & Live Dashboard Console */}
           <HeroSection />
+
+          <Brandingpromotionpage/>
 
           {/* Below-the-fold sections */}
           <GameChangersSection />
