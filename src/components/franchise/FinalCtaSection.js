@@ -8,6 +8,8 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
+import GooglePlayIcon from "./GooglePlayIcon";
+import { PLAY_STORE_URL } from "./AppIntegrationSection";
 
 export default function FinalCtaSection() {
   return (
@@ -53,6 +55,26 @@ export default function FinalCtaSection() {
               <span>Contact Aishyp</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="cta-playstore-btn"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/90 hover:bg-black border border-slate-700 hover:border-emerald-500 text-white font-bold text-sm shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 group"
+            >
+              <GooglePlayIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" />
+              <div className="text-left leading-none">
+                <div className="text-[9px] uppercase font-mono text-slate-400 font-semibold mb-0.5">
+                  AVAILABLE ON
+                </div>
+                <div className="text-xs font-extrabold text-white">Google Play Store</div>
+              </div>
+              <span className="flex h-2 w-2 relative ml-1">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+            </a>
 
             <Link
               href="/account-create"

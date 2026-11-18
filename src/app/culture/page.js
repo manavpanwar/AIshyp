@@ -617,6 +617,60 @@ export const ALL_CULTURE_PHOTOS = [
     caption:
       "True friendship, mutual respect, and proud teamwork — the authentic spirit that makes the AIshyp team truly unstoppable.",
   },
+
+  {
+    id: 47,
+    file: "/team/50.jpeg",
+    title: "Diwali 2026 – Office Celebration",
+    category: "office",
+    categoryLabel: "Office & Celebrations",
+    tag: "Festival of Lights",
+    location: "AIshyp Headquarters",
+    date: "2026",
+    aspect: "portrait",
+    caption:
+      "Lighting up the workplace with happiness, positivity, and festive vibes! Diwali 2026 was a beautiful celebration filled with smiles, togetherness, and unforgettable moments across the AIshyp family.",
+  },
+  {
+    id: 48,
+    file: "/team/50 (2).jpeg",
+    title: "Diwali Special Office Lunch",
+    category: "office",
+    categoryLabel: "Office & Celebrations",
+    tag: "Food & Togetherness",
+    location: "AIshyp Headquarters",
+    date: "2026",
+    aspect: "portrait",
+    caption:
+      "Great food tastes even better when shared with great people! Our Diwali special office lunch brought the entire team together to enjoy delicious moments, laughter, and the joy of celebrating as one family.",
+  },
+  {
+    id: 49,
+    file: "/team/50 (3).jpeg",
+    title: "Diwali Gift Distribution",
+    category: "office",
+    categoryLabel: "Office & Celebrations",
+    tag: "Gifts & Gratitude",
+    location: "AIshyp Headquarters",
+    date: "2026",
+    aspect: "portrait",
+    caption:
+      "A little gift, a big smile, and a whole lot of happiness! Celebrating Diwali by sharing thoughtful gifts and appreciation with the amazing people who make AIshyp special.",
+  },
+  {
+    id: 50,
+    file: "/team/50 (4).jpeg",
+    title: "AIshyp Team – Diwali Memories",
+    category: "office",
+    categoryLabel: "Office & Celebrations",
+    tag: "Team Spirit",
+    location: "AIshyp Headquarters",
+    date: "2026",
+    aspect: "portrait",
+    caption:
+      "More than colleagues, we are a family! Diwali 2026 gave us another reason to celebrate our friendships, teamwork, and shared achievements. Together, we make every celebration brighter and every milestone meaningful.",
+  },
+
 ];
 
 
@@ -939,7 +993,7 @@ export default function CulturePage() {
     });
   }, [activeCategory, searchQuery]);
 
-  
+
   const visiblePhotos = useMemo(() => {
     if (showAllGrid || searchQuery.trim().length > 0 || activeCategory !== "all") {
       return filteredPhotos;
@@ -947,7 +1001,7 @@ export default function CulturePage() {
     return filteredPhotos.slice(0, 12);
   }, [filteredPhotos, showAllGrid, searchQuery, activeCategory]);
 
- 
+
   const activePhoto = useMemo(() => {
     if (activeLightboxIndex === null) return null;
     return ALL_CULTURE_PHOTOS[activeLightboxIndex] || null;
@@ -976,7 +1030,7 @@ export default function CulturePage() {
     setActiveLightboxIndex(null);
   }, []);
 
- 
+
   useEffect(() => {
     if (activeLightboxIndex === null) return;
     const onKeyDown = (e) => {
@@ -990,7 +1044,7 @@ export default function CulturePage() {
 
   return (
     <main className="w-full bg-white text-slate-900 font-sans overflow-hidden pt-[116px] sm:pt-[128px]">
-   
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cultureSchema) }}
@@ -1000,7 +1054,7 @@ export default function CulturePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(cultureBreadcrumbs) }}
       />
 
-      
+
       <div className="sr-only" itemScope itemType="https://schema.org/AboutPage">
         <span itemProp="name">culture@aishyp | Life, Culture & Celebrations</span>
         <span itemProp="description">

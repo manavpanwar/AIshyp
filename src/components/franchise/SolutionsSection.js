@@ -16,6 +16,8 @@ import {
   FileText,
   Boxes,
 } from "lucide-react";
+import GooglePlayIcon from "./GooglePlayIcon";
+import { PLAY_STORE_URL } from "./AppIntegrationSection";
 
 const SOLUTIONS = [
   {
@@ -113,7 +115,7 @@ export default function SolutionsSection() {
       <div className="absolute top-1/2 right-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold font-mono tracking-wide uppercase">
@@ -144,11 +146,10 @@ export default function SolutionsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${
-                  isHovered
+                className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border ${isHovered
                     ? "bg-slate-50/80 border-blue-300 shadow-[0_16px_36px_rgba(37,99,235,0.08)] -translate-y-1.5"
                     : "bg-white border-slate-200/90 shadow-sm hover:border-slate-300"
-                }`}
+                  }`}
               >
                 {/* Top Badge & Icon */}
                 <div className="space-y-4">
@@ -184,6 +185,26 @@ export default function SolutionsSection() {
                       </div>
                     ))}
                   </div>
+
+                  {item.id === "mobile-app" && (
+                    <div className="pt-3">
+                      <a
+                        href={PLAY_STORE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-between w-full px-3.5 py-2 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-white text-xs font-bold transition-all shadow-sm group/btn"
+                      >
+                        <span className="flex items-center gap-2">
+                          <GooglePlayIcon className="w-4 h-4 shrink-0 transition-transform group-hover/btn:scale-110" />
+                          <span>Get on Google Play</span>
+                        </span>
+                        <span className="flex h-2 w-2 relative">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 {/* Bottom Snippet Pill */}
@@ -213,13 +234,24 @@ export default function SolutionsSection() {
               </p>
             </div>
           </div>
-          <a
-            href="#connected-experience"
-            className="px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 font-bold text-xs hover:bg-slate-50 hover:border-slate-400 transition-all shrink-0 inline-flex items-center gap-1.5 shadow-2xs"
-          >
-            <span>See Live Screen Mockups</span>
-            <ArrowRight className="w-3.5 h-3.5 text-blue-600" />
-          </a>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-white font-bold text-xs transition-all inline-flex items-center gap-2 shadow-sm"
+            >
+              <GooglePlayIcon className="w-4 h-4 shrink-0" />
+              <span>Google Play App</span>
+            </a>
+            <a
+              href="#app-integration"
+              className="px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 font-bold text-xs hover:bg-slate-50 hover:border-slate-400 transition-all inline-flex items-center gap-1.5 shadow-2xs"
+            >
+              <span>Explore Mobile Integration</span>
+              <ArrowRight className="w-3.5 h-3.5 text-blue-600" />
+            </a>
+          </div>
         </div>
 
       </div>

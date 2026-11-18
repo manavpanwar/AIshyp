@@ -3,6 +3,7 @@
 import React from "react";
 import HeroSection from "@/components/franchise/HeroSection";
 import SolutionsSection from "@/components/franchise/SolutionsSection";
+import AppIntegrationSection from "@/components/franchise/AppIntegrationSection";
 import WorkflowSection from "@/components/franchise/WorkflowSection";
 import FranchiseBenefitsSection from "@/components/franchise/FranchiseBenefitsSection";
 import ConnectedExperienceSection from "@/components/franchise/ConnectedExperienceSection";
@@ -33,9 +34,13 @@ export default function CourierFranchiseSolutionsPage() {
       {/* Section 1: Hero Banner */}
       <HeroSection />
 
-
+      {/* Section 2: Core Solutions (Web & Mobile) */}
       <SolutionsSection />
 
+      {/* Section 3: App Integration & Google Play Store Live Section */}
+      <AppIntegrationSection />
+
+      {/* Section 4: Operational Workflow */}
       <WorkflowSection />
 
       <FranchiseBenefitsSection />

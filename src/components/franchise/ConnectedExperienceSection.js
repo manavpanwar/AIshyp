@@ -27,6 +27,8 @@ import {
   FileText,
   Zap,
 } from "lucide-react";
+import GooglePlayIcon from "./GooglePlayIcon";
+import { PLAY_STORE_URL } from "./AppIntegrationSection";
 
 const SAMPLE_SCREENS = [
   {
@@ -99,8 +101,20 @@ export default function ConnectedExperienceSection() {
             Franchise partners can use the web application for centralized operations, accounting, and master records, and the mobile app for camera scanning, field pickups, and on-the-go activities.
           </p>
 
-          <div className="inline-block px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-400 text-xs font-mono">
-            Demonstration UI — Illustrative Sample Interfaces
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-400 text-xs font-mono">
+              Demonstration UI — Illustrative Sample Interfaces
+            </div>
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-all shadow-sm group"
+            >
+              <GooglePlayIcon className="w-3.5 h-3.5 shrink-0 transition-transform group-hover:scale-110" />
+              <span>Get Mobile App on Google Play</span>
+              <ArrowRight className="w-3 h-3 text-emerald-400" />
+            </a>
           </div>
         </div>
 

@@ -13,6 +13,8 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
+import GooglePlayIcon from "./GooglePlayIcon";
+import { PLAY_STORE_URL } from "./AppIntegrationSection";
 
 export default function HeroSection() {
   const [scannerActive, setScannerActive] = useState(true);
@@ -95,21 +97,41 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
+              className="flex flex-wrap items-center gap-3 pt-2"
             >
               <a
                 href="#solutions"
                 id="hero-explore-btn"
-                className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full  text-white font-extrabold text-sm shadow-[0_10px_25px_rgba(37,99,235,0.35)] bg-[#D8331F] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full text-white font-extrabold text-sm shadow-[0_10px_25px_rgba(37,99,235,0.35)] bg-[#D8331F] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
-                <span>Explore Our Platform</span>
+                <span>Explore Platform</span>
                 <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="hero-playstore-btn"
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-slate-950 hover:bg-slate-900 border border-slate-800 text-white font-bold text-sm shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group"
+              >
+                <GooglePlayIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" />
+                <div className="flex flex-col text-left leading-none">
+                  <span className="text-[8px] text-slate-400 uppercase font-mono tracking-wider font-semibold">
+                    GET IT ON
+                  </span>
+                  <span className="text-xs font-extrabold text-white">Google Play</span>
+                </div>
+                <span className="flex h-2 w-2 relative ml-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
               </a>
 
               <a
                 href="#how-it-works"
                 id="hero-how-it-works-btn"
-                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-white border border-slate-300/80 text-slate-800 font-bold text-sm shadow-xs hover:bg-slate-50 hover:border-slate-400 hover:text-slate-950 active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white border border-slate-300/80 text-slate-800 font-bold text-sm shadow-xs hover:bg-slate-50 hover:border-slate-400 hover:text-slate-950 active:scale-[0.98] transition-all duration-200"
               >
                 <span>How It Works</span>
               </a>
@@ -368,6 +390,16 @@ export default function HeroSection() {
                       <span>Confirm &amp; Sync to Dashboard</span>
                       <ArrowRight className="w-2.5 h-2.5" />
                     </button>
+
+                    <a
+                      href={PLAY_STORE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-1 px-2 rounded-md bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 text-emerald-300 font-bold text-[8px] flex items-center justify-center gap-1 transition-all"
+                    >
+                      <GooglePlayIcon className="w-3 h-3 shrink-0" />
+                      <span>Live on Google Play • Install App</span>
+                    </a>
                   </div>
 
                 </div>
